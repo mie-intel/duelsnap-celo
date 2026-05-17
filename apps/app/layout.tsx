@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <head>
+        <meta name="talentapp:project_verification" content="a2c74d08cf75355279c9c1b57101bb1485546b6a89e7e40aa920c17b6b902bba3ab12e2d4b1815e5d83f3918f1bfa9a7a374891c2ea5803d01d101315d7b1e6c" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
