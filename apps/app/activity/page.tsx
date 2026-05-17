@@ -64,6 +64,15 @@ function formatIdrx(raw: number): string {
   });
 }
 
+function formatSignedIdrx(raw: number): string {
+  const val = raw / 1e18;
+  const formatted = Math.abs(val).toLocaleString("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+  return val >= 0 ? `+Rp ${formatted}` : `-Rp ${formatted}`;
+}
+
 type FilterMode = "all" | GameMode;
 type Tab = "game" | "creator";
 
