@@ -26,7 +26,7 @@ export default function CTASection() {
               <span className="text-primary">Start in 10 seconds.</span>
             </h2>
 
-            <p className="text-text-secondary text-base leading-relaxed max-w-[48ch]">
+            <p className="text-text-secondary text-base lg:text-lg leading-relaxed max-w-[48ch]">
               No signup. No deposit. Open Free Casual and start guessing. Add a wallet
               when you're ready to compete for real CELO.
             </p>
@@ -37,6 +37,7 @@ export default function CTASection() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-text-inverse font-bold text-base hover:bg-primary-dark transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-card min-h-[52px]"
               >
                 Play Free Now
+                <span aria-hidden>→</span>
               </Link>
               <Link
                 href="/pvp/lobby"
