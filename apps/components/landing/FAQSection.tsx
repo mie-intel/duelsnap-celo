@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import FadeIn from "./FadeIn";
 
 const faqs = [
   {
@@ -36,14 +37,14 @@ export default function FAQSection() {
     <section id="faq" className="py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-          <div className="md:col-span-1">
+          <FadeIn className="md:col-span-1">
             <p className="text-xs font-medium text-primary uppercase tracking-widest mb-3">
               FAQ
             </p>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary tracking-tight leading-tight">
+            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary tracking-tight leading-tight">
               Common questions
             </h2>
-          </div>
+          </FadeIn>
 
           <div className="md:col-span-2 flex flex-col divide-y divide-[var(--color-border-subtle)]">
             {faqs.map((faq, i) => (
@@ -66,13 +67,16 @@ export default function FAQSection() {
                     +
                   </span>
                 </button>
-                {open === i && (
+                <div
+                  className="overflow-hidden transition-all duration-300"
+                  style={{ maxHeight: open === i ? "200px" : "0px" }}
+                >
                   <div className="pb-5">
                     <p className="text-text-secondary text-sm leading-relaxed max-w-[60ch]">
                       {faq.a}
                     </p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
