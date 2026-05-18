@@ -42,8 +42,8 @@
   --color-accent-contribute-light: #D4F5E6;
   --color-accent-contribute-dark: #1A7A4A;
 
-  /* --- Typography — Inter + Space Grotesk --- */
-  --font-sans: "Inter", system-ui, sans-serif;
+  /* --- Typography — Outfit + Space Grotesk --- */
+  --font-sans: "Outfit", system-ui, sans-serif;
   --font-display: "Space Grotesk", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", "Consolas", monospace;
 }
