@@ -73,7 +73,7 @@ function HeroHeadline() {
 
 function HeroSubtitle() {
   return (
-    <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-[52ch]">
+    <p className="text-text-secondary text-base md:text-lg lg:text-xl leading-relaxed max-w-[52ch]">
       Picture duels on the blockchain. Snap, guess, earn. Play free anytime,
       wager CELO in PvP ranked matches, or contribute photos and collect royalties forever.
     </p>
