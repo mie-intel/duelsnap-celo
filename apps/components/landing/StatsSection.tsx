@@ -25,14 +25,17 @@ const stats = [
   },
 ];
 
+import FadeIn from "./FadeIn";
+
 export default function StatsSection() {
   return (
     <section className="py-16 md:py-20 border-y border-[var(--color-border-subtle)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-[var(--color-border-subtle)]">
-          {stats.map((stat) => (
-            <div
+          {stats.map((stat, i) => (
+            <FadeIn
               key={stat.label}
+              delay={i * 80}
               className="flex flex-col gap-1 md:px-10 first:pl-0 last:pr-0"
             >
               <div
@@ -47,7 +50,7 @@ export default function StatsSection() {
               <div className="text-xs text-text-secondary uppercase tracking-wider">
                 {stat.sub}
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </div>
