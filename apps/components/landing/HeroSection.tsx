@@ -41,11 +41,18 @@ export default function HeroSection() {
 
 function HeroEyebrow() {
   return (
-    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-border-mid)] bg-[var(--color-surface-1)] w-fit">
-      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-      <span className="text-xs font-medium text-text-secondary tracking-widest uppercase">
-        Live on Celo Mainnet
-      </span>
+    <div className="flex flex-wrap items-center gap-2">
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-border-mid)] bg-[var(--color-surface-1)] w-fit">
+        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        <span className="text-xs font-medium text-text-secondary tracking-widest uppercase">
+          Live on Celo Mainnet
+        </span>
+      </div>
+      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] bg-transparent w-fit">
+        <span className="text-xs font-medium text-text-secondary">
+          No signup · No deposit · Open source
+        </span>
+      </div>
     </div>
   );
 }
