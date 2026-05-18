@@ -95,7 +95,7 @@ export default function ContributeSection() {
                     </div>
                     <div className="h-1.5 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
                       <div
-                        className="h-full rounded-full"
+                        className="h-full rounded-full animate-bar-fill"
                         style={{ width: row.pct, backgroundColor: row.color }}
                       />
                     </div>
