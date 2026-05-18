@@ -29,7 +29,7 @@ import FadeIn from "./FadeIn";
 
 export default function StatsSection() {
   return (
-    <section className="py-16 md:py-20 border-y border-[var(--color-border-subtle)]">
+    <section className="py-16 md:py-20 lg:py-24 border-y border-[var(--color-border-subtle)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-[var(--color-border-subtle)]">
           {stats.map((stat, i) => (
@@ -44,7 +44,7 @@ export default function StatsSection() {
               >
                 {stat.value}
               </div>
-              <div className="font-semibold text-text-primary text-sm">
+              <div className="font-semibold text-text-primary text-sm lg:text-base">
                 {stat.label}
               </div>
               <div className="text-xs text-text-secondary uppercase tracking-wider">
