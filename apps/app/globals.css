@@ -123,8 +123,18 @@ body, #__next, main {
 .hero-fade-4 { animation: heroFadeUp 0.5s ease 0.5s both; }
 .hero-fade-5 { animation: heroFadeUp 0.5s ease 0.65s both; }
 
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+.animate-scroll-bounce {
+  animation: scrollBounce 1.6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-live-pulse,
+  .animate-scroll-bounce,
   .hero-fade-1, .hero-fade-2, .hero-fade-3, .hero-fade-4, .hero-fade-5 {
     animation: none;
   }
