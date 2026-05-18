@@ -41,12 +41,19 @@ export default function EarnSection() {
               DuelSnap isn't just a game — it's an economic layer. Play,
               contribute, and win to build an on-chain income stream.
             </p>
-            <div className="pt-4">
+            <div className="pt-4 flex flex-col gap-3">
               <a
                 href="/contribute"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-150"
               >
                 Start contributing photos
+                <span aria-hidden>→</span>
+              </a>
+              <a
+                href="/pvp/lobby"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-accent-pvp hover:opacity-75 transition-opacity duration-150"
+              >
+                Enter PvP Arena
                 <span aria-hidden>→</span>
               </a>
             </div>
