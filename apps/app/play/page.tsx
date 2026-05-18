@@ -13,7 +13,7 @@ import {
   CameraIcon,
 } from "../../components/icons";
 
-export default function Home() {
+export default function PlayPage() {
   const { address, isConnected, isReady, login } = useWallet();
 
   return (
@@ -50,7 +50,6 @@ export default function Home() {
           )}
         </div>
       </header>
-        {/* Ezy*/}
       {/* Hero */}
       <main className="flex-1 flex flex-col items-center px-5 py-10 pb-24 gap-8 max-w-lg mx-auto w-full">
         <div className="text-center">
