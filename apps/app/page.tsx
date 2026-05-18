@@ -130,7 +130,7 @@ export default function Home() {
                         color: "var(--color-accent-paid)",
                       }}
                     >
-                      Rp 500
+                      0.01 CELO
                     </span>
                   </div>
                   <p className="text-text-secondary text-sm mt-0.5">
@@ -168,7 +168,7 @@ export default function Home() {
                         color: "var(--color-accent-pvp)",
                       }}
                     >
-                      Rp 5.000 WAGER
+                      0.1 CELO WAGER
                     </span>
                   </div>
                   <p className="text-text-secondary text-sm mt-0.5">

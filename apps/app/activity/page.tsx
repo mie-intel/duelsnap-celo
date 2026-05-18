@@ -57,21 +57,6 @@ function formatDate(ts: number): string {
   );
 }
 
-function formatIdrx(raw: number): string {
-  return (raw / 1e18).toLocaleString("en-US", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
-}
-
-function formatSignedIdrx(raw: number): string {
-  const val = raw / 1e18;
-  const formatted = Math.abs(val).toLocaleString("en-US", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
-  return val >= 0 ? `+Rp ${formatted}` : `-Rp ${formatted}`;
-}
 
 type FilterMode = "all" | GameMode;
 type Tab = "game" | "creator";
@@ -278,7 +263,7 @@ export default function PlayerLogPage() {
                     : "text-text-secondary"
               }`}
             >
-              {formatSignedIdrx(stats.netProfitLoss)}
+              {formatSignedCelo(stats.netProfitLoss)}
             </p>
           </div>
 
@@ -393,7 +378,7 @@ export default function PlayerLogPage() {
                 <p
                   className={`font-bold font-display text-xl ${pendingRoyalty > 0 ? "text-success" : "text-text-secondary"}`}
                 >
-                  Rp {formatIdrx(pendingRoyalty)}
+                  {formatCelo(pendingRoyalty)}
                 </p>
               </div>
               <Button
@@ -524,7 +509,7 @@ export default function PlayerLogPage() {
                     <p
                       className={`text-sm font-bold font-display ${q.earned > 0 ? "text-success" : "text-text-secondary"}`}
                     >
-                      Rp {formatIdrx(q.earned)}
+                      {formatCelo(q.earned)}
                     </p>
                   </div>
                 </div>

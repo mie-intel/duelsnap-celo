@@ -172,8 +172,8 @@ export default function PvpSessionPage() {
           <>
             <p className="font-display font-bold text-3xl text-text-primary">Tie!</p>
             <p className="text-text-secondary text-sm font-sans text-center">
-              Refund: Rp 4.350 sent to your wallet<br />
-              <span className="text-error">Net: -Rp 650 after fees</span>
+              Refund: 0.087 CELO sent to your wallet<br />
+              <span className="text-error">Net: -0.013 CELO after fees</span>
             </p>
           </>
         ) : isWinner ? (
@@ -181,8 +181,8 @@ export default function PvpSessionPage() {
             <CheckCircleIcon className="w-20 h-20 text-success" />
             <p className="font-display font-bold text-3xl text-success">You Win!</p>
             <p className="text-text-secondary text-sm font-sans text-center">
-              Prize: <span className="font-bold text-success">Rp 8.700</span> sent to your wallet<br />
-              <span className="text-success">Net profit: +Rp 3.700</span>
+              Prize: <span className="font-bold text-success">0.174 CELO</span> sent to your wallet<br />
+              <span className="text-success">Net profit: +0.074 CELO</span>
             </p>
           </>
         ) : (
@@ -191,7 +191,7 @@ export default function PvpSessionPage() {
             <p className="font-display font-bold text-3xl text-error">You Lose</p>
             <p className="text-text-secondary text-sm font-sans text-center">
               Wager lost<br />
-              <span className="text-error">Net: -Rp 5.000</span>
+              <span className="text-error">Net: -0.1 CELO</span>
             </p>
           </>
         )}
