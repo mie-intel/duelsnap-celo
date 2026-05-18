@@ -80,13 +80,17 @@ export default function LandingFooter() {
             <p className="text-xs font-bold uppercase tracking-widest text-text-secondary">
               Network
             </p>
-            <div className="flex flex-col gap-1">
-              <span className="text-sm text-text-secondary">
-                Built on <span className="text-primary font-semibold">Celo</span>
-              </span>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse flex-shrink-0" />
+                <span className="text-sm text-text-secondary">
+                  <span className="text-primary font-semibold">Celo</span> Mainnet · Live
+                </span>
+              </div>
               <span className="text-xs text-text-secondary">Carbon-neutral L1</span>
               <span className="text-xs text-text-secondary">EVM compatible</span>
               <span className="text-xs text-text-secondary">MiniPay ready</span>
+              <span className="text-xs text-text-secondary">Gas &lt; $0.01</span>
             </div>
           </div>
         </div>
