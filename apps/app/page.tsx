@@ -15,8 +15,15 @@ export const metadata: Metadata = {
   title: "DuelSnap — Guess the Picture. Win CELO.",
   description:
     "Picture duels on Celo. Play free in casual mode, stake CELO in PvP ranked duels, or contribute photos and earn royalties on-chain. No signup required.",
+  keywords: ["celo", "blockchain game", "picture quiz", "crypto game", "pvp", "play to earn", "minipay"],
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: "DuelSnap — Guess the Picture. Win CELO.",
+    description: "Picture duels on Celo. Play free or wager CELO in PvP ranked matches.",
+    type: "website",
+    locale: "en_US",
   },
 };
 
