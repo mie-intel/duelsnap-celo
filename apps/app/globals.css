@@ -71,3 +71,30 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
 }
+
+/* Pulsing live indicator dot */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+.animate-live-pulse {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* Staggered fade-in for hero content */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-fade-1 { animation: heroFadeUp 0.5s ease 0.1s both; }
+.hero-fade-2 { animation: heroFadeUp 0.5s ease 0.2s both; }
+.hero-fade-3 { animation: heroFadeUp 0.5s ease 0.35s both; }
+.hero-fade-4 { animation: heroFadeUp 0.5s ease 0.5s both; }
+.hero-fade-5 { animation: heroFadeUp 0.5s ease 0.65s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-live-pulse,
+  .hero-fade-1, .hero-fade-2, .hero-fade-3, .hero-fade-4, .hero-fade-5 {
+    animation: none;
+  }
+}

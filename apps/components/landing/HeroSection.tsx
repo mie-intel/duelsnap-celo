@@ -18,15 +18,15 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Content */}
           <div className="flex flex-col gap-6 md:gap-8">
-            <HeroEyebrow />
-            <HeroHeadline />
-            <HeroSubtitle />
-            <HeroCTA />
-            <HeroStats />
+            <div className="hero-fade-1"><HeroEyebrow /></div>
+            <div className="hero-fade-2"><HeroHeadline /></div>
+            <div className="hero-fade-3"><HeroSubtitle /></div>
+            <div className="hero-fade-4"><HeroCTA /></div>
+            <div className="hero-fade-5"><HeroStats /></div>
           </div>
 
           {/* Right: Visual */}
-          <HeroVisual />
+          <div className="hero-fade-3"><HeroVisual /></div>
         </div>
       </div>
     </section>
