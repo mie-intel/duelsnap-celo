@@ -101,9 +101,9 @@ function HeroCTA() {
 
 function HeroStats() {
   const stats = [
-    { value: "3", label: "Game modes" },
-    { value: "87%", label: "Winner payout" },
-    { value: "0.01", label: "CELO to play" },
+    { value: "3", label: "Game modes", accent: "var(--color-primary)" },
+    { value: "87%", label: "Winner payout", accent: "var(--color-accent-pvp)" },
+    { value: "0.01", label: "CELO to play", accent: "var(--color-secondary)" },
   ];
 
   return (
@@ -111,7 +111,7 @@ function HeroStats() {
       {stats.map((stat, i) => (
         <div key={stat.label} className="flex items-center gap-6">
           <div>
-            <div className="font-display font-bold text-2xl text-text-primary tabular-nums">
+            <div className="font-display font-bold text-2xl lg:text-3xl tabular-nums" style={{ color: stat.accent }}>
               {stat.value}
             </div>
             <div className="text-xs text-text-secondary uppercase tracking-wider">
