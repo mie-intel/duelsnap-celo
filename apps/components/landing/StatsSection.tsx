@@ -36,10 +36,10 @@ export default function StatsSection() {
             <FadeIn
               key={stat.label}
               delay={i * 80}
-              className="flex flex-col gap-1 md:px-10 first:pl-0 last:pr-0"
+              className="flex flex-col gap-1 md:px-10 lg:px-14 first:pl-0 last:pr-0"
             >
               <div
-                className="font-display font-bold text-4xl md:text-5xl tabular-nums tracking-tight"
+                className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tabular-nums tracking-tight"
                 style={{ color: stat.accent }}
               >
                 {stat.value}
