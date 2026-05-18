@@ -37,13 +37,16 @@ export default function FAQSection() {
     <section id="faq" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-          <FadeIn className="md:col-span-1">
+          <FadeIn className="md:col-span-1 md:sticky md:top-28 md:self-start">
             <p className="text-xs font-medium text-primary uppercase tracking-widest mb-3">
               FAQ
             </p>
             <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary tracking-tight leading-tight">
               Common questions
             </h2>
+            <p className="text-text-secondary text-sm leading-relaxed mt-4 max-w-[32ch]">
+              Can't find your answer? Open a discussion on GitHub.
+            </p>
           </FadeIn>
 
           <div className="md:col-span-2 flex flex-col divide-y divide-[var(--color-border-subtle)]">
