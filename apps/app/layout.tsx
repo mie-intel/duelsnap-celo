@@ -6,24 +6,32 @@ import SwipeNav from "../components/SwipeNav";
 import { NetworkGuard } from "../components/wallet/NetworkGuard";
 
 export const metadata: Metadata = {
-  title: "DuelSnap",
+  title: {
+    default: "DuelSnap — Picture Duels on Celo",
+    template: "%s · DuelSnap",
+  },
   description:
-    "Compete in picture-guessing duels and earn real CELO rewards. Play free, pay to earn, or battle 1v1 in PvP ranked mode on Celo.",
-  keywords: ["DuelSnap", "Celo", "Web3 game", "picture quiz", "PvP", "crypto rewards", "blockchain game"],
+    "Guess pictures, win CELO. Play free in casual mode, stake CELO in PvP ranked duels, or contribute photos and earn royalties on-chain. Built on Celo.",
+  keywords: [
+    "DuelSnap", "Celo blockchain game", "Web3 picture quiz", "PvP crypto game",
+    "play to earn", "CELO rewards", "blockchain game", "MiniPay game",
+    "photo quiz NFT royalties", "crypto trivia",
+  ],
   openGraph: {
-    title: "DuelSnap — Picture Duels on Celo",
-    description: "Guess the picture. Earn real CELO. Battle 1v1 in PvP ranked mode.",
+    title: "DuelSnap — Guess the Picture. Win CELO.",
+    description: "Picture duels on Celo. Play free, stake in PvP, or earn royalties by contributing photos. No signup required.",
     siteName: "DuelSnap",
     type: "website",
-    images: [{ url: "/logo.png", width: 512, height: 512 }],
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "DuelSnap logo" }],
   },
   twitter: {
-    card: "summary",
-    title: "DuelSnap — Picture Duels on Celo",
-    description: "Guess the picture. Earn real CELO. Play free or wager in PvP.",
+    card: "summary_large_image",
+    title: "DuelSnap — Guess the Picture. Win CELO.",
+    description: "Picture duels on Celo. Free, Paid, and 1v1 PvP modes. Earn CELO for playing and contributing.",
     images: ["/logo.png"],
   },
   icons: { icon: "/logo.png", apple: "/logo.png" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
