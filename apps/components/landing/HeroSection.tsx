@@ -139,13 +139,19 @@ function HeroVisual() {
         {/* Mock game card */}
         <div className="relative bg-bg-card border border-[var(--color-border-subtle)] rounded-[2rem] overflow-hidden shadow-[0_32px_64px_rgba(0,0,0,0.5)]">
           {/* Card header */}
-          <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-[var(--color-border-subtle)]">
-            <span className="text-xs font-medium text-text-secondary uppercase tracking-widest">
-              Round 3 / 5
-            </span>
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-accent-pvp/15 text-accent-pvp">
-              PvP Ranked
-            </span>
+          <div className="px-5 pt-4 pb-3 border-b border-[var(--color-border-subtle)]">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-medium text-text-secondary uppercase tracking-widest">
+                Round 3 / 5
+              </span>
+              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-accent-pvp/15 text-accent-pvp">
+                PvP Ranked
+              </span>
+            </div>
+            {/* Timer bar */}
+            <div className="h-1 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
+              <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-primary to-secondary" />
+            </div>
           </div>
 
           {/* Image */}
@@ -183,13 +189,17 @@ function HeroVisual() {
           </div>
 
           {/* Card footer */}
-          <div className="flex items-center justify-between px-5 py-3 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-1)]">
-            <div className="text-xs text-text-secondary">
-              Wager: <span className="text-secondary font-semibold">0.1 CELO</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-xs text-primary font-semibold">Leading +2</span>
+          <div className="px-5 py-3 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-1)]">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-xs text-text-secondary">
+                Wager: <span className="text-secondary font-semibold">0.1 CELO</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs text-primary font-semibold">You: 6</span>
+                <span className="text-xs text-text-secondary mx-0.5">vs</span>
+                <span className="text-xs text-text-secondary font-semibold">Rival: 4</span>
+              </div>
             </div>
           </div>
         </div>
