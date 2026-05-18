@@ -55,10 +55,10 @@ export default function FAQSection() {
                 <button
                   type="button"
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full text-left py-5 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                  className="w-full text-left py-5 lg:py-6 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                   aria-expanded={open === i}
                 >
-                  <span className="font-display font-semibold text-text-primary text-base leading-snug">
+                  <span className="font-display font-semibold text-text-primary text-base lg:text-lg leading-snug">
                     {faq.q}
                   </span>
                   <span
@@ -75,7 +75,7 @@ export default function FAQSection() {
                   style={{ maxHeight: open === i ? "200px" : "0px" }}
                 >
                   <div className="pb-5">
-                    <p className="text-text-secondary text-sm leading-relaxed max-w-[60ch]">
+                    <p className="text-text-secondary text-sm lg:text-base leading-relaxed max-w-[60ch]">
                       {faq.a}
                     </p>
                   </div>
