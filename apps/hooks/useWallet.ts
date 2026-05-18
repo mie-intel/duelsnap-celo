@@ -11,6 +11,7 @@ import { useAccount, useWalletClient } from "wagmi";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Address, WalletClient } from "viem";
 import { createWalletClient, custom } from "viem";
+
 import { celo } from "../lib/viem/chain";
 import { ensureCeloChain } from "../lib/viem/ensureChain";
 
@@ -95,6 +96,44 @@ export function useWallet() {
     walletClientType: null,
     connectorType: null,
   });
+  const [miniPayState, setMiniPayState] = useState<(WalletState & { isMiniPay: true }) | null>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const eth = (window as any).ethereum;
+    if (!eth?.isMiniPay) return;
+    eth
+      .request({ method: "eth_requestAccounts", params: [] })
+      .then((accounts: string[]) => {
+        const addr = accounts[0] as Address;
+        const client = createWalletClient({
+          account: addr,
+          chain: celo,
+          transport: custom(eth),
+        });
+        setMiniPayState({
+          address: addr,
+          walletClient: client,
+          isConnected: true,
+          isReady: true,
+          walletClientType: "minipay",
+          connectorType: "injected",
+          isMiniPay: true,
+        });
+      })
+      .catch(() => {
+        setMiniPayState({
+          address: null,
+          walletClient: null,
+          isConnected: false,
+          isReady: true,
+          walletClientType: null,
+          connectorType: null,
+          isMiniPay: true,
+        });
+      });
+  }, []);
+
   const connectedForAddress = useRef<string | null>(null);
   const creatingWallet = useRef(false);
   // Refs for all Privy values that are unstable across renders
@@ -225,6 +264,15 @@ export function useWallet() {
       connectorType: null,
     });
   }, [logout]);
+
+  if (miniPayState) {
+    return {
+      ...miniPayState,
+      login: async () => {},
+      logout: async () => {},
+      chainId: celo.id,
+    };
+  }
 
   return {
     ...state,
