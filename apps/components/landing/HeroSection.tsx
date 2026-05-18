@@ -59,14 +59,14 @@ function HeroEyebrow() {
 
 function HeroHeadline() {
   return (
-    <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] text-text-primary leading-[0.93] tracking-tighter">
+    <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[7rem] 2xl:text-[8rem] text-text-primary leading-[0.93] tracking-tighter">
       Guess the{" "}
       <span className="text-primary">Picture.</span>
       <br />
-      <span className="text-text-secondary font-semibold text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5rem]">
+      <span className="text-text-secondary font-semibold text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.5rem] 2xl:text-[6.5rem]">
         Win Real{" "}
       </span>
-      <span className="text-secondary text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5rem]">CELO.</span>
+      <span className="text-secondary text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.5rem] 2xl:text-[6.5rem]">CELO.</span>
     </h1>
   );
 }
