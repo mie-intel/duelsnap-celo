@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border-subtle)] rounded-[2rem] overflow-hidden">
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 100}>
-              <div className="bg-bg-page px-8 py-10 md:px-10 md:py-12 lg:px-12 lg:py-14 flex flex-col gap-4 h-full">
+              <div className="bg-bg-page px-8 py-10 md:px-10 md:py-12 lg:px-12 lg:py-14 flex flex-col gap-4 h-full relative">
                 <span
                   className="font-display font-bold text-5xl lg:text-7xl tabular-nums"
                   style={{ color: step.accent }}
@@ -50,6 +50,15 @@ export default function HowItWorksSection() {
                 <p className="text-text-secondary text-base leading-relaxed max-w-[40ch]">
                   {step.body}
                 </p>
+                {i < steps.length - 1 && (
+                  <span
+                    className="hidden md:block absolute top-14 -right-3 text-xl z-10"
+                    style={{ color: step.accent }}
+                    aria-hidden
+                  >
+                    →
+                  </span>
+                )}
               </div>
             </FadeIn>
           ))}
