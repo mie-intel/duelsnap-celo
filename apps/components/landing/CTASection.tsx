@@ -3,7 +3,7 @@ import FadeIn from "./FadeIn";
 
 export default function CTASection() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-[var(--color-border-subtle)] bg-bg-card px-10 py-16 md:px-20 md:py-24 text-center">
           {/* Background glows */}

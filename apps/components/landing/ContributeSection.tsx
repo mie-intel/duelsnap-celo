@@ -21,7 +21,7 @@ const steps = [
 
 export default function ContributeSection() {
   return (
-    <section className="py-24 md:py-32 bg-[var(--color-surface-1)]">
+    <section className="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-1)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="rounded-[2.5rem] border border-[var(--color-border-subtle)] bg-bg-card overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">

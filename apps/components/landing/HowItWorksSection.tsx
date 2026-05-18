@@ -23,7 +23,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32">
+    <section id="how-it-works" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <FadeIn className="mb-16 md:mb-20">
           <p className="text-xs font-medium text-primary uppercase tracking-widest mb-3">

@@ -45,7 +45,7 @@ const modes = [
 
 export default function GameModesSection() {
   return (
-    <section id="game-modes" className="py-24 md:py-32">
+    <section id="game-modes" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <FadeIn className="mb-16 md:mb-20">
           <p className="text-xs font-medium text-secondary uppercase tracking-widest mb-3">

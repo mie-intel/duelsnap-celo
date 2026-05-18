@@ -26,7 +26,7 @@ export default function EarnSection() {
   ];
 
   return (
-    <section id="earn" className="py-24 md:py-32 bg-[var(--color-surface-1)]">
+    <section id="earn" className="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-1)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 items-start">
           {/* Left: copy */}
