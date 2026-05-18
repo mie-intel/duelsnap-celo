@@ -44,16 +44,16 @@ export default function ContributeSection() {
               <div className="flex flex-col gap-6">
                 {steps.map((s) => (
                   <div key={s.step} className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="font-display font-bold text-xs text-primary">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="font-display font-bold text-xs lg:text-sm text-primary">
                         {s.step}
                       </span>
                     </div>
                     <div className="flex flex-col gap-1">
-                      <h3 className="font-display font-semibold text-text-primary text-base">
+                      <h3 className="font-display font-semibold text-text-primary text-base lg:text-lg">
                         {s.title}
                       </h3>
-                      <p className="text-text-secondary text-sm leading-relaxed max-w-[42ch]">
+                      <p className="text-text-secondary text-sm lg:text-base leading-relaxed max-w-[42ch]">
                         {s.body}
                       </p>
                     </div>
