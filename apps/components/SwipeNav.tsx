@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
-const tabs = ['/', '/contribute', '/activity', '/profile'];
+const APP_TABS = ['/play', '/contribute', '/activity', '/profile'];
 
 export default function SwipeNav({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -14,7 +14,10 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
   const [offset, setOffset] = useState(0);
   const [snapping, setSnapping] = useState(false);
 
+  const isLanding = pathname === '/';
+
   const onTouchStart = (e: React.TouchEvent) => {
+    if (isLanding) return;
     startX.current = e.touches[0].clientX;
     startY.current = e.touches[0].clientY;
     isHorizontal.current = false;
@@ -22,7 +25,7 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    if (startX.current === null || startY.current === null) return;
+    if (isLanding || startX.current === null || startY.current === null) return;
     const dx = e.touches[0].clientX - startX.current;
     const dy = Math.abs(e.touches[0].clientY - startY.current);
 
@@ -32,13 +35,13 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
       isHorizontal.current = true;
     }
 
-    const idx = tabs.indexOf(pathname);
-    const atEdge = (dx > 0 && idx === 0) || (dx < 0 && idx === tabs.length - 1);
+    const idx = APP_TABS.indexOf(pathname);
+    const atEdge = (dx > 0 && idx === 0) || (dx < 0 && idx === APP_TABS.length - 1);
     setOffset(dx * (atEdge ? 0.15 : 0.35));
   };
 
   const onTouchEnd = (e: React.TouchEvent) => {
-    if (startX.current === null || !isHorizontal.current) {
+    if (isLanding || startX.current === null || !isHorizontal.current) {
       startX.current = null;
       startY.current = null;
       setOffset(0);
@@ -49,14 +52,14 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
     startY.current = null;
     isHorizontal.current = false;
 
-    const idx = tabs.indexOf(pathname);
+    const idx = APP_TABS.indexOf(pathname);
     setSnapping(true);
 
     if (Math.abs(dx) >= 50 && idx !== -1) {
-      if (dx < 0 && idx < tabs.length - 1) {
+      if (dx < 0 && idx < APP_TABS.length - 1) {
         setOffset(-80);
         setTimeout(() => {
-          router.push(tabs[idx + 1]);
+          router.push(APP_TABS[idx + 1]);
           setOffset(0);
         }, 120);
         return;
@@ -64,7 +67,7 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
       if (dx > 0 && idx > 0) {
         setOffset(80);
         setTimeout(() => {
-          router.push(tabs[idx - 1]);
+          router.push(APP_TABS[idx - 1]);
           setOffset(0);
         }, 120);
         return;
@@ -72,6 +75,10 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
     }
     setOffset(0);
   };
+
+  if (isLanding) {
+    return <>{children}</>;
+  }
 
   return (
     <main
