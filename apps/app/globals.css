@@ -97,6 +97,12 @@ body, #__next, main {
   overflow-x: hidden;
 }
 
+/* Subtle dot-grid background texture for landing sections */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(248,243,235,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 /* Pulsing live indicator dot */
 @keyframes livePulse {
   0%, 100% { opacity: 1; transform: scale(1); }

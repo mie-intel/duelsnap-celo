@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-dot-grid">
       {/* Background glow effects */}
       <div
         className="absolute inset-0 pointer-events-none"
