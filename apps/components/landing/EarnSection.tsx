@@ -1,7 +1,9 @@
+import FadeIn from "./FadeIn";
+
 export default function EarnSection() {
   const streams = [
     {
-      title: "Win PvP Waggers",
+      title: "Win PvP Wagers",
       amount: "0.087 CELO",
       description: "Beat your opponent in a ranked duel and collect 87% of the 0.2 CELO wager pool instantly.",
       accent: "var(--color-accent-pvp)",
@@ -26,13 +28,13 @@ export default function EarnSection() {
   return (
     <section id="earn" className="py-24 md:py-32 bg-[var(--color-surface-1)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 items-start">
           {/* Left: copy */}
-          <div className="flex flex-col gap-6 md:sticky md:top-32">
+          <FadeIn className="flex flex-col gap-6 md:sticky md:top-32">
             <p className="text-xs font-medium text-primary uppercase tracking-widest">
               Earn
             </p>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-text-primary tracking-tight leading-tight">
+            <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight">
               Multiple ways to make CELO
             </h2>
             <p className="text-text-secondary text-base leading-relaxed max-w-[50ch]">
@@ -48,12 +50,13 @@ export default function EarnSection() {
                 <span aria-hidden>→</span>
               </a>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Right: earn streams */}
           <div className="flex flex-col divide-y divide-[var(--color-border-subtle)]">
-            {streams.map((stream) => (
-              <div key={stream.title} className="py-8 first:pt-0 last:pb-0 flex flex-col gap-3">
+            {streams.map((stream, i) => (
+              <FadeIn key={stream.title} delay={i * 80}>
+              <div className="py-8 first:pt-0 last:pb-0 flex flex-col gap-3">
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="font-display font-bold text-xl text-text-primary tracking-tight">
                     {stream.title}
@@ -74,6 +77,7 @@ export default function EarnSection() {
                   {stream.description}
                 </p>
               </div>
+              </FadeIn>
             ))}
           </div>
         </div>
