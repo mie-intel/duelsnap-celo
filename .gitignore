@@ -1,4 +1,8 @@
 strategy/
+.wallets-boost.json
+GUIDE_BOOST.md
+CLAUDE.md
+SUMMARY.md
 .mcp.json
 .codex/config.toml
 **:Zone.Identifier

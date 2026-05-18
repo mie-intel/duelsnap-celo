@@ -2,3 +2,5 @@
 out/
 cache/
 broadcast/
+src/*V2.sol
+script/Upgrade.s.sol
