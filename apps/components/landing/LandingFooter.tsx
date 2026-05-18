@@ -17,26 +17,30 @@ const sectionLinks = [
 
 export default function LandingFooter() {
   return (
-    <footer className="border-t border-[var(--color-border-subtle)] py-12">
+    <footer className="border-t border-[var(--color-border-subtle)] py-12 lg:py-16">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
-          <div className="flex flex-col gap-3 md:col-span-1">
+          <div className="flex flex-col gap-4 md:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
                 src="/logo.png"
                 alt="DuelSnap"
-                width={28}
-                height={28}
+                width={32}
+                height={32}
                 className="rounded-lg"
               />
-              <span className="font-display font-bold text-base text-text-primary tracking-tight">
+              <span className="font-display font-bold text-lg text-text-primary tracking-tight">
                 DuelSnap
               </span>
             </div>
-            <p className="text-xs text-text-secondary leading-relaxed max-w-[28ch]">
-              Picture duels on Celo. Play free, earn CELO, contribute photos.
+            <p className="text-sm text-text-secondary leading-relaxed max-w-[28ch]">
+              Picture duels on Celo. Play free, earn CELO, contribute photos for passive royalties.
             </p>
+            <div className="flex items-center gap-1.5 mt-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse flex-shrink-0" />
+              <span className="text-xs text-text-secondary">Open source · MIT License</span>
+            </div>
           </div>
 
           {/* App links */}
