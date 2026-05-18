@@ -34,7 +34,7 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32">
+    <section id="faq" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <FadeIn className="md:col-span-1">
