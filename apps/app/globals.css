@@ -71,3 +71,17 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
 }
+
+/* --- Landing animations --- */
+@media (prefers-reduced-motion: no-preference) {
+  .landing-pulse {
+    animation: landingPulse 3s ease-in-out infinite;
+  }
+  @keyframes landingPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-pulse { animation: none; }
+}
