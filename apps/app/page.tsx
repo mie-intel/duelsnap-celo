@@ -96,7 +96,7 @@ export default function Home() {
                     </span>
                   </div>
                   <p className="text-text-secondary text-sm mt-0.5">
-                    5 questions · 3 rounds/day · No crypto needed
+                    5 questions · 3 rounds/day · No wallet needed
                   </p>
                 </div>
                 <span className="text-text-secondary">›</span>

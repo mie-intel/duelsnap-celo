@@ -41,8 +41,3 @@ yarn-error.log*
 next-env.d.ts
 
 bun.lock
-
-# local boost scripts (not for repo)
-scripts/boost-activity.ts
-scripts/mass-sim.ts
-.wallets-boost.json
