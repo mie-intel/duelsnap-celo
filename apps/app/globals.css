@@ -74,34 +74,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Touch target minimum for mobile */
+/* Global focus ring — visible only on keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Touch targets */
 a, button {
   min-height: 44px;
   min-width: 44px;
 }
 
-/* Smooth scroll for anchor links */
+/* Smooth anchor scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Prevent horizontal overflow */
-body, main {
+/* No horizontal overflow */
+body, #__next, main {
   overflow-x: hidden;
-}
-
-/* --- Landing animations --- */
-@media (prefers-reduced-motion: no-preference) {
-  .landing-pulse {
-    animation: landingPulse 3s ease-in-out infinite;
-  }
-  @keyframes landingPulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .landing-pulse { animation: none; }
 }
 
 /* Pulsing live indicator dot */
