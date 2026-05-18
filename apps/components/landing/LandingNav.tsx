@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "#how-it-works", label: "How It Works" },
-  { href: "#game-modes", label: "Game Modes" },
+  { href: "#game-modes", label: "Modes" },
   { href: "#earn", label: "Earn" },
+  { href: "/contribute", label: "Contribute" },
 ];
 
 export default function LandingNav() {
@@ -68,12 +69,18 @@ export default function LandingNav() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <Link
+              href="/pvp/lobby"
+              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-border-mid)] bg-transparent text-text-secondary font-semibold text-sm hover:text-text-primary hover:border-[var(--color-border-mid)] hover:bg-[var(--color-surface-1)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[44px]"
+            >
+              PvP Arena
+            </Link>
             <Link
               href="/play"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-primary text-text-inverse font-semibold text-sm hover:bg-primary-dark transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[44px]"
             >
-              Play Now
+              Play Free
             </Link>
 
             <button
