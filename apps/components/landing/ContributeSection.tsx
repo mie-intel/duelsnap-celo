@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FadeIn from "./FadeIn";
 
 const steps = [
   {
@@ -25,12 +26,12 @@ export default function ContributeSection() {
         <div className="rounded-[2.5rem] border border-[var(--color-border-subtle)] bg-bg-card overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left: steps */}
-            <div className="p-10 md:p-14 flex flex-col gap-10">
+            <FadeIn className="p-10 md:p-14 lg:p-16 flex flex-col gap-10">
               <div className="flex flex-col gap-4">
                 <p className="text-xs font-medium text-accent-free uppercase tracking-widest">
                   Contribute
                 </p>
-                <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary tracking-tight leading-tight">
+                <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary tracking-tight leading-tight">
                   Submit photos.
                   <br />
                   Earn royalties forever.
@@ -66,10 +67,10 @@ export default function ContributeSection() {
               >
                 Start Contributing
               </Link>
-            </div>
+            </FadeIn>
 
             {/* Right: royalty breakdown */}
-            <div className="border-t md:border-t-0 md:border-l border-[var(--color-border-subtle)] p-10 md:p-14 flex flex-col gap-6">
+            <FadeIn delay={100} className="border-t md:border-t-0 md:border-l border-[var(--color-border-subtle)] p-10 md:p-14 lg:p-16 flex flex-col gap-6">
               <h3 className="font-display font-bold text-xl text-text-primary">
                 Royalty breakdown
               </h3>
@@ -105,7 +106,7 @@ export default function ContributeSection() {
                 Contributors split the 27% pool proportionally based on how often
                 each photo was played in the session.
               </p>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </div>
