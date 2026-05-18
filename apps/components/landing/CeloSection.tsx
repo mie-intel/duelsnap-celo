@@ -28,7 +28,7 @@ export default function CeloSection() {
           {/* Left: Celo visual */}
           <FadeIn className="relative flex items-center justify-center">
             <div className="absolute inset-0 bg-primary/8 rounded-[3rem] blur-3xl" />
-            <div className="relative flex flex-col items-center gap-6 p-12 rounded-[2.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)]">
+            <div className="relative flex flex-col items-center gap-6 p-12 lg:p-14 rounded-[2.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)]">
               <Image
                 src="/logo.png"
                 alt="DuelSnap on Celo"
@@ -37,10 +37,10 @@ export default function CeloSection() {
                 className="rounded-2xl"
               />
               <div className="text-center">
-                <div className="font-display font-bold text-3xl text-primary mb-1">
+                <div className="font-display font-bold text-3xl lg:text-4xl text-primary mb-1">
                   Built on Celo
                 </div>
-                <div className="text-text-secondary text-sm">
+                <div className="text-text-secondary text-sm lg:text-base">
                   Carbon-neutral · EVM-compatible · Mobile-first
                 </div>
               </div>
@@ -53,9 +53,9 @@ export default function CeloSection() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="bg-[var(--color-surface-2)] rounded-xl p-3"
+                    className="bg-[var(--color-surface-2)] rounded-xl p-3 lg:p-4"
                   >
-                    <div className="font-mono font-bold text-text-primary text-base">
+                    <div className="font-mono font-bold text-text-primary text-base lg:text-lg">
                       {item.value}
                     </div>
                     <div className="text-xs text-text-secondary mt-0.5">
