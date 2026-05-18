@@ -70,4 +70,22 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Touch target minimum for mobile */
+a, button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow */
+body, main {
+  overflow-x: hidden;
 }
