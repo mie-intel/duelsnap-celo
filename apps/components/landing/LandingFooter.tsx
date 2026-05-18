@@ -19,9 +19,9 @@ export default function LandingFooter() {
   return (
     <footer className="border-t border-[var(--color-border-subtle)] py-12 lg:py-16">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
           {/* Brand */}
-          <div className="flex flex-col gap-4 md:col-span-1">
+          <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
                 src="/logo.png"
