@@ -86,10 +86,10 @@ export default function GameModesSection() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="font-display font-bold text-2xl text-text-primary tracking-tight">
+                <h3 className="font-display font-bold text-2xl lg:text-3xl text-text-primary tracking-tight">
                   {mode.name}
                 </h3>
-                <p className="text-sm font-medium" style={{ color: mode.accent }}>
+                <p className="text-sm lg:text-base font-medium" style={{ color: mode.accent }}>
                   {mode.tagline}
                 </p>
               </div>
