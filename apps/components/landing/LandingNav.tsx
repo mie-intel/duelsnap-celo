@@ -62,7 +62,7 @@ export default function LandingNav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-150 font-medium"
+                className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-150 font-medium relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-200 hover:after:w-full"
               >
                 {l.label}
               </Link>
