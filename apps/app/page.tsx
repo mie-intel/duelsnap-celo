@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-[100dvh] bg-bg-page">
+    <div className="w-full min-h-[100dvh] bg-bg-page">
       <LandingNav />
       <HeroSection />
       <StatsSection />
