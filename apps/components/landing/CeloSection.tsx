@@ -79,11 +79,11 @@ export default function CeloSection() {
             </div>
             <div className="flex flex-col divide-y divide-[var(--color-border-subtle)]">
               {reasons.map((r) => (
-                <div key={r.title} className="py-5 first:pt-0 flex flex-col gap-1.5">
-                  <h3 className="font-display font-semibold text-base text-text-primary">
+                <div key={r.title} className="py-5 lg:py-6 first:pt-0 flex flex-col gap-1.5">
+                  <h3 className="font-display font-semibold text-base lg:text-lg text-text-primary">
                     {r.title}
                   </h3>
-                  <p className="text-text-secondary text-sm leading-relaxed max-w-[50ch]">
+                  <p className="text-text-secondary text-sm lg:text-base leading-relaxed max-w-[50ch]">
                     {r.body}
                   </p>
                 </div>
