@@ -138,7 +138,7 @@ function HeroVisual() {
         <div className="absolute -inset-4 bg-primary/8 rounded-[3rem] blur-3xl" />
 
         {/* Mock game card */}
-        <div className="relative bg-bg-card border border-[var(--color-border-subtle)] rounded-[2rem] overflow-hidden shadow-[0_32px_64px_rgba(0,0,0,0.5)]">
+        <div className="relative bg-bg-card border border-[var(--color-border-subtle)] rounded-[2rem] overflow-hidden shadow-[0_32px_64px_rgba(0,0,0,0.5)] lg:shadow-[0_48px_96px_rgba(0,0,0,0.6),0_0_0_1px_rgba(53,208,127,0.08)]">
           {/* Card header */}
           <div className="px-5 pt-4 pb-3 border-b border-[var(--color-border-subtle)]">
             <div className="flex items-center justify-between mb-2">
