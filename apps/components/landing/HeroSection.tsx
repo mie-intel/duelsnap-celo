@@ -88,6 +88,7 @@ function HeroCTA() {
         className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-text-inverse font-bold text-base hover:bg-primary-dark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[48px]"
       >
         Start Playing Free
+        <span aria-hidden className="ml-0.5">→</span>
       </Link>
       <Link
         href="/pvp/lobby"
