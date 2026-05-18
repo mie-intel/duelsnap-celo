@@ -55,12 +55,16 @@ export default function GameModesSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {modes.map((mode) => (
             <Link
               key={mode.id}
               href={mode.href}
-              className={`group relative flex flex-col gap-6 p-8 rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)] hover:border-[var(--color-border-mid)] hover:bg-[var(--color-surface-2)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${mode.colSpan}`}
+              className={`group relative flex flex-col gap-6 p-8 rounded-[2rem] border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                mode.id === "pvp"
+                  ? "md:col-span-2 lg:col-span-1 border-[var(--color-accent-pvp)]/30 bg-[var(--color-accent-pvp)]/5 hover:border-[var(--color-accent-pvp)]/60 hover:bg-[var(--color-accent-pvp)]/10"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-1)] hover:border-[var(--color-border-mid)] hover:bg-[var(--color-surface-2)]"
+              }`}
             >
               <div className="flex items-start justify-between">
                 <span
@@ -89,7 +93,7 @@ export default function GameModesSection() {
                 </p>
               </div>
 
-              <p className="text-text-secondary text-sm leading-relaxed flex-1">
+              <p className={`text-text-secondary text-sm leading-relaxed flex-1 ${mode.id === "pvp" ? "md:max-w-[60ch] lg:max-w-none" : ""}`}>
                 {mode.body}
               </p>
 
