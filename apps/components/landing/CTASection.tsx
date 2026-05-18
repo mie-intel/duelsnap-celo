@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FadeIn from "./FadeIn";
 
 export default function CTASection() {
   return (
@@ -11,7 +12,7 @@ export default function CTASection() {
             <div className="absolute -bottom-20 right-1/3 w-80 h-80 rounded-full bg-[var(--color-glow-gold)] blur-[80px]" />
           </div>
 
-          <div className="relative flex flex-col items-center gap-8 max-w-2xl mx-auto">
+          <FadeIn className="relative flex flex-col items-center gap-8 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-border-mid)] bg-[var(--color-surface-1)]">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-medium text-text-secondary tracking-widest uppercase">
@@ -19,7 +20,7 @@ export default function CTASection() {
               </span>
             </div>
 
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-text-primary tracking-tighter leading-[0.95]">
+            <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-text-primary tracking-tighter leading-[0.95]">
               Your first duel is free.
               <br />
               <span className="text-primary">Start in 10 seconds.</span>
@@ -44,7 +45,7 @@ export default function CTASection() {
                 Enter PvP Arena
               </Link>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>
