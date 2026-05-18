@@ -117,49 +117,69 @@ function HeroStats() {
 }
 
 function HeroVisual() {
+  const options = ["Eiffel Tower", "Tokyo Tower", "Big Ben", "Burj Khalifa"];
+
   return (
     <div className="relative flex items-center justify-center md:justify-end">
-      <div className="relative w-full max-w-sm md:max-w-none">
-        {/* Glow behind card */}
-        <div className="absolute inset-0 bg-primary/10 rounded-[2.5rem] blur-3xl scale-95" />
+      <div className="relative w-full max-w-[380px] md:max-w-none">
+        {/* Outer glow */}
+        <div className="absolute -inset-4 bg-primary/8 rounded-[3rem] blur-3xl" />
 
         {/* Mock game card */}
-        <div className="relative bg-bg-card border border-[var(--color-border-subtle)] rounded-[2rem] p-6 shadow-2xl">
-          <div className="text-xs font-medium text-text-secondary uppercase tracking-widest mb-3">
-            Round 3 of 5 · PvP Ranked
+        <div className="relative bg-bg-card border border-[var(--color-border-subtle)] rounded-[2rem] overflow-hidden shadow-[0_32px_64px_rgba(0,0,0,0.5)]">
+          {/* Card header */}
+          <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-[var(--color-border-subtle)]">
+            <span className="text-xs font-medium text-text-secondary uppercase tracking-widest">
+              Round 3 / 5
+            </span>
+            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-accent-pvp/15 text-accent-pvp">
+              PvP Ranked
+            </span>
           </div>
-          <div className="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-[var(--color-surface-1)]">
+
+          {/* Image */}
+          <div className="relative aspect-[16/10] bg-[var(--color-surface-1)]">
             <Image
-              src="https://picsum.photos/seed/duelsnap-hero/400/300"
-              alt="Game preview"
-              width={400}
-              height={300}
-              className="w-full h-full object-cover"
+              src="https://picsum.photos/seed/duelsnap-landmark/600/375"
+              alt="Game question preview"
+              fill
+              className="object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-card/60 to-transparent" />
           </div>
-          <div className="text-text-secondary text-sm mb-3">
-            What landmark is this?
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            {["Eiffel Tower", "Tokyo Tower", "Big Ben", "Burj Khalifa"].map(
-              (opt, i) => (
+
+          {/* Question */}
+          <div className="px-5 pt-4 pb-3">
+            <p className="text-text-primary font-semibold text-sm mb-3">
+              Which landmark is this?
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              {options.map((opt, i) => (
                 <button
                   key={opt}
                   type="button"
-                  className={`px-3 py-2.5 rounded-xl text-sm font-medium text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                  className={`px-3 py-2.5 rounded-xl text-xs font-semibold text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[40px] ${
                     i === 0
-                      ? "bg-primary/20 border border-primary text-primary"
-                      : "bg-[var(--color-surface-1)] border border-[var(--color-border-subtle)] text-text-secondary hover:bg-[var(--color-surface-2)]"
+                      ? "bg-primary/20 border border-primary/60 text-primary"
+                      : "bg-[var(--color-surface-1)] border border-[var(--color-border-subtle)] text-text-secondary"
                   }`}
                 >
+                  {i === 0 && <span className="mr-1 opacity-70">✓</span>}
                   {opt}
                 </button>
-              )
-            )}
+              ))}
+            </div>
           </div>
-          <div className="mt-4 flex items-center justify-between text-xs text-text-secondary">
-            <span>Wager: 0.1 CELO</span>
-            <span className="text-primary font-semibold">You're winning</span>
+
+          {/* Card footer */}
+          <div className="flex items-center justify-between px-5 py-3 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-1)]">
+            <div className="text-xs text-text-secondary">
+              Wager: <span className="text-secondary font-semibold">0.1 CELO</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="text-xs text-primary font-semibold">Leading +2</span>
+            </div>
           </div>
         </div>
       </div>
