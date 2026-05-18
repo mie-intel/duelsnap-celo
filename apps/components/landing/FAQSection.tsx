@@ -33,7 +33,7 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 md:py-32">
+    <section id="faq" className="py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div className="md:col-span-1">
