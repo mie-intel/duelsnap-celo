@@ -14,10 +14,10 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-1/2 w-[500px] h-[300px] -translate-x-1/2 rounded-full bg-[var(--color-glow-red)] blur-[120px] opacity-20" />
       </div>
 
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[55fr_45fr] gap-12 md:gap-16 lg:gap-20 items-center">
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 xl:pt-48 xl:pb-40">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[55fr_45fr] xl:grid-cols-[58fr_42fr] gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center">
           {/* Left: Content */}
-          <div className="flex flex-col gap-6 md:gap-8">
+          <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
             <div className="hero-fade-1"><HeroEyebrow /></div>
             <div className="hero-fade-2"><HeroHeadline /></div>
             <div className="hero-fade-3"><HeroSubtitle /></div>
