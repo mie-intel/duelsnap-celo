@@ -36,8 +36,8 @@ export default function ContributeSection() {
                   <br />
                   Earn royalties forever.
                 </h2>
-                <p className="text-text-secondary text-base leading-relaxed max-w-[46ch]">
-                  Build a passive income stream by contributing questions to the DuelSnap pool.
+                <p className="text-text-secondary text-base lg:text-lg leading-relaxed max-w-[46ch]">
+                  Build a passive income stream by contributing questions to the DuelSnap pool. Your photo, your royalty, forever.
                 </p>
               </div>
 
