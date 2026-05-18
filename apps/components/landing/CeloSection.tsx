@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeIn from "./FadeIn";
 
 const reasons = [
   {
@@ -23,9 +24,9 @@ export default function CeloSection() {
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Celo visual */}
-          <div className="relative flex items-center justify-center">
+          <FadeIn className="relative flex items-center justify-center">
             <div className="absolute inset-0 bg-primary/8 rounded-[3rem] blur-3xl" />
             <div className="relative flex flex-col items-center gap-6 p-12 rounded-[2.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)]">
               <Image
@@ -64,15 +65,15 @@ export default function CeloSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Right: reasons */}
-          <div className="flex flex-col gap-8">
+          <FadeIn delay={100} className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
               <p className="text-xs font-medium text-primary uppercase tracking-widest">
                 Why Celo
               </p>
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary tracking-tight leading-tight">
+              <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary tracking-tight leading-tight">
                 The blockchain that doesn't get in the way
               </h2>
             </div>
@@ -88,7 +89,7 @@ export default function CeloSection() {
                 </div>
               ))}
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>
