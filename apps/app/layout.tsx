@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   title: "DuelSnap",
   description:
     "Compete in picture-guessing duels and earn real CELO rewards. Play free, pay to earn, or battle 1v1 in PvP ranked mode on Celo.",
+  keywords: ["DuelSnap", "Celo", "Web3 game", "picture quiz", "PvP", "crypto rewards", "blockchain game"],
+  openGraph: {
+    title: "DuelSnap — Picture Duels on Celo",
+    description: "Guess the picture. Earn real CELO. Battle 1v1 in PvP ranked mode.",
+    siteName: "DuelSnap",
+    type: "website",
+    images: [{ url: "/logo.png", width: 512, height: 512 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "DuelSnap — Picture Duels on Celo",
+    description: "Guess the picture. Earn real CELO. Play free or wager in PvP.",
+    images: ["/logo.png"],
+  },
   icons: { icon: "/logo.png", apple: "/logo.png" },
 };
 
