@@ -9,9 +9,9 @@ export default function HeroSection() {
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-[var(--color-glow-green)] blur-[120px] opacity-60" />
-        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] rounded-full bg-[var(--color-glow-gold)] blur-[100px] opacity-40" />
-        <div className="absolute bottom-0 left-1/2 w-[500px] h-[300px] -translate-x-1/2 rounded-full bg-[var(--color-glow-red)] blur-[120px] opacity-20" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] rounded-full bg-[var(--color-glow-green)] blur-[120px] lg:blur-[160px] opacity-60" />
+        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-[var(--color-glow-gold)] blur-[100px] opacity-40" />
+        <div className="absolute bottom-0 left-1/2 w-[500px] h-[300px] lg:w-[700px] lg:h-[400px] -translate-x-1/2 rounded-full bg-[var(--color-glow-red)] blur-[120px] opacity-20" />
       </div>
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 xl:pt-48 xl:pb-40">
