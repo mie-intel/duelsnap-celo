@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FadeIn from "./FadeIn";
 
 const modes = [
   {
@@ -46,19 +47,19 @@ export default function GameModesSection() {
   return (
     <section id="game-modes" className="py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="mb-16 md:mb-20">
+        <FadeIn className="mb-16 md:mb-20">
           <p className="text-xs font-medium text-secondary uppercase tracking-widest mb-3">
             Game Modes
           </p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-text-primary tracking-tight leading-tight max-w-[22ch]">
+          <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight max-w-[22ch]">
             Free, earn, or go all-in on PvP
           </h2>
-        </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {modes.map((mode) => (
+          {modes.map((mode, i) => (
+            <FadeIn key={mode.id} delay={i * 80}>
             <Link
-              key={mode.id}
               href={mode.href}
               className={`group relative flex flex-col gap-6 p-8 rounded-[2rem] border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                 mode.id === "pvp"
@@ -120,6 +121,7 @@ export default function GameModesSection() {
                 <span aria-hidden>→</span>
               </div>
             </Link>
+            </FadeIn>
           ))}
         </div>
       </div>
