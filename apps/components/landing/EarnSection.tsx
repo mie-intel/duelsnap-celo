@@ -58,12 +58,12 @@ export default function EarnSection() {
               <FadeIn key={stream.title} delay={i * 80}>
               <div className="py-8 first:pt-0 last:pb-0 flex flex-col gap-3">
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display font-bold text-xl text-text-primary tracking-tight">
+                  <h3 className="font-display font-bold text-xl lg:text-2xl text-text-primary tracking-tight">
                     {stream.title}
                   </h3>
                   <div className="text-right flex-shrink-0">
                     <div
-                      className="font-display font-bold text-xl tabular-nums"
+                      className="font-display font-bold text-xl lg:text-2xl tabular-nums"
                       style={{ color: stream.accent }}
                     >
                       {stream.amount}
