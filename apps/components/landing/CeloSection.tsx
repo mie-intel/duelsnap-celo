@@ -22,7 +22,7 @@ const reasons = [
 
 export default function CeloSection() {
   return (
-    <section className="py-24 md:py-32 lg:py-40">
+    <section id="celo" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Celo visual */}
