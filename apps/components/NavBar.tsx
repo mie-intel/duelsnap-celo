@@ -17,7 +17,7 @@ export default function NavBar() {
   if (pathname === '/') return null;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-bg-card/95 backdrop-blur-xl border-t border-black/5">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-bg-card/95 backdrop-blur-xl border-t border-black/5">
       <div className="max-w-md mx-auto flex justify-around py-2 pb-safe">
         {tabs.map(({ href, label, Icon }) => {
           const active = href === '/play' ? pathname === '/play' : pathname === href;
