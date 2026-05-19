@@ -82,7 +82,7 @@ export default function SwipeNav({ children }: { children: React.ReactNode }) {
 
   return (
     <main
-      className="flex-1 flex flex-col max-w-md mx-auto w-full overflow-x-hidden"
+      className="flex-1 flex flex-col w-full overflow-x-hidden lg:max-w-none"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "../components/NavBar";
+import DesktopSidebar from "../components/DesktopSidebar";
 import Providers from "../components/providers";
 import SwipeNav from "../components/SwipeNav";
 import { NetworkGuard } from "../components/wallet/NetworkGuard";
@@ -54,8 +55,13 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-bg-page">
         <Providers>
           {/* <NetworkGuard /> */}
-          <SwipeNav>{children}</SwipeNav>
-          <NavBar />
+          <div className="flex flex-1 min-h-screen">
+            <DesktopSidebar />
+            <div className="flex flex-col flex-1 min-w-0">
+              <SwipeNav>{children}</SwipeNav>
+              <NavBar />
+            </div>
+          </div>
         </Providers>
       </body>
     </html>
