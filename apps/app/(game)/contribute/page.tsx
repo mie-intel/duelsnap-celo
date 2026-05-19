@@ -40,53 +40,67 @@ export default function ContributePage() {
         </div>
       </div>
 
-      <div className="px-5 py-6 max-w-lg mx-auto w-full flex flex-col gap-5">
-        {/* Earnings callout */}
-        <div className="bg-secondary/20 border border-secondary/40 rounded-2xl p-4">
-          <p className="font-display font-bold text-text-primary text-base">
-            Earn passive royalties
-          </p>
-          <p className="text-text-secondary text-sm font-sans mt-1">
-            Contributors receive a share of every paid game session that uses
-            their image — no limit, no expiry.
-          </p>
-        </div>
+      <div className="px-5 py-6 max-w-4xl mx-auto w-full">
+        <div className="lg:grid lg:grid-cols-[1fr_340px] lg:gap-8 lg:items-start flex flex-col gap-5">
+          {/* Left — earnings + steps */}
+          <div className="flex flex-col gap-5">
+            {/* Earnings callout */}
+            <div className="bg-secondary/20 border border-secondary/40 rounded-2xl p-4">
+              <p className="font-display font-bold text-text-primary text-base">
+                Earn passive royalties
+              </p>
+              <p className="text-text-secondary text-sm font-sans mt-1">
+                Contributors receive a share of every paid game session that uses
+                their image — no limit, no expiry.
+              </p>
+            </div>
 
-        {/* How it works */}
-        <div>
-          <h2 className="font-display font-bold text-lg text-text-primary mb-3">
-            How it works
-          </h2>
-          <div className="flex flex-col gap-3">
-            {steps.map((step) => (
-              <Card key={step.num} className="flex items-start gap-4">
-                <span className="font-display font-bold text-2xl text-primary/70 w-10 shrink-0">
-                  {step.num}
-                </span>
-                <div>
-                  <p className="font-sans font-semibold text-text-primary text-sm">
-                    {step.title}
-                  </p>
-                  <p className="font-sans text-text-secondary text-sm mt-0.5">
-                    {step.desc}
-                  </p>
-                </div>
-              </Card>
-            ))}
+            {/* How it works */}
+            <div>
+              <h2 className="font-display font-bold text-lg text-text-primary mb-3">
+                How it works
+              </h2>
+              <div className="flex flex-col gap-3">
+                {steps.map((step) => (
+                  <Card key={step.num} className="flex items-start gap-4">
+                    <span className="font-display font-bold text-2xl text-primary/70 w-10 shrink-0">
+                      {step.num}
+                    </span>
+                    <div>
+                      <p className="font-sans font-semibold text-text-primary text-sm">
+                        {step.title}
+                      </p>
+                      <p className="font-sans text-text-secondary text-sm mt-0.5">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right — CTA panel */}
+          <div className="flex flex-col gap-3 lg:sticky lg:top-6">
+            <div className="bg-bg-card rounded-3xl p-6 flex flex-col gap-4 shadow-sm">
+              <div>
+                <p className="font-display font-bold text-text-primary text-lg">Ready to contribute?</p>
+                <p className="text-text-secondary text-sm font-sans mt-1">
+                  Upload a clear photo. AI verifies in minutes. Earn royalties forever.
+                </p>
+              </div>
+              <Link
+                href="/contribute/submit"
+                className="block w-full py-4 rounded-2xl bg-primary text-text-inverse text-center font-sans font-semibold text-base hover:bg-primary-dark active:scale-95 transition-all duration-150"
+              >
+                Submit an Image
+              </Link>
+              <p className="text-text-secondary text-xs font-sans text-center">
+                Requires wallet connection · AI verification ~2 min
+              </p>
+            </div>
           </div>
         </div>
-
-        {/* CTA */}
-        <Link
-          href="/contribute/submit"
-          className="block w-full py-4 rounded-2xl bg-primary text-text-inverse text-center font-sans font-semibold text-base hover:bg-primary-dark active:scale-95 transition-all duration-150"
-        >
-          Submit an Image
-        </Link>
-
-        <p className="text-text-secondary text-xs font-sans text-center -mt-1">
-          Requires wallet connection · AI verification takes ~2 min
-        </p>
       </div>
     </div>
   );
