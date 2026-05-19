@@ -21,20 +21,34 @@ export default function GameResults({ results, mode, onPlayAgain, onHome }: Game
   const pct = Math.round((correct / total) * 100);
 
   return (
-    <div className="flex flex-col gap-5 px-5 py-6 max-w-lg mx-auto w-full pb-24">
-      <div className="bg-bg-card rounded-3xl p-6 text-center shadow-sm">
-        <p className="text-5xl font-display font-bold text-primary mb-1">{correct}/{total}</p>
-        <p className="text-text-secondary font-sans text-sm">
-          {pct >= 80 ? 'Excellent!' : pct >= 50 ? 'Good job!' : 'Keep practicing!'}
-        </p>
-        {mode === 'paid' && (
-          <p className="text-text-secondary text-xs font-sans mt-2">
-            Royalties distributed to contributors automatically.
+    <div className="flex flex-col lg:flex-row gap-6 px-5 py-6 max-w-4xl mx-auto w-full pb-24 lg:items-start">
+      {/* Score + actions */}
+      <div className="flex flex-col gap-4 lg:w-64 lg:shrink-0">
+        <div className="bg-bg-card rounded-3xl p-6 text-center shadow-sm">
+          <p className="text-5xl font-display font-bold text-primary mb-1">{correct}/{total}</p>
+          <p className="text-text-secondary font-sans text-sm">
+            {pct >= 80 ? 'Excellent!' : pct >= 50 ? 'Good job!' : 'Keep practicing!'}
           </p>
-        )}
+          {mode === 'paid' && (
+            <p className="text-text-secondary text-xs font-sans mt-2">
+              Royalties distributed to contributors automatically.
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col gap-2">
+          {onPlayAgain && (
+            <Button onClick={onPlayAgain} size="lg" className="w-full">
+              Play Again
+            </Button>
+          )}
+          <Button variant="outline" onClick={onHome} size="lg" className="w-full">
+            Home
+          </Button>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-2">
+      {/* Answer breakdown — grid on desktop */}
+      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
         {results.map((r, i) => (
           <div key={r.id} className="flex items-center gap-3 bg-bg-card rounded-2xl p-3 shadow-sm">
             <span className="text-text-secondary text-xs font-mono w-4 shrink-0">{i + 1}</span>
@@ -46,17 +60,6 @@ export default function GameResults({ results, mode, onPlayAgain, onHome }: Game
               : <XCircleIcon className="w-5 h-5 text-error shrink-0" />}
           </div>
         ))}
-      </div>
-
-      <div className="flex flex-col gap-2">
-        {onPlayAgain && (
-          <Button onClick={onPlayAgain} size="lg" className="w-full">
-            Play Again
-          </Button>
-        )}
-        <Button variant="outline" onClick={onHome} size="lg" className="w-full">
-          Home
-        </Button>
       </div>
     </div>
   );
