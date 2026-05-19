@@ -230,7 +230,7 @@ export default function CasualPageClient() {
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center gap-6 px-5 pb-24">
-      <div className="text-center max-w-xs">
+      <div className="text-center max-w-xs lg:max-w-md">
         {isPaid ? (
           <>
             <h1 className="font-display font-bold text-3xl text-text-primary mb-2">
@@ -275,7 +275,7 @@ export default function CasualPageClient() {
         onClick={isConnected ? (isPaid ? startPaidGame : startFreeGame) : login}
         loading={loading}
         size="lg"
-        className="w-full max-w-xs"
+        className="w-full max-w-xs lg:max-w-sm"
       >
         {isConnected
           ? isPaid
