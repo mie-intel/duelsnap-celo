@@ -1,3 +1,6 @@
+import FadeIn from "./FadeIn";
+import { RollingNumber } from "./RollingNumber";
+
 const stats = [
   {
     value: "3",
@@ -25,8 +28,6 @@ const stats = [
   },
 ];
 
-import FadeIn from "./FadeIn";
-
 export default function StatsSection() {
   return (
     <section className="py-16 md:py-20 lg:py-24 border-y border-[var(--color-border-subtle)]">
@@ -38,12 +39,11 @@ export default function StatsSection() {
               delay={i * 80}
               className="flex flex-col gap-1 md:px-10 lg:px-14 first:pl-0 last:pr-0"
             >
-              <div
-                className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tabular-nums tracking-tight"
+              <RollingNumber
+                value={stat.value}
+                className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight"
                 style={{ color: stat.accent }}
-              >
-                {stat.value}
-              </div>
+              />
               <div className="font-semibold text-text-primary text-sm lg:text-base">
                 {stat.label}
               </div>
