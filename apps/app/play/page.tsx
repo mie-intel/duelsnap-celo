@@ -18,8 +18,8 @@ export default function PlayPage() {
 
   return (
     <div className="flex flex-col flex-1 bg-bg-page">
-      {/* Header */}
-      <header className="flex items-center justify-between px-5 py-4 bg-bg-card shadow-sm">
+      {/* Header — mobile only (desktop has sidebar) */}
+      <header className="lg:hidden flex items-center justify-between px-5 py-4 bg-bg-card shadow-sm">
         <div className="flex items-center gap-2">
           <Image
             src="/logo.png"
@@ -50,10 +50,29 @@ export default function PlayPage() {
           )}
         </div>
       </header>
+
+      {/* Desktop wallet bar */}
+      <div className="hidden lg:flex items-center justify-end px-8 py-4 border-b border-white/5">
+        {!isReady ? (
+          <Spinner size="sm" />
+        ) : isConnected ? (
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-success" />
+            <span className="text-xs font-mono text-text-secondary bg-primary-light px-3 py-1.5 rounded-full">
+              {address?.slice(0, 6)}…{address?.slice(-4)}
+            </span>
+          </div>
+        ) : (
+          <Button size="sm" onClick={login}>
+            Connect Wallet
+          </Button>
+        )}
+      </div>
+
       {/* Hero */}
-      <main className="flex-1 flex flex-col items-center px-5 py-10 pb-24 gap-8 max-w-lg mx-auto w-full">
+      <main className="flex-1 flex flex-col items-center px-5 py-8 pb-24 lg:py-12 gap-8 max-w-3xl mx-auto w-full">
         <div className="text-center">
-          <h1 className="font-display font-bold text-4xl text-text-primary leading-tight">
+          <h1 className="font-display font-bold text-4xl lg:text-5xl text-text-primary leading-tight">
             Guess the Picture.
             <br />
             <span className="text-primary">Earn Real Rewards.</span>
@@ -63,8 +82,8 @@ export default function PlayPage() {
           </p>
         </div>
 
-        {/* Game Mode Cards */}
-        <div className="flex flex-col gap-4 w-full">
+        {/* Game Mode Cards — 1-col mobile, 2-col desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
           <Link href="/casual" className="block">
             <Card
               className="border border-transparent hover:border-accent-free transition-colors"
