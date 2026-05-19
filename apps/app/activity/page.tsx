@@ -201,7 +201,7 @@ export default function PlayerLogPage() {
     stats.total > 0 ? Math.round((stats.wins / stats.total) * 100) : 0;
 
   return (
-    <div className="flex-1 overflow-y-auto px-4 pt-6 pb-24">
+    <div className="flex-1 overflow-y-auto px-4 pt-6 pb-24 max-w-4xl mx-auto w-full">
       <h1 className="text-xl font-bold font-display text-text-primary mb-4">
         Activity
       </h1>
@@ -228,7 +228,7 @@ export default function PlayerLogPage() {
       {tab === "game" && (
         <>
           {/* Stats row */}
-          <div className="grid grid-cols-4 gap-2 mb-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-5">
             {[
               { label: "Games", value: stats.total },
               { label: "Wins", value: stats.wins },
@@ -309,7 +309,7 @@ export default function PlayerLogPage() {
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
               {filtered.map((entry) => (
                 <div
                   key={entry.id}
