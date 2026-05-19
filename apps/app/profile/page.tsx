@@ -112,7 +112,10 @@ export default function ProfilePage() {
     stats.total > 0 ? Math.round((stats.wins / stats.total) * 100) : 0;
 
   return (
-    <div className="flex-1 overflow-y-auto px-4 pt-6 pb-24 bg-bg-page">
+    <div className="flex-1 overflow-y-auto px-4 pt-6 pb-24 bg-bg-page max-w-4xl mx-auto w-full">
+      <div className="lg:grid lg:grid-cols-[280px_1fr] lg:gap-8 lg:items-start">
+      {/* Left column — avatar + balance + actions */}
+      <div className="lg:sticky lg:top-6">
       {/* Avatar + address */}
       <div className="flex flex-col items-center mb-6">
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/30 to-primary/5 border border-primary/20 flex items-center justify-center text-2xl font-bold font-display text-primary mb-3">
@@ -307,38 +310,12 @@ export default function ProfilePage() {
         </div>
       )}
 
-      {/* Separator */}
-      <div className="border-t border-black/5 mb-5" />
-
-      {/* Game stats */}
-      <div className="grid grid-cols-3 gap-2 mb-5">
-        {[
-          { label: "Games", value: stats.total },
-          { label: "Wins", value: stats.wins },
-          { label: "Win Rate", value: `${winRate}%` },
-        ].map(({ label, value }) => (
-          <div
-            key={label}
-            className="bg-bg-card rounded-2xl p-3 text-center shadow-sm"
-          >
-            <p className="text-text-primary font-bold font-display text-lg">
-              {value}
-            </p>
-            <p className="text-text-secondary text-[10px] font-sans">{label}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Network + Disconnect */}
-      <div className="flex flex-col gap-3">
+      {/* Network + Disconnect — inside left column on desktop */}
+      <div className="hidden lg:flex flex-col gap-3 mt-4">
         <div className="bg-bg-card rounded-2xl shadow-sm p-4 flex items-center justify-between">
           <div>
-            <p className="text-text-primary text-sm font-semibold font-sans">
-              Network
-            </p>
-            <p className="text-text-secondary text-xs font-sans mt-0.5">
-              Celo Mainnet
-            </p>
+            <p className="text-text-primary text-sm font-semibold font-sans">Network</p>
+            <p className="text-text-secondary text-xs font-sans mt-0.5">Celo Mainnet</p>
           </div>
           <span className="w-2 h-2 rounded-full bg-success" />
         </div>
@@ -349,6 +326,50 @@ export default function ProfilePage() {
           Disconnect Wallet
         </button>
       </div>
+      </div>{/* end left column */}
+
+      {/* Right column — stats + network/disconnect on mobile */}
+      <div>
+        {/* Separator mobile only */}
+        <div className="lg:hidden border-t border-black/5 mb-5" />
+
+        {/* Game stats */}
+        <div className="grid grid-cols-3 gap-2 mb-5">
+          {[
+            { label: "Games", value: stats.total },
+            { label: "Wins", value: stats.wins },
+            { label: "Win Rate", value: `${winRate}%` },
+          ].map(({ label, value }) => (
+            <div
+              key={label}
+              className="bg-bg-card rounded-2xl p-3 text-center shadow-sm"
+            >
+              <p className="text-text-primary font-bold font-display text-lg">
+                {value}
+              </p>
+              <p className="text-text-secondary text-[10px] font-sans">{label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Network + Disconnect — mobile only */}
+        <div className="lg:hidden flex flex-col gap-3">
+          <div className="bg-bg-card rounded-2xl shadow-sm p-4 flex items-center justify-between">
+            <div>
+              <p className="text-text-primary text-sm font-semibold font-sans">Network</p>
+              <p className="text-text-secondary text-xs font-sans mt-0.5">Celo Mainnet</p>
+            </div>
+            <span className="w-2 h-2 rounded-full bg-success" />
+          </div>
+          <button
+            onClick={logout}
+            className="w-full py-3 rounded-2xl border border-error/30 text-error text-sm font-semibold font-sans transition-all hover:bg-error/10 hover:border-error/60 active:scale-[0.98] active:opacity-70"
+          >
+            Disconnect Wallet
+          </button>
+        </div>
+      </div>{/* end right column */}
+      </div>{/* end grid */}
     </div>
   );
 }
