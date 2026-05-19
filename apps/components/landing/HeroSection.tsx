@@ -1,32 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
+import { HeroReveal, FloatingCard, AnimatedTimerBar, GlowOrbs } from "./HeroAnimated";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-dot-grid">
-      {/* Background glow effects */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] rounded-full bg-[var(--color-glow-green)] blur-[120px] lg:blur-[160px] opacity-60" />
-        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-[var(--color-glow-gold)] blur-[100px] opacity-40" />
-        <div className="absolute bottom-0 left-1/2 w-[500px] h-[300px] lg:w-[700px] lg:h-[400px] -translate-x-1/2 rounded-full bg-[var(--color-glow-red)] blur-[120px] opacity-20" />
-      </div>
+      {/* Animated glow orbs */}
+      <GlowOrbs />
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 xl:pt-48 xl:pb-40">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[55fr_45fr] xl:grid-cols-[58fr_42fr] gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center">
           {/* Left: Content */}
           <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-            <div className="hero-fade-1"><HeroEyebrow /></div>
-            <div className="hero-fade-2"><HeroHeadline /></div>
-            <div className="hero-fade-3"><HeroSubtitle /></div>
-            <div className="hero-fade-4"><HeroCTA /></div>
-            <div className="hero-fade-5"><HeroStats /></div>
+            <HeroReveal index={0}><HeroEyebrow /></HeroReveal>
+            <HeroReveal index={1}><HeroHeadline /></HeroReveal>
+            <HeroReveal index={2}><HeroSubtitle /></HeroReveal>
+            <HeroReveal index={3}><HeroCTA /></HeroReveal>
+            <HeroReveal index={4}><HeroStats /></HeroReveal>
           </div>
 
-          {/* Right: Visual */}
-          <div className="hero-fade-3 flex justify-center md:justify-end"><HeroVisual /></div>
+          {/* Right: Floating visual */}
+          <div className="flex justify-center md:justify-end">
+            <FloatingCard>
+              <HeroVisual />
+            </FloatingCard>
+          </div>
         </div>
       </div>
 
@@ -149,9 +147,9 @@ function HeroVisual() {
                 PvP Ranked
               </span>
             </div>
-            {/* Timer bar */}
+            {/* Animated timer bar */}
             <div className="h-1 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
-              <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-primary to-secondary" />
+              <AnimatedTimerBar />
             </div>
           </div>
 
@@ -204,7 +202,7 @@ function HeroVisual() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
