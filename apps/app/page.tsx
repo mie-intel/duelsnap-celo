@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LandingNav from "../components/landing/LandingNav";
 import HeroSection from "../components/landing/HeroSection";
+import { ActivityTicker } from "../components/landing/ActivityTicker";
 import StatsSection from "../components/landing/StatsSection";
 import HowItWorksSection from "../components/landing/HowItWorksSection";
 import GameModesSection from "../components/landing/GameModesSection";
@@ -32,6 +33,7 @@ export default function LandingPage() {
     <div className="w-full min-h-[100dvh] bg-bg-page">
       <LandingNav />
       <HeroSection />
+      <ActivityTicker />
       <StatsSection />
       <HowItWorksSection />
       <GameModesSection />
