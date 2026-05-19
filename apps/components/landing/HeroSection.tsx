@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HeroReveal, FloatingCard, AnimatedTimerBar, GlowOrbs } from "./HeroAnimated";
+import { HeroReveal, FloatingCard, AnimatedTimerBar, GlowOrbs, MagneticButton } from "./HeroAnimated";
 
 export default function HeroSection() {
   return (
@@ -81,13 +81,13 @@ function HeroSubtitle() {
 function HeroCTA() {
   return (
     <div className="flex flex-col sm:flex-row gap-3">
-      <Link
+      <MagneticButton
         href="/play"
-        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-text-inverse font-bold text-base hover:bg-primary-dark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[48px]"
+        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-text-inverse font-bold text-base hover:bg-primary-dark transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[48px]"
       >
         Start Playing Free
         <span aria-hidden className="ml-0.5">→</span>
-      </Link>
+      </MagneticButton>
       <Link
         href="/pvp/lobby"
         className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-[var(--color-border-mid)] bg-[var(--color-surface-1)] text-text-primary font-semibold text-base hover:bg-[var(--color-surface-2)] hover:border-[var(--color-border-mid)] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[48px]"
