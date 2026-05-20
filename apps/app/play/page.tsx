@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { useWallet } from "../../hooks/useWallet";
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
@@ -12,9 +13,11 @@ import {
   SwordsIcon,
   CameraIcon,
 } from "../../components/icons";
+import { MatchmakingWidget } from "../../components/matchmaking/MatchmakingWidget";
 
 export default function PlayPage() {
   const { address, isConnected, isReady, login } = useWallet();
+  const [showMatchmaking, setShowMatchmaking] = useState(false);
 
   return (
     <div className="flex flex-col flex-1 bg-bg-page">
@@ -160,7 +163,11 @@ export default function PlayPage() {
             </Card>
           </Link>
 
-          <Link href="/pvp/lobby" className="block">
+          <button
+            type="button"
+            onClick={() => isConnected && setShowMatchmaking(true)}
+            className="block w-full text-left"
+          >
             <Card
               className="border border-transparent hover:border-accent-pvp transition-colors"
               style={
@@ -196,7 +203,12 @@ export default function PlayPage() {
                 <span className="text-text-secondary">›</span>
               </div>
             </Card>
-          </Link>
+          </button>
+
+          {/* Matchmaking overlay */}
+          {showMatchmaking && (
+            <MatchmakingWidget />
+          )}
 
           <Link href="/contribute" className="block">
             <Card
