@@ -6,6 +6,10 @@ const casualPoolAddress = process.env
   .NEXT_PUBLIC_CASUAL_POOL_ADDRESS as Address;
 const gameSessionAddress = process.env
   .NEXT_PUBLIC_GAME_SESSION_ADDRESS as Address;
+const cusdAddress = (process.env.NEXT_PUBLIC_CUSD_ADDRESS ??
+  "0x765DE816845861e75A25fCA122bb6898B8B1282a") as Address; // Celo mainnet cUSD
+
+export const CUSD_ADDRESS = cusdAddress;
 
 export const questionPoolAbi = [
   {
@@ -151,6 +155,54 @@ export const casualPoolAbi = [
     inputs: [{ name: "", type: "address" }],
     outputs: [{ name: "", type: "uint256" }],
     stateMutability: "view",
+  },
+  // V3 — cUSD payment path
+  {
+    type: "function",
+    name: "payAndPlayCUSD",
+    inputs: [{ name: "questionIds", type: "uint256[]" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "withdrawRoyaltyCUSD",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "pendingRoyaltyCUSD",
+    inputs: [{ name: "", type: "address" }],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "feeAmountCUSD",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "setCUSD",
+    inputs: [
+      { name: "_cUSD", type: "address" },
+      { name: "_feeAmountCUSD", type: "uint256" },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "event",
+    name: "CasualFeePaidCUSD",
+    inputs: [
+      { name: "player", type: "address", indexed: true },
+      { name: "amount", type: "uint256", indexed: false },
+      { name: "questionIds", type: "uint256[]", indexed: false },
+    ],
   },
   {
     type: "function",
