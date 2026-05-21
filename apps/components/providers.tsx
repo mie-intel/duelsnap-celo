@@ -5,6 +5,9 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { PrivyProvider } from "@privy-io/react-auth";
 import { celo } from "../lib/chains";
 import { wagmiConfig } from "../lib/wagmi/config";
+import { ToastProvider, ToastContainer } from "./ui/toast";
+import { OnboardingProvider } from "./onboarding";
+import OnboardingModal from "./onboarding/OnboardingModal";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +35,13 @@ export default function Providers({ children }: { children: React.ReactNode }) {
             },
           }}
         >
-          {children}
+          <ToastProvider>
+            <OnboardingProvider>
+              {children}
+              <OnboardingModal />
+            </OnboardingProvider>
+            <ToastContainer />
+          </ToastProvider>
         </PrivyProvider>
       </QueryClientProvider>
     </WagmiProvider>
