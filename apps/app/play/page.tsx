@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useWallet } from "../../hooks/useWallet";
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
@@ -12,9 +14,23 @@ import {
   SwordsIcon,
   CameraIcon,
 } from "../../components/icons";
+import { CategoryPickerModal } from "../../components/category-picker/CategoryPickerModal";
+import type { Difficulty } from "../../components/category-picker/types";
 
 export default function PlayPage() {
   const { address, isConnected, isReady, login } = useWallet();
+  const router = useRouter();
+  const [showCategoryPicker, setShowCategoryPicker] = useState(false);
+  const [pickerMode, setPickerMode] = useState<"free" | "paid">("free");
+
+  function openPicker(mode: "free" | "paid") {
+    setPickerMode(mode);
+    setShowCategoryPicker(true);
+  }
+
+  function handleConfirm(category: string, difficulty: Difficulty) {
+    router.push(`/casual?mode=${pickerMode}&category=${category}&difficulty=${difficulty}`);
+  }
 
   return (
     <div className="flex flex-col flex-1 bg-bg-page">
@@ -84,7 +100,7 @@ export default function PlayPage() {
 
         {/* Game Mode Cards — 1-col mobile, 2-col desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
-          <Link href="/casual" className="block">
+          <div className="block cursor-pointer" onClick={() => openPicker("free")}>
             <Card
               className="border border-transparent hover:border-accent-free transition-colors"
               style={
@@ -120,9 +136,9 @@ export default function PlayPage() {
                 <span className="text-text-secondary">›</span>
               </div>
             </Card>
-          </Link>
+          </div>
 
-          <Link href="/casual?mode=paid" className="block">
+          <div className="block cursor-pointer" onClick={() => openPicker("paid")}>
             <Card
               className="border border-transparent hover:border-accent-paid transition-colors"
               style={
@@ -158,7 +174,7 @@ export default function PlayPage() {
                 <span className="text-text-secondary">›</span>
               </div>
             </Card>
-          </Link>
+          </div>
 
           <Link href="/pvp/lobby" className="block">
             <Card
@@ -236,6 +252,13 @@ export default function PlayPage() {
           </Button>
         )}
       </main>
+
+      <CategoryPickerModal
+        isOpen={showCategoryPicker}
+        onClose={() => setShowCategoryPicker(false)}
+        onConfirm={handleConfirm}
+        mode={pickerMode}
+      />
     </div>
   );
 }
