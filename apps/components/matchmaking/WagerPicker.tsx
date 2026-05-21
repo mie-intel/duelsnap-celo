@@ -29,20 +29,13 @@ export function WagerPicker({ selected, onChange }: WagerPickerProps) {
               onClick={() => onChange(opt.value)}
               whileTap={{ scale: 0.96, y: 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className={`flex flex-col items-center py-3 px-2 rounded-2xl border transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
+              className={`relative flex flex-col items-center py-3 px-2 rounded-2xl border transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
                 isActive
                   ? "bg-secondary/10 border-secondary/50 shadow-[0_0_12px_rgba(251,204,92,0.15)]"
                   : "bg-surface-1 border-border-subtle hover:border-border-mid hover:bg-surface-2"
               }`}
               aria-pressed={isActive}
             >
-              {isActive && (
-                <motion.div
-                  layoutId="wager-active"
-                  className="absolute inset-0 rounded-2xl bg-secondary/8"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
               <span
                 className={`font-display font-bold text-lg relative z-10 ${
                   isActive ? "text-secondary" : "text-text-primary"

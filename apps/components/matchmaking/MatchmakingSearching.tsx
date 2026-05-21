@@ -6,28 +6,19 @@ import { motion } from "framer-motion";
 const RadarPulse = memo(function RadarPulse() {
   return (
     <div className="relative w-32 h-32 mx-auto">
-      {/* Outer rings */}
       {[0, 1, 2].map((i) => (
         <motion.div
           key={i}
           className="absolute inset-0 rounded-full border border-primary/30"
           animate={{ scale: [1, 1.8, 1.8], opacity: [0.6, 0, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 2,
-            delay: i * 0.65,
-            ease: "easeOut",
-          }}
+          transition={{ repeat: Infinity, duration: 2, delay: i * 0.65, ease: "easeOut" }}
         />
       ))}
-
-      {/* Core circle */}
       <motion.div
         className="absolute inset-4 rounded-full bg-primary/10 border border-primary/40 flex items-center justify-center"
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       >
-        {/* Swords icon center */}
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -57,14 +48,11 @@ interface MatchmakingSearchingProps {
   onCancel: () => void;
 }
 
-export function MatchmakingSearching({
-  elapsed,
-  wager,
-  onCancel,
-}: MatchmakingSearchingProps) {
+export function MatchmakingSearching({ elapsed, wager, onCancel }: MatchmakingSearchingProps) {
   const mins = Math.floor(elapsed / 60);
   const secs = elapsed % 60;
-  const elapsedLabel = mins > 0 ? `${mins}:${String(secs).padStart(2, "0")}` : `${secs}s`;
+  const elapsedLabel =
+    mins > 0 ? `${mins}:${String(secs).padStart(2, "0")}` : `${secs}s`;
 
   return (
     <motion.div
@@ -76,7 +64,6 @@ export function MatchmakingSearching({
       className="flex flex-col items-center gap-6 py-4"
     >
       <RadarPulse />
-
       <div className="text-center space-y-1">
         <h2 className="font-display font-bold text-xl text-text-primary">
           Finding Opponent…
@@ -85,20 +72,14 @@ export function MatchmakingSearching({
           Wager: <span className="text-secondary font-bold">{wager} CELO</span>
         </p>
       </div>
-
-      {/* Elapsed timer */}
       <div className="flex items-center gap-2">
         <motion.div
           className="w-2 h-2 rounded-full bg-primary"
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
         />
-        <span className="font-mono text-sm text-text-secondary">
-          {elapsedLabel}
-        </span>
+        <span className="font-mono text-sm text-text-secondary">{elapsedLabel}</span>
       </div>
-
-      {/* Cancel */}
       <button
         type="button"
         onClick={onCancel}

@@ -20,7 +20,6 @@ export function MatchmakingIdle({ onStart }: MatchmakingIdleProps) {
       transition={{ type: "spring", stiffness: 200, damping: 22 }}
       className="space-y-6"
     >
-      {/* Header */}
       <div>
         <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
           PvP Ranked
@@ -33,18 +32,13 @@ export function MatchmakingIdle({ onStart }: MatchmakingIdleProps) {
         </p>
       </div>
 
-      {/* Wager picker */}
       <WagerPicker selected={wager} onChange={setWager} />
 
-      {/* Summary row */}
       <div className="flex items-center justify-between rounded-2xl border border-border-subtle bg-surface-1 px-4 py-3">
         <span className="text-text-secondary text-sm font-sans">You wager</span>
-        <span className="font-display font-bold text-secondary">
-          {wager} CELO
-        </span>
+        <span className="font-display font-bold text-secondary">{wager} CELO</span>
       </div>
 
-      {/* Find button */}
       <motion.button
         type="button"
         onClick={() => onStart(wager)}

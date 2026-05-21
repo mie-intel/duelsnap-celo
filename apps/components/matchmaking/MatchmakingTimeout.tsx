@@ -17,7 +17,6 @@ export function MatchmakingTimeout({ onRetry, onCancel }: MatchmakingTimeoutProp
       transition={{ type: "spring", stiffness: 200, damping: 22 }}
       className="flex flex-col items-center gap-6 py-4 text-center"
     >
-      {/* Icon */}
       <div className="w-16 h-16 rounded-[1.5rem] bg-error/10 border border-error/30 flex items-center justify-center">
         <svg
           viewBox="0 0 24 24"
@@ -33,16 +32,14 @@ export function MatchmakingTimeout({ onRetry, onCancel }: MatchmakingTimeoutProp
           <line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
       </div>
-
       <div className="space-y-1.5 max-w-[240px]">
         <h2 className="font-display font-bold text-xl text-text-primary">
           No Opponents Found
         </h2>
         <p className="text-text-secondary text-sm font-sans leading-relaxed">
-          Couldn't find a match in time. Try again or check back later.
+          Could not find a match in time. Try again or check back later.
         </p>
       </div>
-
       <div className="flex flex-col gap-2 w-full">
         <motion.button
           type="button"

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { OpponentInfo } from "../../app/useMatchmaking";
+import type { OpponentInfo } from "../../hooks/useMatchmaking";
 
 interface OpponentCardProps {
   opponent: OpponentInfo;
@@ -21,11 +21,9 @@ export function OpponentCard({ opponent }: OpponentCardProps) {
       style={{ boxShadow: "0 0 20px rgba(53,208,127,0.12)" }}
     >
       <div className="flex items-center gap-3">
-        {/* Avatar */}
         <div className="w-12 h-12 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center font-display font-bold text-primary text-base shrink-0">
           {initials}
         </div>
-
         <div className="flex-1 min-w-0">
           <p className="font-mono text-sm font-medium text-text-primary truncate">
             {opponent.address}
@@ -37,8 +35,6 @@ export function OpponentCard({ opponent }: OpponentCardProps) {
             </span>
           </div>
         </div>
-
-        {/* Ready badge */}
         <div className="px-2.5 py-1 rounded-full bg-primary/15 border border-primary/30 shrink-0">
           <span className="text-[10px] font-bold font-sans uppercase tracking-wider text-primary">
             Ready
@@ -46,7 +42,6 @@ export function OpponentCard({ opponent }: OpponentCardProps) {
         </div>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-3 gap-2 text-center">
         <div>
           <p className="font-display font-bold text-base text-primary">{opponent.wins}</p>
@@ -57,14 +52,11 @@ export function OpponentCard({ opponent }: OpponentCardProps) {
           <p className="text-[10px] text-text-secondary font-sans">Losses</p>
         </div>
         <div>
-          <p className="font-display font-bold text-base text-secondary">
-            {opponent.winRate}%
-          </p>
+          <p className="font-display font-bold text-base text-secondary">{opponent.winRate}%</p>
           <p className="text-[10px] text-text-secondary font-sans">Win Rate</p>
         </div>
       </div>
 
-      {/* Win rate bar */}
       <div className="space-y-1">
         <div className="h-1.5 rounded-full bg-surface-2 overflow-hidden">
           <motion.div
