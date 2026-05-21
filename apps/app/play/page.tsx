@@ -16,12 +16,14 @@ import {
 } from "../../components/icons";
 import { CategoryPickerModal } from "../../components/category-picker/CategoryPickerModal";
 import type { Difficulty } from "../../components/category-picker/types";
+import { MatchmakingWidget } from "../../components/matchmaking/MatchmakingWidget";
 
 export default function PlayPage() {
   const { address, isConnected, isReady, login } = useWallet();
   const router = useRouter();
   const [showCategoryPicker, setShowCategoryPicker] = useState(false);
   const [pickerMode, setPickerMode] = useState<"free" | "paid">("free");
+  const [showMatchmaking, setShowMatchmaking] = useState(false);
 
   function openPicker(mode: "free" | "paid") {
     setPickerMode(mode);
@@ -176,7 +178,10 @@ export default function PlayPage() {
             </Card>
           </div>
 
-          <Link href="/pvp/lobby" className="block">
+          <div
+            className="block cursor-pointer"
+            onClick={() => isConnected && setShowMatchmaking(true)}
+          >
             <Card
               className="border border-transparent hover:border-accent-pvp transition-colors"
               style={
@@ -212,7 +217,7 @@ export default function PlayPage() {
                 <span className="text-text-secondary">›</span>
               </div>
             </Card>
-          </Link>
+          </div>
 
           <Link href="/contribute" className="block">
             <Card
@@ -252,6 +257,10 @@ export default function PlayPage() {
           </Button>
         )}
       </main>
+
+      {showMatchmaking && (
+        <MatchmakingWidget />
+      )}
 
       <CategoryPickerModal
         isOpen={showCategoryPicker}

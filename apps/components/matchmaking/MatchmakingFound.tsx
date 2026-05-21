@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { OpponentInfo } from "../../app/useMatchmaking";
+import type { OpponentInfo } from "../../hooks/useMatchmaking";
 import { OpponentCard } from "./OpponentCard";
 
 interface MatchmakingFoundProps {
@@ -19,7 +19,6 @@ export function MatchmakingFound({ opponent, wager }: MatchmakingFoundProps) {
       transition={{ type: "spring", stiffness: 200, damping: 22 }}
       className="space-y-5"
     >
-      {/* Header */}
       <div className="text-center">
         <motion.p
           className="text-xs font-bold uppercase tracking-widest text-primary mb-1"
@@ -39,10 +38,8 @@ export function MatchmakingFound({ opponent, wager }: MatchmakingFoundProps) {
         </motion.h2>
       </div>
 
-      {/* Opponent card */}
       <OpponentCard opponent={opponent} />
 
-      {/* Wager confirmation */}
       <motion.div
         className="flex items-center justify-between rounded-2xl border border-secondary/30 bg-secondary/5 px-4 py-3"
         initial={{ opacity: 0 }}
@@ -53,7 +50,6 @@ export function MatchmakingFound({ opponent, wager }: MatchmakingFoundProps) {
         <span className="font-display font-bold text-secondary">{wager} CELO</span>
       </motion.div>
 
-      {/* Auto-starting indicator */}
       <motion.p
         className="text-center text-text-secondary text-xs font-sans"
         animate={{ opacity: [0.4, 1, 0.4] }}

@@ -23,16 +23,12 @@ export function MatchmakingCountdown({ countdown }: MatchmakingCountdownProps) {
       <p className="text-xs font-bold uppercase tracking-widest text-text-secondary/60">
         Duel starting
       </p>
-
-      {/* Big countdown number */}
       <div className="relative h-40 flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.span
             key={label}
             className={`font-display font-bold select-none ${
-              isFight
-                ? "text-6xl text-primary"
-                : "text-[7rem] leading-none text-text-primary"
+              isFight ? "text-6xl text-primary" : "text-[7rem] leading-none text-text-primary"
             }`}
             initial={{ opacity: 0, scale: 2.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -48,8 +44,6 @@ export function MatchmakingCountdown({ countdown }: MatchmakingCountdownProps) {
           </motion.span>
         </AnimatePresence>
       </div>
-
-      {/* Tick indicators */}
       <div className="flex gap-2">
         {[3, 2, 1].map((tick) => (
           <motion.div
