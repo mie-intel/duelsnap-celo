@@ -3,11 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { GamepadIcon, CameraIcon, UserIcon, LogIcon } from './icons';
+import { GamepadIcon, CameraIcon, UserIcon, LogIcon, TrophyIcon } from './icons';
 
 const tabs = [
   { href: '/play', label: 'Play', Icon: GamepadIcon },
-  { href: '/contribute', label: 'Contribute', Icon: CameraIcon },
+  { href: '/leaderboard', label: 'Leaderboard', Icon: TrophyIcon },
   { href: '/activity', label: 'Activity', Icon: LogIcon },
   { href: '/profile', label: 'Profile', Icon: UserIcon },
 ];

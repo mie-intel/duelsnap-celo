@@ -7,3 +7,4 @@ export { LogIcon } from './LogIcon';
 export { CheckCircleIcon } from './CheckCircleIcon';
 export { XCircleIcon } from './XCircleIcon';
 export { AlertIcon } from './AlertIcon';
+export { TrophyIcon } from './TrophyIcon';
