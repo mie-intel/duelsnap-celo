@@ -1,6 +1,10 @@
 # DuelSnap — Design System
 
-Last updated: 2026-05-18
+Last updated: 2026-05-20
+
+## New Sections Added (2026-05-20)
+- Leaderboard page (`/leaderboard`) — PRs #90–#102
+- Matchmaking UI (play page PvP card) — PRs #103–#113
 
 ## Aesthetic Direction
 
