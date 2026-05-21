@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LeaderboardClient } from "../../components/leaderboard/LeaderboardClient";
 
 export const metadata: Metadata = {
   title: "Leaderboard — DuelSnap",
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
 export default function LeaderboardPage() {
   return (
     <div className="flex flex-col flex-1 bg-bg-page">
-      <main className="flex-1 px-5 py-8 pb-24 lg:py-10 max-w-4xl mx-auto w-full">
-        <div className="mb-8">
+      <main className="flex-1 px-5 py-8 pb-36 lg:pb-24 lg:py-10 max-w-4xl mx-auto w-full">
+        <div className="mb-6">
           <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
             Rankings
           </p>
@@ -21,11 +22,7 @@ export default function LeaderboardPage() {
           </p>
         </div>
 
-        {/* Content slots — filled by subsequent PRs */}
-        <div className="space-y-4">
-          <div className="h-40 rounded-[2rem] bg-surface-1 border border-border-subtle animate-pulse" />
-          <div className="h-96 rounded-[2rem] bg-surface-1 border border-border-subtle animate-pulse" />
-        </div>
+        <LeaderboardClient />
       </main>
     </div>
   );
