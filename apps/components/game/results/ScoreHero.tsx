@@ -19,21 +19,17 @@ export default function ScoreHero({ correct, total }: ScoreHeroProps) {
   const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
   const { label, color, glowColor } = getVerdict(pct);
 
-  // Count-up for correct score
   const [displayCount, setDisplayCount] = useState(0);
 
   useEffect(() => {
     if (correct === 0) return;
-    let start = 0;
-    const duration = 900; // ms
+    const duration = 900;
     const startTime = performance.now();
     const tick = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOut cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      start = Math.round(eased * correct);
-      setDisplayCount(start);
+      setDisplayCount(Math.round(eased * correct));
       if (progress < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -46,31 +42,22 @@ export default function ScoreHero({ correct, total }: ScoreHeroProps) {
       transition={{ type: 'spring', stiffness: 260, damping: 22 }}
       className="relative flex flex-col items-center justify-center text-center px-6 py-8 rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)] overflow-hidden"
     >
-      {/* Radial glow background */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `radial-gradient(ellipse at 50% 30%, ${glowColor} 0%, transparent 70%)`,
-        }}
+        style={{ background: \`radial-gradient(ellipse at 50% 30%, \${glowColor} 0%, transparent 70%)\` }}
       />
-
-      {/* Score */}
       <p className="relative font-display font-bold text-[4.5rem] leading-none text-[var(--color-text-primary)] tabular-nums">
         <span className="text-primary">{displayCount}</span>
         <span className="text-[var(--color-text-secondary)] text-4xl">/{total}</span>
       </p>
-
-      {/* Percentage */}
       <p className="relative font-mono text-sm text-[var(--color-text-secondary)] mt-1 tabular-nums">
         {pct}% accuracy
       </p>
-
-      {/* Verdict */}
       <motion.p
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.4 }}
-        className={`relative font-display font-semibold text-xl mt-3 ${color}`}
+        className={\`relative font-display font-semibold text-xl mt-3 \${color}\`}
       >
         {label}
       </motion.p>

@@ -4,6 +4,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import QuestionCard from './QuestionCard';
 import TimerBar from './TimerBar';
 import GameResults from './GameResults';
+import GameResultsV2 from './GameResultsV2';
 import Spinner from '../ui/Spinner';
 
 export interface Question {
@@ -94,8 +95,10 @@ export default function GameEngine({
   }, [submitAnswer]);
 
   if (done) {
+    // GameResults kept as reference (unused — replaced by GameResultsV2)
+    void GameResults;
     return (
-      <GameResults
+      <GameResultsV2
         results={results}
         mode={mode}
         onHome={onHome}
