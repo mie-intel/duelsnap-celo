@@ -1,4 +1,4 @@
-This is the [Next.js](https://nextjs.org) frontend for DuelPic — a Social-GameFi picture-guessing platform on Base Sepolia.
+This is the [Next.js](https://nextjs.org) frontend for DuelSnap — a MiniPay-ready picture-guessing PvP game on Celo Mainnet.
 
 ## Getting Started
 
@@ -24,16 +24,13 @@ The app auto-updates as you edit files in `app/`, `components/`, and `hooks/`.
 Create `.env.local` with:
 
 ```env
-NEXT_PUBLIC_CHAIN_ID=84532
+NEXT_PUBLIC_CHAIN_ID=42220
 AI_FAILS_AS_ERROR=false
-NEXT_PUBLIC_MOCK_IDRX_ADDRESS=0x24C290e0c36661bAf3e2c75832dE591eD11D3bFd
-NEXT_PUBLIC_QUESTION_POOL_ADDRESS=0x8189Ae321e79Daf6b7db6e7c2429240A39B730a7
-NEXT_PUBLIC_CASUAL_POOL_ADDRESS=0xa3D7411BbC6E44F8e67acA4745c2Cca68fCfe77b
-NEXT_PUBLIC_GAME_SESSION_ADDRESS=0x4aC8A9BE144FFfA0cB91dFB481437CCEe75A9F8F
-NEXT_PUBLIC_PAYMENT_TOKEN_ADDRESS=0x24C290e0c36661bAf3e2c75832dE591eD11D3bFd
-DEPLOYER_PRIVATE_KEY=....
+NEXT_PUBLIC_QUESTION_POOL_ADDRESS=0x9F80612d1621a92D2F14B4246BDAea33CFAb51d6
+NEXT_PUBLIC_CASUAL_POOL_ADDRESS=0x839fdf32e45A116EeFcFE3b1C4F892056057465c
+NEXT_PUBLIC_GAME_SESSION_ADDRESS=0xBf63ace11D191102D9655aE2F067Ce485289881E
+NEXT_PUBLIC_CUSD_ADDRESS=0x765DE816845861e75A25fCA122bb6898B8B1282a
 
-FAUCET_PRIVATE_KEY=....
 NEXT_PUBLIC_PRIVY_APP_ID=....
 GEMINI_API_KEY=....
 UPSTASH_REDIS_REST_URL=https://musical-gibbon-104311.upstash.io
@@ -45,27 +42,26 @@ PRIVY_APP_SECRET=....
 
 - **Framework:** Next.js 16 + App Router
 - **Styling:** TailwindCSS v4
-- **Web3:** wagmi + viem + Privy + Base Account SDK
+- **Web3:** wagmi + viem + Privy + MiniPay-compatible Celo wallets
 - **State:** @tanstack/react-query
 - **Backend:** Next.js API routes (Node.js)
 - **Caching:** Upstash Redis
 - **Storage:** IPFS via Pinata
 - **AI:** Google Gemini 2.5 Flash
-- **Blockchain:** Base Sepolia (EVM)
+- **Blockchain:** Celo Mainnet (EVM)
 
 ## Deployment & Smart Contracts
 
-**Live Deployment:** https://duelpic-base.vercel.app
+**Live Deployment:** https://duelsnap-celo.vercel.app
 
-**Smart Contract Addresses (Base Sepolia):**
+**Smart Contract Addresses (Celo Mainnet):**
 
-| Contract                 | Address                                      | Block Explorer                                                                                      |
-| ------------------------ | -------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Mock IDRX Token          | `0x24C290e0c36661bAf3e2c75832dE591eD11D3bFd` | [View on BaseScan](https://sepolia.basescan.org/address/0x24C290e0c36661bAf3e2c75832dE591eD11D3bFd) |
-| Question Pool            | `0x8189Ae321e79Daf6b7db6e7c2429240A39B730a7` | [View on BaseScan](https://sepolia.basescan.org/address/0x8189Ae321e79Daf6b7db6e7c2429240A39B730a7) |
-| Casual Pool              | `0xa3D7411BbC6E44F8e67acA4745c2Cca68fCfe77b` | [View on BaseScan](https://sepolia.basescan.org/address/0xa3D7411BbC6E44F8e67acA4745c2Cca68fCfe77b) |
-| Game Session             | `0x4aC8A9BE144FFfA0cB91dFB481437CCEe75A9F8F` | [View on BaseScan](https://sepolia.basescan.org/address/0x4aC8A9BE144FFfA0cB91dFB481437CCEe75A9F8F) |
-| Payment Token (Mock USD) | `0x24C290e0c36661bAf3e2c75832dE591eD11D3bFd` | [View on BaseScan](https://sepolia.basescan.org/address/0x24C290e0c36661bAf3e2c75832dE591eD11D3bFd) |
+| Contract | Address | Block Explorer |
+| --- | --- | --- |
+| Question Pool | `0x9F80612d1621a92D2F14B4246BDAea33CFAb51d6` | [View on CeloScan](https://celoscan.io/address/0x9F80612d1621a92D2F14B4246BDAea33CFAb51d6) |
+| Casual Pool | `0x839fdf32e45A116EeFcFE3b1C4F892056057465c` | [View on CeloScan](https://celoscan.io/address/0x839fdf32e45A116EeFcFE3b1C4F892056057465c) |
+| Game Session | `0xBf63ace11D191102D9655aE2F067Ce485289881E` | [View on CeloScan](https://celoscan.io/address/0xBf63ace11D191102D9655aE2F067Ce485289881E) |
+| cUSD | `0x765DE816845861e75A25fCA122bb6898B8B1282a` | [View on CeloScan](https://celoscan.io/address/0x765DE816845861e75A25fCA122bb6898B8B1282a) |
 
 ## Scripts
 
@@ -80,6 +76,6 @@ npm run seed          # Seed questions from seed-data/
 
 ## Deployment
 
-Deploy to Vercel with Base Sepolia contract addresses in environment variables.
+Deploy to Vercel with Celo Mainnet contract addresses in environment variables.
 
-See parent [README.md](../README.md) for DuelPic overview.
+See parent [README.md](../README.md) for DuelSnap overview.
