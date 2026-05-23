@@ -59,6 +59,12 @@ export default function XPGained({ correct, total, mode }: XPGainedProps) {
         {mode === 'paid' && <span className="text-secondary font-medium">+20 bonus for paid mode</span>}
         <span>{total - correct} missed × 0 XP</span>
       </div>
+      <div className="flex items-center gap-1.5 pt-2 border-t border-[var(--color-border-subtle)]">
+        <span className="w-1 h-1 rounded-full bg-secondary animate-pulse" />
+        <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/50 uppercase tracking-widest">
+          On Celo · Carbon-neutral game
+        </span>
+      </div>
     </motion.div>
   );
 }

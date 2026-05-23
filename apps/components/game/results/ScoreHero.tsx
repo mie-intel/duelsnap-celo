@@ -61,6 +61,15 @@ export default function ScoreHero({ correct, total }: ScoreHeroProps) {
       >
         {label}
       </motion.p>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="relative flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-primary/8 border border-primary/15"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Celo Mainnet · Verified</span>
+      </motion.div>
     </motion.div>
   );
 }
