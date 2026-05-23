@@ -113,6 +113,18 @@ export default function GameEngine({
 
   return (
     <div className="flex flex-col flex-1 px-5 py-4 gap-4 bg-bg-page max-w-4xl mx-auto w-full">
+      {/* Chain indicator row */}
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-mono text-text-secondary/30 uppercase tracking-widest">
+          Question {index + 1}/{questions.length}
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[10px] font-mono text-text-secondary/30 uppercase tracking-widest">
+            Celo · {mode === 'paid' ? '0.01 CELO' : 'Free'}
+          </span>
+        </span>
+      </div>
       <TimerBar
         durationMs={secondsPerQuestion * 1000}
         onExpire={handleExpire}
