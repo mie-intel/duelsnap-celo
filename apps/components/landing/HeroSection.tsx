@@ -51,6 +51,13 @@ function HeroEyebrow() {
           No signup · No deposit · Open source
         </span>
       </div>
+      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)] w-fit">
+        <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3 text-primary" aria-hidden="true">
+          <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M5.5 8a2.5 2.5 0 005 0 2.5 2.5 0 00-5 0z" fill="currentColor" />
+        </svg>
+        <span className="text-xs font-medium text-text-secondary">MiniPay compatible</span>
+      </div>
     </div>
   );
 }
