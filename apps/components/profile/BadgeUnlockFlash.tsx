@@ -126,8 +126,15 @@ export default function BadgeUnlockFlash({ badge, onDone }: BadgeUnlockFlashProp
               </p>
             </div>
 
+            {/* Celo on-chain label */}
+            <div className="flex items-center gap-1.5">
+              <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+              <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/50 uppercase tracking-widest">
+                Earned on Celo Mainnet
+              </span>
+            </div>
             {/* Dismiss hint */}
-            <p className="text-[var(--color-text-secondary)] text-[10px] font-sans mt-2">
+            <p className="text-[var(--color-text-secondary)] text-[10px] font-sans">
               Tap anywhere to dismiss
             </p>
           </motion.div>
