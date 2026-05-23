@@ -14,20 +14,34 @@ const events = [
   { player: "Chen_W", action: "contributed photo", detail: "AI verified ✓", accent: "var(--color-primary)" },
   { player: "Priya_R", action: "streak", detail: "5/5 correct", accent: "var(--color-secondary)" },
   { player: "Kofi_B", action: "guessed", detail: "Burj Khalifa ✓", accent: "var(--color-primary)" },
+  { player: "Amara_L", action: "tx confirmed on Celo", detail: "0x3f4a...d82c", accent: "var(--color-primary)" },
+  { player: "Davi_S", action: "withdrew royalty", detail: "+0.012 CELO", accent: "var(--color-primary)" },
+  { player: "Hana_W", action: "joined via MiniPay", detail: "instant connect", accent: "var(--color-primary)" },
+  { player: "Omar_F", action: "won 1v1 duel", detail: "+0.87 CELO on-chain", accent: "var(--color-accent-pvp)" },
+  { player: "Noa_T", action: "paid in", detail: "cUSD · fee abstracted", accent: "var(--color-secondary)" },
+  { player: "Zara_K", action: "earned from photo", detail: "Carbon-neutral tx ✓", accent: "var(--color-primary)" },
 ];
 
 const Dot = ({ color }: { color: string }) => (
   <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
 );
 
-const Item = ({ event }: { event: typeof events[0] }) => (
-  <span className="inline-flex items-center gap-2 px-5 text-xs font-sans">
-    <Dot color={event.accent} />
-    <span className="font-semibold text-text-primary">{event.player}</span>
-    <span className="text-text-secondary">{event.action}</span>
-    <span className="font-semibold" style={{ color: event.accent }}>{event.detail}</span>
-  </span>
-);
+const Item = ({ event }: { event: typeof events[0] }) => {
+  const isTxHash = event.detail.startsWith("0x");
+  return (
+    <span className="inline-flex items-center gap-2 px-5 text-xs font-sans">
+      <Dot color={event.accent} />
+      <span className="font-semibold text-text-primary">{event.player}</span>
+      <span className="text-text-secondary">{event.action}</span>
+      <span
+        className={isTxHash ? "font-mono text-[10px] opacity-70" : "font-semibold"}
+        style={{ color: event.accent }}
+      >
+        {event.detail}
+      </span>
+    </span>
+  );
+};
 
 const Separator = () => (
   <span className="text-text-secondary/30 px-3 select-none">·</span>
