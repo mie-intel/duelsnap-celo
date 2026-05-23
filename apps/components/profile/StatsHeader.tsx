@@ -44,8 +44,8 @@ export default function StatsHeader({ address, celoBalance, stats }: StatsHeader
 
         {/* Network badge */}
         <div className="flex items-center gap-1.5 mb-2">
-          <span className="w-2 h-2 rounded-full bg-[var(--color-primary)]" />
-          <span className="text-[var(--color-text-secondary)] text-xs font-sans">Celo Mainnet</span>
+          <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
+          <span className="text-[var(--color-text-secondary)] text-xs font-sans">Celo Mainnet · Chain 42220</span>
         </div>
 
         {/* Address + copy */}
@@ -83,6 +83,27 @@ export default function StatsHeader({ address, celoBalance, stats }: StatsHeader
           {celoFormatted}
         </p>
         <p className="text-[var(--color-text-secondary)] text-[10px] font-sans mt-0.5">CELO</p>
+        {/* Net P&L pill */}
+        {stats.netProfitLoss !== 0 && (
+          <div className={`inline-flex items-center gap-1 mt-2 px-2 py-0.5 rounded-full text-[10px] font-bold font-mono ${
+            stats.netProfitLoss > 0
+              ? "bg-primary/10 text-primary"
+              : "bg-error/10 text-error"
+          }`}>
+            {stats.netProfitLoss > 0 ? "+" : ""}{stats.netProfitLoss.toFixed(3)} CELO net
+          </div>
+        )}
+        {/* Blockscout profile link */}
+        <div className="mt-2">
+          <a
+            href={`https://celo.blockscout.com/address/${address}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] text-text-secondary/50 hover:text-primary transition-colors font-mono"
+          >
+            View on Blockscout ↗
+          </a>
+        </div>
       </div>
 
       {/* 3 quick stats — single card with dividers */}
