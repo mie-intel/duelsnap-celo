@@ -33,13 +33,28 @@ export default function TimerBar({ durationMs, onExpire, resetKey }: TimerBarPro
   }, [resetKey, durationMs]);
 
   const pct = (remaining / durationMs) * 100;
-  const color = pct > 50 ? 'bg-success' : pct > 25 ? 'bg-secondary-dark' : 'bg-error';
+
+  const barColor = pct > 50
+    ? '#35D07F'
+    : pct > 25
+    ? '#FBCC5C'
+    : '#FF4D4D';
+
+  const glowColor = pct > 50
+    ? 'rgba(53,208,127,0.35)'
+    : pct > 25
+    ? 'rgba(251,204,92,0.35)'
+    : 'rgba(255,77,77,0.45)';
 
   return (
-    <div className="w-full h-1.5 bg-bg-page rounded-full overflow-hidden">
+    <div className="w-full h-1.5 bg-surface-2 rounded-full overflow-visible">
       <div
-        className={`h-full rounded-full transition-all ${color}`}
-        style={{ width: `${pct}%` }}
+        className="h-full rounded-full transition-[width,background-color] duration-100"
+        style={{
+          width: `${pct}%`,
+          backgroundColor: barColor,
+          boxShadow: pct < 30 ? `0 0 8px ${glowColor}` : 'none',
+        }}
       />
     </div>
   );
