@@ -9,7 +9,7 @@ const reasons = [
   },
   {
     title: "Pay fees in cUSD",
-    body: "Celo's fee abstraction means users never need to hold CELO just for gas. cUSD covers everything.",
+    body: "Celo's fee abstraction layer (Mento protocol) means users never need to hold CELO just for gas. cUSD covers everything.",
     accent: false,
   },
   {
@@ -54,6 +54,12 @@ export default function CeloSection() {
                 </div>
               </div>
 
+              {/* Network status badge */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-medium text-primary">Celo Mainnet · Active</span>
+              </div>
+
               <div className="text-center">
                 <div className="font-display font-bold text-2xl lg:text-3xl text-primary mb-1">
                   DuelSnap × MiniPay
@@ -84,17 +90,30 @@ export default function CeloSection() {
 
               <div className="w-full grid grid-cols-2 gap-3">
                 {[
-                  { label: "Avg. gas cost", value: "~$0.001" },
-                  { label: "Block time", value: "~5s" },
-                  { label: "Network", value: "Celo L1" },
-                  { label: "Fee tokens", value: "CELO · cUSD" },
+                  { label: "Avg. gas cost", value: "< $0.001", highlight: false },
+                  { label: "Block time", value: "~5s", highlight: true },
+                  { label: "Network", value: "Celo L1", highlight: false },
+                  { label: "Fee tokens", value: "CELO · cUSD", highlight: false },
                 ].map((item) => (
                   <div key={item.label} className="bg-[var(--color-surface-2)] rounded-xl p-3">
-                    <div className="font-mono font-bold text-text-primary text-base">{item.value}</div>
+                    <div className={`font-mono font-bold text-base ${item.highlight ? "text-primary" : "text-text-primary"}`}>{item.value}</div>
                     <div className="text-xs text-text-secondary mt-0.5">{item.label}</div>
                   </div>
                 ))}
               </div>
+
+              {/* Blockscout explorer link */}
+              <a
+                href="https://celo.blockscout.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-primary transition-colors"
+              >
+                <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5" aria-hidden="true">
+                  <path d="M7 2H2v12h12V9M9 2h5v5M14 2l-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                View on Blockscout Explorer
+              </a>
             </div>
           </FadeIn>
 
