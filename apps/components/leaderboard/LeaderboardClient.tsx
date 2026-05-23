@@ -84,6 +84,12 @@ export function LeaderboardClient() {
             <p className="text-text-secondary text-xs font-sans leading-relaxed">
               Rankings update after each completed duel. Play more to climb.
             </p>
+            <div className="mt-3 pt-3 border-t border-border-subtle flex items-center gap-1.5">
+              <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+              <span className="text-[9px] text-text-secondary/40 uppercase tracking-widest font-bold">
+                On Celo · Verified on-chain
+              </span>
+            </div>
           </div>
         </aside>
       </div>
