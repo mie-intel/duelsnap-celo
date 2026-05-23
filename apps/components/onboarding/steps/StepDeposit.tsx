@@ -8,7 +8,7 @@ import Button from "../../ui/Button";
 const externalOptions = [
   {
     label: "Buy on Coinbase",
-    description: "Purchase CELO with a credit card or bank transfer.",
+    description: "Purchase CELO or cUSD with a credit card or bank transfer.",
     href: "https://www.coinbase.com",
     accent: "#FBCC5C",
     icon: (
@@ -98,6 +98,17 @@ export default function StepDeposit() {
           ))}
         </div>
       )}
+
+      {/* Fee abstraction note */}
+      <div className="flex items-start gap-2 p-3 rounded-xl bg-surface-1 border border-border-subtle">
+        <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M8 5v4M8 10.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <p className="text-xs text-text-secondary leading-relaxed">
+          On Celo, you can pay gas in <span className="text-primary font-semibold">cUSD</span> — no CELO needed just for fees (fee abstraction via Mento).
+        </p>
+      </div>
 
       <Button variant="primary" size="lg" className="w-full" onClick={() => completeStep("deposit")}>
         Start Playing
