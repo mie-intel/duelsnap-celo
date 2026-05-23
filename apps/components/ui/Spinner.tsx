@@ -17,6 +17,8 @@ export default function Spinner({ size = 'md', className = '' }: SpinnerProps) {
         sizeClasses[size],
         className,
       ].join(' ')}
+      style={{ boxShadow: '0 0 6px rgba(53,208,127,0.3)' }}
+      aria-label="Loading"
     />
   );
 }
