@@ -26,9 +26,14 @@ export default function HowItWorksSection() {
     <section id="how-it-works" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <FadeIn className="mb-16 md:mb-20">
-          <p className="text-xs font-medium text-primary uppercase tracking-widest mb-3">
-            How It Works
-          </p>
+          <div className="flex items-center gap-3 mb-3">
+            <p className="text-xs font-medium text-primary uppercase tracking-widest">
+              How It Works
+            </p>
+            <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+              · On Celo Mainnet
+            </span>
+          </div>
           <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight max-w-[18ch]">
             Three steps to your first CELO win
           </h2>
