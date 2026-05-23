@@ -25,13 +25,18 @@ export function OpponentCard({ opponent }: OpponentCardProps) {
           {initials}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-mono text-sm font-medium text-text-primary truncate">
-            {opponent.address}
-          </p>
+          <a
+            href={`https://celo.blockscout.com/address/${opponent.address}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-sm font-medium text-text-primary truncate block hover:text-primary transition-colors"
+          >
+            {opponent.address.slice(0, 6)}…{opponent.address.slice(-4)}
+          </a>
           <div className="flex items-center gap-1.5 mt-0.5">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-live-pulse" />
             <span className="text-[10px] font-sans text-primary/70 uppercase tracking-wider">
-              Online
+              Online · Celo
             </span>
           </div>
         </div>
@@ -67,7 +72,7 @@ export function OpponentCard({ opponent }: OpponentCardProps) {
           />
         </div>
         <p className="text-[10px] text-text-secondary font-sans text-right">
-          {total} games played
+          {total} games on Celo
         </p>
       </div>
     </motion.div>
