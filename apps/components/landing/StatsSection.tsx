@@ -26,13 +26,19 @@ const stats = [
     sub: "No L2, no bridges",
     accent: "var(--color-primary)",
   },
+  {
+    value: "42220",
+    label: "Celo Chain ID",
+    sub: "EVM · Carbon-neutral L1",
+    accent: "var(--color-primary)",
+  },
 ];
 
 export default function StatsSection() {
   return (
     <section className="py-16 md:py-20 lg:py-24 border-y border-[var(--color-border-subtle)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-[var(--color-border-subtle)]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-0 md:divide-x divide-[var(--color-border-subtle)]">
           {stats.map((stat, i) => (
             <FadeIn
               key={stat.label}
