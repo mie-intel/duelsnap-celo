@@ -80,6 +80,12 @@ export function MatchmakingSearching({ elapsed, wager, onCancel }: MatchmakingSe
         />
         <span className="font-mono text-sm text-text-secondary">{elapsedLabel}</span>
       </div>
+
+      <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-1 border border-border-subtle">
+        <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+        <span className="text-[10px] text-text-secondary/60 uppercase tracking-widest font-bold">Celo Mainnet</span>
+      </div>
+
       <button
         type="button"
         onClick={onCancel}
