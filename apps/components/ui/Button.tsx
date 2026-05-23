@@ -38,6 +38,7 @@ export default function Button({
       disabled={disabled || loading}
       className={[
         "font-semibold transition-all duration-150 flex items-center justify-center gap-2",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page",
         "disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100",
         variantClasses[variant],
         sizeClasses[size],

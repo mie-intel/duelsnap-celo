@@ -3,6 +3,7 @@ interface CardProps {
   className?: string;
   onClick?: () => void;
   style?: React.CSSProperties;
+  glow?: boolean;
 }
 
 export default function Card({
@@ -10,6 +11,7 @@ export default function Card({
   className = "",
   onClick,
   style,
+  glow = false,
 }: CardProps) {
   return (
     <div
@@ -20,6 +22,7 @@ export default function Card({
         onClick
           ? "cursor-pointer hover:shadow-md transition-shadow duration-150"
           : "",
+        glow ? "hover:shadow-[0_0_24px_rgba(53,208,127,0.10)] transition-shadow duration-300" : "",
         className,
       ].join(" ")}
     >
