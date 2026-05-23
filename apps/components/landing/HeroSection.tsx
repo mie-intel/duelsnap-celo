@@ -17,6 +17,7 @@ export default function HeroSection() {
             <HeroReveal index={2}><HeroSubtitle /></HeroReveal>
             <HeroReveal index={3}><HeroCTA /></HeroReveal>
             <HeroReveal index={4}><HeroStats /></HeroReveal>
+            <HeroReveal index={5}><HeroCeloBadge /></HeroReveal>
           </div>
 
           {/* Right: Floating visual */}
@@ -129,6 +130,18 @@ function HeroStats() {
           )}
         </div>
       ))}
+    </div>
+  );
+}
+
+function HeroCeloBadge() {
+  return (
+    <div className="flex items-center gap-3 mt-1">
+      <div className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+      <span className="text-[10px] text-text-secondary/50 uppercase tracking-widest font-bold whitespace-nowrap">
+        Powered by Celo · Chain ID 42220
+      </span>
+      <div className="h-px flex-1 bg-[var(--color-border-subtle)]" />
     </div>
   );
 }
