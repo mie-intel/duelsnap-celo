@@ -62,9 +62,15 @@ export default function StreakCalendar({ entries }: StreakCalendarProps) {
   return (
     <div className="bg-[var(--color-bg-card)] rounded-[2rem] border border-[var(--color-border-subtle)] p-5 mb-5">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-display font-semibold text-sm text-[var(--color-text-secondary)] uppercase tracking-widest">
-          Activity Streak
-        </h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-display font-semibold text-sm text-[var(--color-text-secondary)] uppercase tracking-widest">
+            Activity Streak
+          </h3>
+          <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-primary/8 border border-primary/15">
+            <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+            <span className="text-[8px] font-bold uppercase tracking-widest text-primary">Celo</span>
+          </span>
+        </div>
         <span className="text-[var(--color-text-secondary)] text-xs font-sans">{monthLabel}</span>
       </div>
 
@@ -102,16 +108,21 @@ export default function StreakCalendar({ entries }: StreakCalendarProps) {
       </div>
 
       {/* Legend */}
-      <div className="flex items-center gap-2 mt-3 justify-end">
-        <span className="text-[var(--color-text-secondary)] text-[10px] font-sans">Less</span>
-        {[0, 1, 2, 3].map((level) => (
-          <div
-            key={level}
-            className="w-3 h-3 rounded-sm"
-            style={{ backgroundColor: getInlineColor(level) }}
-          />
-        ))}
-        <span className="text-[var(--color-text-secondary)] text-[10px] font-sans">More</span>
+      <div className="flex items-center justify-between mt-3">
+        <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/40 uppercase tracking-widest">
+          On-chain activity
+        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[var(--color-text-secondary)] text-[10px] font-sans">Less</span>
+          {[0, 1, 2, 3].map((level) => (
+            <div
+              key={level}
+              className="w-3 h-3 rounded-sm"
+              style={{ backgroundColor: getInlineColor(level) }}
+            />
+          ))}
+          <span className="text-[var(--color-text-secondary)] text-[10px] font-sans">More</span>
+        </div>
       </div>
     </div>
   );
