@@ -53,6 +53,19 @@ export function MatchmakingWidget() {
                 }}
               />
 
+              {/* Chain identifier header */}
+              <div className="relative z-10 flex items-center justify-between px-6 pt-4 pb-0">
+                <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+                  DuelSnap PvP
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+                  <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+                    Celo 42220
+                  </span>
+                </span>
+              </div>
+
               <div className="relative z-10 p-6">
                 <AnimatePresence mode="wait">
                   {mm.state === "searching" && (
