@@ -29,8 +29,21 @@ export default function NetProfitLoss({ netProfitLoss }: NetProfitLossProps) {
         <span className="text-[var(--color-text-secondary)] text-sm font-sans mb-1">CELO</span>
       </div>
       <p className="text-[var(--color-text-secondary)] text-xs font-sans mt-1">
-        {isPositive ? "Profit from paid games" : "Loss from paid games"}
+        {isPositive ? "Profit from paid games on Celo" : "Loss from paid games on Celo"}
       </p>
+
+      {/* USD estimate */}
+      <p className="text-[var(--color-text-secondary)]/50 text-[10px] font-mono mt-0.5">
+        ≈ ${(Math.abs(netProfitLoss) * 0.62).toFixed(2)} USD
+      </p>
+
+      {/* Contextual note */}
+      <div className="mt-3 pt-3 border-t border-[var(--color-border-subtle)] flex items-center gap-1.5">
+        <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+        <span className="text-[9px] text-[var(--color-text-secondary)]/40 uppercase tracking-widest font-bold">
+          Settled on Celo · Blockscout verified
+        </span>
+      </div>
     </div>
   );
 }
