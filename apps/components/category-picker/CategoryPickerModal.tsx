@@ -77,7 +77,7 @@ export function CategoryPickerModal({
           >
             <div
               className="bg-[var(--color-bg-card)] rounded-[2rem] border border-[var(--color-border-subtle)] max-w-md w-full p-6 pointer-events-auto flex flex-col gap-5 max-h-[90vh] overflow-y-auto"
-              style={{ boxShadow: '0 24px 80px rgba(0,0,0,0.6)' }}
+              style={{ boxShadow: '0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(53,208,127,0.08)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between">
@@ -135,6 +135,12 @@ export function CategoryPickerModal({
                 <Button onClick={handleAnyCategory} variant="ghost" size="sm" className="w-full">
                   Any Category
                 </Button>
+                <div className="flex items-center justify-center gap-1.5 pt-1">
+                  <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+                  <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+                    On Celo · {mode === 'paid' ? '0.01 CELO entry' : 'Free to play'}
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
