@@ -44,7 +44,13 @@ export default function StepTutorial() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="text-xs font-mono text-primary uppercase tracking-widest mb-2">Step 3 of 4</p>
+        <div className="flex items-center gap-2 mb-2">
+          <p className="text-xs font-mono text-primary uppercase tracking-widest">Step 3 of 4</p>
+          <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-primary/8 border border-primary/15">
+            <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+            <span className="text-[8px] font-bold uppercase tracking-widest text-primary">Celo</span>
+          </span>
+        </div>
         <h2 className="font-display text-2xl font-bold text-text-primary mb-3">
           How DuelSnap works
         </h2>
@@ -70,9 +76,14 @@ export default function StepTutorial() {
         ))}
       </ul>
 
-      <Button variant="primary" size="lg" className="w-full" onClick={() => completeStep("tutorial")}>
-        Got it, let&apos;s play
-      </Button>
+      <div className="flex flex-col gap-2">
+        <Button variant="primary" size="lg" className="w-full" onClick={() => completeStep("tutorial")}>
+          Got it, let&apos;s play
+        </Button>
+        <p className="text-center text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+          All games run on Celo Mainnet · Chain 42220
+        </p>
+      </div>
     </div>
   );
 }
