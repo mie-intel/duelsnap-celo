@@ -39,6 +39,20 @@ export function MatchmakingIdle({ onStart }: MatchmakingIdleProps) {
         <span className="font-display font-bold text-secondary">{wager} CELO</span>
       </div>
 
+      {/* Fee breakdown */}
+      <div className="rounded-xl border border-border-subtle bg-surface-1 divide-y divide-border-subtle text-xs font-sans">
+        {[
+          { label: "Winner receives", value: `${(wager * 2 * 0.87).toFixed(3)} CELO`, accent: true },
+          { label: "Creator pool (10%)", value: `${(wager * 2 * 0.10).toFixed(3)} CELO`, accent: false },
+          { label: "Protocol treasury (3%)", value: `${(wager * 2 * 0.03).toFixed(3)} CELO`, accent: false },
+        ].map((row) => (
+          <div key={row.label} className="flex items-center justify-between px-4 py-2.5">
+            <span className="text-text-secondary">{row.label}</span>
+            <span className={`font-mono font-bold ${row.accent ? "text-primary" : "text-text-secondary"}`}>{row.value}</span>
+          </div>
+        ))}
+      </div>
+
       <motion.button
         type="button"
         onClick={() => onStart(wager)}
@@ -48,6 +62,11 @@ export function MatchmakingIdle({ onStart }: MatchmakingIdleProps) {
       >
         Find Opponent
       </motion.button>
+
+      <div className="flex items-center justify-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        <span className="text-[10px] text-text-secondary/50 uppercase tracking-widest">Powered by Celo</span>
+      </div>
     </motion.div>
   );
 }
