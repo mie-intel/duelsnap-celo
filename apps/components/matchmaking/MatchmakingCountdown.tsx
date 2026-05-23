@@ -20,9 +20,15 @@ export function MatchmakingCountdown({ countdown }: MatchmakingCountdownProps) {
       exit={{ opacity: 0 }}
       className="flex flex-col items-center justify-center py-8 gap-6 min-h-[240px]"
     >
-      <p className="text-xs font-bold uppercase tracking-widest text-text-secondary/60">
-        Duel starting
-      </p>
+      <div className="flex items-center gap-2">
+        <p className="text-xs font-bold uppercase tracking-widest text-text-secondary/60">
+          Duel starting
+        </p>
+        <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Celo</span>
+        </span>
+      </div>
       <div className="relative h-40 flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.span
@@ -44,19 +50,25 @@ export function MatchmakingCountdown({ countdown }: MatchmakingCountdownProps) {
           </motion.span>
         </AnimatePresence>
       </div>
-      <div className="flex gap-2">
-        {[3, 2, 1].map((tick) => (
-          <motion.div
-            key={tick}
-            className="w-2 h-2 rounded-full"
-            animate={{
-              backgroundColor:
-                countdown < tick ? "var(--color-border-subtle)" : "var(--color-primary)",
-              scale: countdown === tick ? 1.3 : 1,
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          />
-        ))}
+      <div className="flex flex-col items-center gap-3">
+        <div className="flex gap-2">
+          {[3, 2, 1].map((tick) => (
+            <motion.div
+              key={tick}
+              className="w-2 h-2 rounded-full"
+              animate={{
+                backgroundColor:
+                  countdown < tick ? "var(--color-border-subtle)" : "var(--color-primary)",
+                scale: countdown === tick ? 1.3 : 1,
+                boxShadow: countdown === tick ? "0 0 8px var(--color-primary)" : "none",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            />
+          ))}
+        </div>
+        <p className="text-[10px] text-text-secondary/40 font-mono uppercase tracking-widest">
+          Chain 42220 · Escrow locked
+        </p>
       </div>
     </motion.div>
   );
