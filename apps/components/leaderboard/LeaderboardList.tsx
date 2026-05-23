@@ -36,6 +36,18 @@ export function LeaderboardList({ entries, startFrom = 3 }: LeaderboardListProps
   const listEntries = entries.slice(startFrom);
 
   return (
+    <>
+      {listEntries.length > 0 && (
+        <div className="flex items-center justify-between px-1 mb-2">
+          <span className="text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest">
+            Rank · Player · W/L/WR
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+            <span className="text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest">Celo</span>
+          </span>
+        </div>
+      )}
     <motion.div
       key={entries.length} // re-animate on tab switch
       className="space-y-2"
@@ -54,5 +66,6 @@ export function LeaderboardList({ entries, startFrom = 3 }: LeaderboardListProps
         </motion.div>
       ))}
     </motion.div>
+    </>
   );
 }
