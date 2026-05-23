@@ -41,6 +41,9 @@ export default function RematchCTA({ onRematch, onPlayAgain, onHome }: RematchCT
           </button>
         </>
       )}
+      <p className="text-center text-[10px] font-mono text-[var(--color-text-secondary)]/40 uppercase tracking-widest mt-1">
+        Settlement on Celo Mainnet
+      </p>
     </div>
   );
 }
