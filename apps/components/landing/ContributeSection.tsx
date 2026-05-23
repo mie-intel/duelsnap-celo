@@ -106,6 +106,12 @@ export default function ContributeSection() {
                 Contributors split the 27% pool proportionally based on how often
                 each photo was played in the session.
               </p>
+              <div className="flex items-center gap-1.5 pt-2 border-t border-[var(--color-border-subtle)]">
+                <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+                <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+                  Royalties auto-settled on Celo · No withdrawal needed
+                </span>
+              </div>
             </FadeIn>
           </div>
         </div>
