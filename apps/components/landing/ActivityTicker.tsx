@@ -26,14 +26,22 @@ const Dot = ({ color }: { color: string }) => (
   <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
 );
 
-const Item = ({ event }: { event: typeof events[0] }) => (
-  <span className="inline-flex items-center gap-2 px-5 text-xs font-sans">
-    <Dot color={event.accent} />
-    <span className="font-semibold text-text-primary">{event.player}</span>
-    <span className="text-text-secondary">{event.action}</span>
-    <span className="font-semibold" style={{ color: event.accent }}>{event.detail}</span>
-  </span>
-);
+const Item = ({ event }: { event: typeof events[0] }) => {
+  const isTxHash = event.detail.startsWith("0x");
+  return (
+    <span className="inline-flex items-center gap-2 px-5 text-xs font-sans">
+      <Dot color={event.accent} />
+      <span className="font-semibold text-text-primary">{event.player}</span>
+      <span className="text-text-secondary">{event.action}</span>
+      <span
+        className={isTxHash ? "font-mono text-[10px] opacity-70" : "font-semibold"}
+        style={{ color: event.accent }}
+      >
+        {event.detail}
+      </span>
+    </span>
+  );
+};
 
 const Separator = () => (
   <span className="text-text-secondary/30 px-3 select-none">·</span>
