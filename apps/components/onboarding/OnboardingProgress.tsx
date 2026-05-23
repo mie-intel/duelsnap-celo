@@ -30,9 +30,15 @@ export default function OnboardingProgress({ currentStep, totalSteps }: Onboardi
           );
         })}
       </div>
-      <span className="text-xs font-mono text-text-secondary whitespace-nowrap">
-        {currentStep} / {totalSteps}
-      </span>
+      <div className="flex items-center gap-2">
+        <span className="text-xs font-mono text-text-secondary whitespace-nowrap">
+          {currentStep} / {totalSteps}
+        </span>
+        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/8 border border-primary/15">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[9px] font-bold text-primary uppercase tracking-widest">Celo</span>
+        </div>
+      </div>
     </div>
   );
 }
