@@ -33,9 +33,14 @@ export default function CategoryBreakdown({ entries }: CategoryBreakdownProps) {
 
   return (
     <div>
-      <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-3">
-        Performance by Mode
-      </p>
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
+          Performance by Mode
+        </p>
+        <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/40 uppercase tracking-widest">
+          Celo Mainnet
+        </span>
+      </div>
       {entries.length === 0 ? (
         <p className="text-[var(--color-text-secondary)] text-sm font-sans">
           Play some games to see your stats
