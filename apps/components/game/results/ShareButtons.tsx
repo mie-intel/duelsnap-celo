@@ -23,8 +23,9 @@ function FarcasterLogo({ className }: { className?: string }) {
 }
 
 export function ShareButtons({ correct, total, mode: _mode }: ShareButtonsProps) {
-  const xText = `I scored ${correct}/${total} in DuelSnap! Guess-the-picture duels on Celo. Play free: https://duelsnap.xyz`;
-  const fcText = `Scored ${correct}/${total} in DuelSnap duel. Picture quiz game on Celo. Free to play!`;
+  const scoreEmoji = correct === total ? '🏆' : correct >= total * 0.7 ? '🎯' : '📸';
+  const xText = `${scoreEmoji} ${correct}/${total} on DuelSnap! Guess-the-picture PvP duels built on @CeloOrg. Play free & earn CELO → https://duelsnap.xyz #Celo #Web3Gaming`;
+  const fcText = `${scoreEmoji} Scored ${correct}/${total} in DuelSnap — picture duels on Celo! Earn real CELO. Free to play. Built with MiniPay support.`;
   const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(xText)}`;
   const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(fcText)}`;
   return (

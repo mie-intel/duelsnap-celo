@@ -56,8 +56,8 @@ export default function RewardBreakdown({ mode, wagerAmount, txHash }: RewardBre
         </p>
       )}
       {txHash && (
-        <a href={`https://celoscan.io/tx/${txHash}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-sans text-xs text-primary hover:text-primary-dark underline underline-offset-2 transition-colors w-fit">
-          View transaction
+        <a href={`https://celo.blockscout.com/tx/${txHash}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-sans text-xs text-primary hover:text-primary-dark underline underline-offset-2 transition-colors w-fit">
+          View on Blockscout
           <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 10L10 2M5 2h5v5" /></svg>
         </a>
       )}
