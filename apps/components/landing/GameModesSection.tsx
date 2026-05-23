@@ -48,9 +48,15 @@ export default function GameModesSection() {
     <section id="game-modes" className="py-24 md:py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <TiltCard className="mb-16 md:mb-20" index={0}>
-          <p className="text-xs font-medium text-secondary uppercase tracking-widest mb-3">
-            Game Modes
-          </p>
+          <div className="flex items-center gap-3 mb-3">
+            <p className="text-xs font-medium text-secondary uppercase tracking-widest">
+              Game Modes
+            </p>
+            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/8 border border-primary/15">
+              <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+              <span className="text-[9px] font-bold text-primary uppercase tracking-widest">Celo Mainnet</span>
+            </span>
+          </div>
           <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight max-w-[22ch]">
             Free, earn, or go all-in on PvP
           </h2>
@@ -113,12 +119,17 @@ export default function GameModesSection() {
                 ))}
               </ul>
 
-              <div
-                className="text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all duration-150"
-                style={{ color: mode.accent }}
-              >
-                Play now
-                <span aria-hidden>→</span>
+              <div className="flex items-center justify-between">
+                <div
+                  className="text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all duration-150"
+                  style={{ color: mode.accent }}
+                >
+                  Play now
+                  <span aria-hidden>→</span>
+                </div>
+                <span className="text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest">
+                  On Celo
+                </span>
               </div>
             </Link>
             </TiltCard>
