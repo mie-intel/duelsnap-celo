@@ -74,4 +74,36 @@ export const ACHIEVEMENTS: Achievement[] = [
     condition: (s) => s.entries.some((e) => e.mode === "casual"),
     rarity: "rare",
   },
+  {
+    id: "celo_first_duel",
+    label: "On-Chain",
+    description: "Complete your first PvP duel on Celo",
+    // Chain link icon path
+    icon: "M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71",
+    condition: (s) => s.entries.some((e) => e.mode === "pvp"),
+    rarity: "rare",
+  },
+  {
+    id: "celo_whale",
+    label: "Celo Whale",
+    description: "Wager 10+ CELO total across all PvP duels",
+    // Trending up icon path
+    icon: "M22 7l-8.5 8.5-5-5L2 17M22 7h-5M22 7v5",
+    condition: (s) => {
+      const pvpTotal = s.entries
+        .filter((e) => e.mode === "pvp" && typeof e.wager === "number")
+        .reduce((sum, e) => sum + (e.wager as number), 0);
+      return pvpTotal >= 10;
+    },
+    rarity: "epic",
+  },
+  {
+    id: "carbon_gamer",
+    label: "Carbon Gamer",
+    description: "Play 5 games — all carbon-neutral on Celo",
+    // Leaf / eco icon path
+    icon: "M17 8C8 10 5.9 16.17 3.82 19.38A9.98 9.98 0 0021 12c0-4.42-2.87-8.17-6.84-9.5L17 8zM3 21l2-2",
+    condition: (s) => s.total >= 5,
+    rarity: "common",
+  },
 ];
