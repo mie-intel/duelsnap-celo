@@ -2,11 +2,18 @@
 
 import { motion } from "framer-motion";
 
+const CELO_USD_PRICE = 0.62;
+
 const WAGER_OPTIONS = [
   { value: 0.1, label: "0.1", sublabel: "Starter" },
   { value: 0.5, label: "0.5", sublabel: "Standard" },
   { value: 1.0, label: "1.0", sublabel: "High Stakes" },
 ];
+
+function celoToUsd(celo: number): string {
+  const usd = celo * CELO_USD_PRICE;
+  return usd < 0.01 ? "< $0.01" : `~$${usd.toFixed(2)}`;
+}
 
 interface WagerPickerProps {
   selected: number;
@@ -56,6 +63,13 @@ export function WagerPicker({ selected, onChange }: WagerPickerProps) {
                 }`}
               >
                 {opt.sublabel}
+              </span>
+              <span
+                className={`font-mono text-[9px] relative z-10 mt-1 ${
+                  isActive ? "text-secondary/50" : "text-text-secondary/40"
+                }`}
+              >
+                {celoToUsd(opt.value)}
               </span>
             </motion.button>
           );
