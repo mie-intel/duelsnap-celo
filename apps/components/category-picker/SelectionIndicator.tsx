@@ -34,12 +34,15 @@ export function SelectionIndicator({ category }: SelectionIndicatorProps) {
           <span className="font-display font-bold text-sm text-text-primary">
             {category.label}
           </span>
-          <span
-            className="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: category.color, color: 'var(--color-bg-page)' }}
-          >
-            Selected
-          </span>
+          <div className="ml-auto flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+            <span
+              className="text-xs font-semibold px-2 py-0.5 rounded-full"
+              style={{ backgroundColor: category.color, color: 'var(--color-bg-page)' }}
+            >
+              Selected
+            </span>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
