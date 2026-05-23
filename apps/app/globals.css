@@ -63,6 +63,17 @@
   --z-overlay: 50;
   --z-modal: 60;
   --z-toast: 70;
+
+  /* --- Glass morphism --- */
+  --glass-bg: rgba(26, 0, 48, 0.7);
+  --glass-border: rgba(53, 208, 127, 0.12);
+  --glass-backdrop: blur(16px) saturate(160%);
+
+  /* --- Celo glow shadows --- */
+  --shadow-celo-sm: 0 0 12px rgba(53, 208, 127, 0.15);
+  --shadow-celo-md: 0 0 24px rgba(53, 208, 127, 0.20);
+  --shadow-celo-lg: 0 0 48px rgba(53, 208, 127, 0.25);
+  --shadow-gold-sm: 0 0 12px rgba(251, 204, 92, 0.15);
 }
 
 body {
@@ -140,10 +151,43 @@ body, #__next, main {
   animation: scrollBounce 1.6s ease-in-out infinite;
 }
 
+/* Celo glow pulse — for on-chain status indicators */
+@keyframes celoPulse {
+  0%, 100% { box-shadow: 0 0 0px rgba(53, 208, 127, 0); }
+  50% { box-shadow: 0 0 16px rgba(53, 208, 127, 0.35); }
+}
+.animate-celo-pulse {
+  animation: celoPulse 2.4s ease-in-out infinite;
+}
+
+/* Celo gold shimmer — for rewards/earnings */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer-gold {
+  background: linear-gradient(90deg, #FBCC5C 0%, #FFF0A0 40%, #FBCC5C 60%, #E8B030 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s linear infinite;
+}
+
+/* Glass card utility */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-live-pulse,
   .animate-scroll-bounce,
   .animate-bar-fill,
+  .animate-celo-pulse,
+  .text-shimmer-gold,
   .hero-fade-1, .hero-fade-2, .hero-fade-3, .hero-fade-4, .hero-fade-5 {
     animation: none;
   }
