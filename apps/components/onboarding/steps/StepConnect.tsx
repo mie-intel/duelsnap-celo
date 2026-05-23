@@ -115,6 +115,12 @@ export default function StepConnect() {
           Get MiniPay — fastest on mobile
         </a>
         <SkipButton />
+        <div className="flex items-center justify-center gap-1.5 pt-1">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+            Celo Mainnet · EVM Chain 42220
+          </span>
+        </div>
       </div>
     </div>
   );
