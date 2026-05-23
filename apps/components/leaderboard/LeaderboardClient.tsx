@@ -11,7 +11,7 @@ import { PlayerHighlightRow } from "./PlayerHighlightRow";
 
 export function LeaderboardClient() {
   const { address } = useWallet();
-  const { entries, loading, error, tab, setTab, refresh } = useLeaderboard(address);
+  const { entries, loading, error, tab, setTab, refresh } = useLeaderboard(address ?? undefined);
 
   const top3 = entries.slice(0, 3);
   const currentUser = entries.find((e) => e.isCurrentUser) ?? null;

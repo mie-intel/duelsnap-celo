@@ -19,13 +19,13 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 
 ## Contract Addresses (Celo Mainnet)
 
-| Contract | Address |
-|---|---|
-| QuestionPool | `0x9F80612d1621a92D2F14B4246BDAea33CFAb51d6` |
-| CasualPool | `0x839fdf32e45A116EeFcFE3b1C4F892056057465c` |
-| GameSession | `0xBf63ace11D191102D9655aE2F067Ce485289881E` |
+| Contract | Proxy | Verified Implementation |
+|---|---|---|
+| QuestionPool | [`0x9F80...51d6`](https://celo.blockscout.com/address/0x9F80612d1621a92D2F14B4246BDAea33CFAb51d6) | [`0x08fb...d857`](https://celo.blockscout.com/address/0x08fb84586d1409d690c660afd178e9698437d857?tab=contract) |
+| CasualPool | [`0x839f...465c`](https://celo.blockscout.com/address/0x839fdf32e45A116EeFcFE3b1C4F892056057465c) | [`0xb011...c8a`](https://celo.blockscout.com/address/0xb0114ef515bf04642d9d2180225f9c2481f61c8a?tab=contract) |
+| GameSession | [`0xBf63...881E`](https://celo.blockscout.com/address/0xBf63ace11D191102D9655aE2F067Ce485289881E) | [`0x9258...d2B`](https://celo.blockscout.com/address/0x92589ca11f6e408d7dca80cf3799184ef837fd2b?tab=contract) |
 
-Explorer: [celoscan.io](https://celoscan.io)
+Explorer: [celo.blockscout.com](https://celo.blockscout.com)
 
 ## Stack
 

@@ -6,7 +6,7 @@ interface MatchmakingCountdownProps {
   countdown: number;
 }
 
-const springDramatic = { type: "spring", stiffness: 60, damping: 18 };
+const springDramatic = { type: "spring" as const, stiffness: 60, damping: 18 };
 
 export function MatchmakingCountdown({ countdown }: MatchmakingCountdownProps) {
   const label = countdown === 0 ? "FIGHT!" : String(countdown);

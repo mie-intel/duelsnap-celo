@@ -44,7 +44,7 @@ export default function ScoreHero({ correct, total }: ScoreHeroProps) {
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: \`radial-gradient(ellipse at 50% 30%, \${glowColor} 0%, transparent 70%)\` }}
+        style={{ background: `radial-gradient(ellipse at 50% 30%, ${glowColor} 0%, transparent 70%)` }}
       />
       <p className="relative font-display font-bold text-[4.5rem] leading-none text-[var(--color-text-primary)] tabular-nums">
         <span className="text-primary">{displayCount}</span>
@@ -57,7 +57,7 @@ export default function ScoreHero({ correct, total }: ScoreHeroProps) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.4 }}
-        className={\`relative font-display font-semibold text-xl mt-3 \${color}\`}
+        className={`relative font-display font-semibold text-xl mt-3 ${color}`}
       >
         {label}
       </motion.p>

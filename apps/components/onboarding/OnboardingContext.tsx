@@ -111,8 +111,16 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   );
 }
 
+const noopOnboarding: OnboardingContextValue = {
+  isOpen: false,
+  currentStep: "connect",
+  goToStep: () => {},
+  completeStep: () => {},
+  skip: () => {},
+  isCompleted: false,
+};
+
 export function useOnboarding(): OnboardingContextValue {
   const ctx = useContext(OnboardingContext);
-  if (!ctx) throw new Error("useOnboarding must be used inside OnboardingProvider");
-  return ctx;
+  return ctx ?? noopOnboarding;
 }

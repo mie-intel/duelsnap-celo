@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import type { MatchmakingState } from "../../app/useMatchmaking";
+import type { MatchmakingState } from "../../hooks/useMatchmaking";
 
 interface MatchmakingModalProps {
   mm: MatchmakingState;
