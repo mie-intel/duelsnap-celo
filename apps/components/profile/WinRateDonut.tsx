@@ -81,6 +81,12 @@ export default function WinRateDonut({ wins, total }: WinRateDonutProps) {
       <p className="text-[var(--color-text-secondary)] text-xs font-sans mt-3">
         {total > 0 ? `${wins} wins from ${total} games` : "No games yet"}
       </p>
+      <div className="flex items-center gap-1.5 mt-2">
+        <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+        <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/40 uppercase tracking-widest">
+          On Celo
+        </span>
+      </div>
     </div>
   );
 }
