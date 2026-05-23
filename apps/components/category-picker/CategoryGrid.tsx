@@ -49,12 +49,15 @@ function CategoryCard({
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
       onClick={onSelect}
-      className="relative w-full text-left rounded-2xl p-4 flex flex-col gap-2 transition-colors focus-visible:outline-none focus-visible:ring-2"
+      className="relative w-full text-left rounded-2xl p-4 flex flex-col gap-2 transition-all focus-visible:outline-none focus-visible:ring-2"
       style={{
         backgroundColor: category.colorLight,
         border: isSelected
           ? `2px solid ${category.color}`
           : '1px solid var(--color-border-subtle)',
+        boxShadow: isSelected
+          ? `0 0 16px ${category.color}28`
+          : 'none',
       }}
       aria-pressed={isSelected}
     >

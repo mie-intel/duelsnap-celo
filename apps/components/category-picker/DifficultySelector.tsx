@@ -9,10 +9,11 @@ interface DifficultySelectorProps {
   onChange: (d: Difficulty) => void;
 }
 
-const pills: { id: Difficulty; label: string; activeStyle: React.CSSProperties }[] = [
+const pills: { id: Difficulty; label: string; celoFee: string; activeStyle: React.CSSProperties }[] = [
   {
     id: 'easy',
     label: 'Easy',
+    celoFee: 'Free',
     activeStyle: {
       backgroundColor: 'rgba(53,208,127,0.15)',
       color: 'var(--color-primary)',
@@ -22,6 +23,7 @@ const pills: { id: Difficulty; label: string; activeStyle: React.CSSProperties }
   {
     id: 'medium',
     label: 'Medium',
+    celoFee: '0.005 CELO',
     activeStyle: {
       backgroundColor: 'rgba(251,204,92,0.15)',
       color: 'var(--color-secondary)',
@@ -31,6 +33,7 @@ const pills: { id: Difficulty; label: string; activeStyle: React.CSSProperties }
   {
     id: 'hard',
     label: 'Hard',
+    celoFee: '0.01 CELO',
     activeStyle: {
       backgroundColor: 'rgba(255,77,77,0.15)',
       color: 'var(--color-error)',
@@ -57,11 +60,12 @@ export function DifficultySelector({ selected, onChange }: DifficultySelectorPro
             key={pill.id}
             whileTap={{ scale: 0.95 }}
             onClick={() => onChange(pill.id)}
-            className="flex-1 py-2 px-3 rounded-xl text-sm font-semibold font-sans transition-all"
+            className="flex-1 flex flex-col items-center py-2 px-3 rounded-xl text-sm font-semibold font-sans transition-all"
             style={selected === pill.id ? pill.activeStyle : inactiveStyle}
             aria-pressed={selected === pill.id}
           >
-            {pill.label}
+            <span>{pill.label}</span>
+            <span className="text-[9px] font-mono font-normal mt-0.5 opacity-70">{pill.celoFee}</span>
           </motion.button>
         ))}
       </div>
