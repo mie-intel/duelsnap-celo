@@ -28,6 +28,18 @@ const faqs = [
     q: "Which network does DuelSnap run on?",
     a: "Celo mainnet. All transactions are settled on Celo L1 — no bridges, no L2 complexity. Gas fees are typically under $0.01.",
   },
+  {
+    q: "Does DuelSnap work with MiniPay?",
+    a: "Yes — DuelSnap is MiniPay-native. Open it inside the Opera MiniPay browser and your wallet connects instantly with no popups or manual approvals. Your CELO balance is ready to wager immediately.",
+  },
+  {
+    q: "What is fee abstraction on Celo?",
+    a: "Celo's fee abstraction layer (Mento protocol) lets you pay gas fees in cUSD instead of CELO. That means you never need to hold CELO just for gas — your stablecoin balance covers everything.",
+  },
+  {
+    q: "Are DuelSnap transactions carbon-neutral?",
+    a: "Celo is a carbon-negative blockchain. Every transaction on DuelSnap — including wagers, royalty distributions, and game settlements — has a net-negative carbon footprint through Celo's on-chain carbon offset mechanism.",
+  },
 ];
 
 export default function FAQSection() {

@@ -70,6 +70,11 @@ export default function LandingNav() {
           </nav>
 
           <div className="flex items-center gap-2">
+            {/* Celo network indicator */}
+            <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/8 border border-primary/15 mr-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Celo</span>
+            </div>
             <Link
               href="/pvp/lobby"
               className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-border-mid)] bg-transparent text-text-secondary font-semibold text-sm hover:text-text-primary hover:border-[var(--color-border-mid)] hover:bg-[var(--color-surface-1)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page min-h-[44px]"
