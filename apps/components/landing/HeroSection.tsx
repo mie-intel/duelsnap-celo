@@ -17,6 +17,7 @@ export default function HeroSection() {
             <HeroReveal index={2}><HeroSubtitle /></HeroReveal>
             <HeroReveal index={3}><HeroCTA /></HeroReveal>
             <HeroReveal index={4}><HeroStats /></HeroReveal>
+            <HeroReveal index={5}><HeroCeloBadge /></HeroReveal>
           </div>
 
           {/* Right: Floating visual */}
@@ -50,6 +51,13 @@ function HeroEyebrow() {
         <span className="text-xs font-medium text-text-secondary">
           No signup · No deposit · Open source
         </span>
+      </div>
+      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)] w-fit">
+        <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3 text-primary" aria-hidden="true">
+          <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M5.5 8a2.5 2.5 0 005 0 2.5 2.5 0 00-5 0z" fill="currentColor" />
+        </svg>
+        <span className="text-xs font-medium text-text-secondary">MiniPay compatible</span>
       </div>
     </div>
   );
@@ -122,6 +130,18 @@ function HeroStats() {
           )}
         </div>
       ))}
+    </div>
+  );
+}
+
+function HeroCeloBadge() {
+  return (
+    <div className="flex items-center gap-3 mt-1">
+      <div className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+      <span className="text-[10px] text-text-secondary/50 uppercase tracking-widest font-bold whitespace-nowrap">
+        Powered by Celo · Chain ID 42220
+      </span>
+      <div className="h-px flex-1 bg-[var(--color-border-subtle)]" />
     </div>
   );
 }
