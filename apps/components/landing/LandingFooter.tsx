@@ -112,11 +112,14 @@ export default function LandingFooter() {
 
         <div className="mt-12 pt-6 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <span className="text-xs text-text-secondary">
-            © 2026 DuelSnap. Open source.
+            © 2026 DuelSnap. Open source · MIT License
           </span>
-          <span className="text-xs text-text-secondary">
-            Deployed on Celo Mainnet
-          </span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs text-text-secondary font-mono">Celo Mainnet · Chain 42220</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
