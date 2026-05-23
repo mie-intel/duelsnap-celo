@@ -34,15 +34,21 @@ export function LeaderboardEmpty({ tab }: LeaderboardEmptyProps) {
         </svg>
       </div>
 
-      <div className="max-w-[200px]">
+      <div className="max-w-[220px]">
         <p className="font-display font-bold text-text-primary text-base mb-1">
           {tab === "weekly" ? "No games this week" : "No games yet"}
         </p>
         <p className="text-text-secondary text-sm font-sans leading-relaxed">
           {tab === "weekly"
-            ? "Play a duel to appear on the weekly rankings."
+            ? "Play a duel on Celo to appear on the weekly rankings."
             : "Be the first to earn CELO and claim the top spot."}
         </p>
+        <div className="flex items-center justify-center gap-1.5 mt-3">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+            Rankings on Celo Mainnet
+          </span>
+        </div>
       </div>
     </motion.div>
   );
