@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const celoEcosystemLinks = [
+  { label: "Celo Blockscout", href: "https://celo.blockscout.com" },
+  { label: "Opera MiniPay", href: "https://www.opera.com/mobile/mini" },
+  { label: "Celo Docs", href: "https://docs.celo.org" },
+  { label: "Mento Protocol", href: "https://mento.org" },
+];
+
 const appLinks = [
   { label: "Play Free", href: "/play" },
   { label: "PvP Arena", href: "/pvp/lobby" },
@@ -79,23 +86,27 @@ export default function LandingFooter() {
             </nav>
           </div>
 
-          {/* Network */}
+          {/* Celo Ecosystem links */}
           <div className="flex flex-col gap-3">
             <p className="text-xs font-bold uppercase tracking-widest text-text-secondary">
-              Network
+              Celo Ecosystem
             </p>
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse flex-shrink-0" />
-                <span className="text-sm text-text-secondary">
-                  <span className="text-primary font-semibold">Celo</span> Mainnet · Live
-                </span>
-              </div>
-              <span className="text-xs text-text-secondary">Carbon-neutral L1</span>
-              <span className="text-xs text-text-secondary">EVM compatible</span>
-              <span className="text-xs text-text-secondary">MiniPay ready</span>
-              <span className="text-xs text-text-secondary">Gas &lt; $0.01</span>
-            </div>
+            <nav className="flex flex-col gap-2">
+              {celoEcosystemLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-text-secondary hover:text-primary transition-colors duration-150 flex items-center gap-1"
+                >
+                  {l.label}
+                  <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5 opacity-40" aria-hidden="true">
+                    <path d="M4 1.5H1.5v7h7V6M5.5 1.5H8.5v3M8.5 1.5l-4 4" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+                  </svg>
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
 
