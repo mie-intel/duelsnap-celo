@@ -21,9 +21,14 @@ export default function AchievementBadges({ achievements, unlockedIds }: Achieve
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
-          Achievements
-        </p>
+        <div className="flex items-center gap-2">
+          <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
+            Achievements
+          </p>
+          <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/40 uppercase tracking-widest">
+            On Celo
+          </span>
+        </div>
         <span className="text-xs font-mono text-[var(--color-text-secondary)]">
           {unlocked.length}/{achievements.length}
         </span>
