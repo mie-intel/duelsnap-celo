@@ -82,9 +82,14 @@ function PodiumCard({ entry, position }: PodiumCardProps) {
 
       {/* Name + CELO */}
       <div className="text-center">
-        <p className="font-mono text-xs text-text-primary">
+        <a
+          href={`https://celo.blockscout.com/address/${entry.address}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs text-text-primary hover:text-primary transition-colors"
+        >
           {truncateAddress(entry.address)}
-        </p>
+        </a>
         <p className={`font-display font-bold text-sm ${cfg.textColor}`}>
           {formatCelo(entry.totalCelo)} CELO
         </p>
@@ -121,9 +126,15 @@ export function PodiumSection({ top3 }: PodiumSectionProps) {
         }}
       />
 
-      <p className="text-xs font-bold uppercase tracking-widest text-primary mb-6 text-center relative z-10">
-        Top Players
-      </p>
+      <div className="flex items-center justify-center gap-2 mb-6 relative z-10">
+        <p className="text-xs font-bold uppercase tracking-widest text-primary">
+          Top Players
+        </p>
+        <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/8 border border-primary/15">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[8px] font-bold uppercase tracking-widest text-primary">Celo</span>
+        </span>
+      </div>
 
       <div className="flex items-end gap-3 relative z-10">
         <PodiumCard entry={top3[1]} position={2} />
