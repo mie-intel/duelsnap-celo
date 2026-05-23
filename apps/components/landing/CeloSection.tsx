@@ -54,6 +54,12 @@ export default function CeloSection() {
                 </div>
               </div>
 
+              {/* Network status badge */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-medium text-primary">Celo Mainnet · Active</span>
+              </div>
+
               <div className="text-center">
                 <div className="font-display font-bold text-2xl lg:text-3xl text-primary mb-1">
                   DuelSnap × MiniPay
