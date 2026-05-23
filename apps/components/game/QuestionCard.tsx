@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 interface QuestionCardProps {
   imageUrl: string;
@@ -16,8 +16,10 @@ export default function QuestionCard({
   imageUrl, questionNum, totalQuestions, value, onChange, onSubmit, disabled,
 }: QuestionCardProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   useEffect(() => {
+    setImgLoaded(false);
     inputRef.current?.focus();
   }, [questionNum]);
 
@@ -28,13 +30,17 @@ export default function QuestionCard({
         <div className="flex items-center justify-between text-xs text-text-secondary font-sans mb-3">
           <span>{questionNum} / {totalQuestions}</span>
         </div>
-        <div className="rounded-3xl overflow-hidden bg-bg-card aspect-square max-h-72 lg:max-h-none w-full flex items-center justify-center shadow-sm">
+        <div className="relative rounded-3xl overflow-hidden bg-bg-card aspect-square max-h-72 lg:max-h-none w-full flex items-center justify-center shadow-sm">
+          {!imgLoaded && (
+            <div className="absolute inset-0 bg-surface-1 animate-pulse" />
+          )}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imageUrl}
             alt="Guess this"
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover transition-opacity duration-300 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
             loading="eager"
+            onLoad={() => setImgLoaded(true)}
           />
         </div>
       </div>
