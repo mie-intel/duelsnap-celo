@@ -31,9 +31,14 @@ export default function EarnSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 items-start">
           {/* Left: copy */}
           <FadeIn className="flex flex-col gap-6 md:sticky md:top-32">
-            <p className="text-xs font-medium text-primary uppercase tracking-widest">
-              Earn
-            </p>
+            <div className="flex items-center gap-2">
+              <p className="text-xs font-medium text-primary uppercase tracking-widest">
+                Earn
+              </p>
+              <span className="text-[9px] font-mono text-text-secondary/50 uppercase tracking-wider">
+                · Settled on Celo
+              </span>
+            </div>
             <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight">
               Multiple ways to make CELO
             </h2>

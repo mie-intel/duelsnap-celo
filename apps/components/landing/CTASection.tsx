@@ -13,11 +13,17 @@ export default function CTASection() {
           </div>
 
           <FadeIn className="relative flex flex-col items-center gap-8 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-border-mid)] bg-[var(--color-surface-1)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-medium text-text-secondary tracking-widest uppercase">
-                Live now
-              </span>
+            <div className="flex items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-border-mid)] bg-[var(--color-surface-1)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-medium text-text-secondary tracking-widest uppercase">
+                  Live now
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5">
+                <span className="text-xs font-bold text-primary tracking-widest uppercase">Celo Mainnet</span>
+                <span className="font-mono text-[10px] text-text-secondary">42220</span>
+              </div>
             </div>
 
             <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-text-primary tracking-tighter leading-[0.95]">
