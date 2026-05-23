@@ -67,20 +67,25 @@ export function LeaderboardRow({ entry }: Props) {
         {entry.address.slice(2, 4).toUpperCase()}
       </div>
 
-      {/* Address */}
+      {/* Address + Blockscout link */}
       <div className="flex-1 min-w-0">
-        <p
-          className={`font-mono text-sm font-medium truncate ${
-            entry.isCurrentUser ? "text-primary" : "text-text-primary"
-          }`}
-        >
-          {truncateAddress(entry.address)}
+        <div className="flex items-center gap-1.5">
+          <a
+            href={`https://celo.blockscout.com/address/${entry.address}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`font-mono text-sm font-medium truncate hover:underline ${
+              entry.isCurrentUser ? "text-primary" : "text-text-primary"
+            }`}
+          >
+            {truncateAddress(entry.address)}
+          </a>
           {entry.isCurrentUser && (
-            <span className="ml-2 text-[10px] font-sans font-bold uppercase tracking-widest text-primary/70">
+            <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-primary/70">
               you
             </span>
           )}
-        </p>
+        </div>
         <p className="text-text-secondary text-[10px] font-sans mt-0.5">
           {entry.wins}W · {entry.losses}L · {rate}% WR
         </p>
