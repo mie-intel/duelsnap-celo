@@ -140,6 +140,19 @@ export default function MatchHistory({ entries, filters }: MatchHistoryProps) {
                     {amountStr}
                   </span>
                 )}
+
+                {/* Blockscout tx link if available */}
+                {entry.txHash && (
+                  <a
+                    href={`https://celo.blockscout.com/tx/${entry.txHash}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[9px] font-mono text-text-secondary/40 hover:text-primary transition-colors shrink-0"
+                    title="View on Blockscout"
+                  >
+                    {(entry.txHash as string).slice(0, 6)}…
+                  </a>
+                )}
               </motion.div>
             );
           })}
