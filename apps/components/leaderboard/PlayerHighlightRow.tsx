@@ -59,7 +59,7 @@ export function PlayerHighlightRow({ entry, totalEntries }: PlayerHighlightRowPr
             <p className="font-display font-bold text-sm text-secondary">
               {formatCelo(entry.totalCelo)}
             </p>
-            <p className="text-text-secondary text-[10px] font-sans">CELO</p>
+            <p className="text-text-secondary text-[10px] font-sans">CELO · 42220</p>
           </div>
         </div>
       </div>
