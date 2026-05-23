@@ -37,9 +37,15 @@ function XIcon({ className }: { className?: string }) {
 export default function QuestionBreakdown({ results }: QuestionBreakdownProps) {
   return (
     <div className="flex flex-col gap-3">
-      <div>
-        <p className="font-mono text-xs text-[var(--color-text-secondary)] uppercase tracking-widest mb-0.5">Per Question</p>
-        <h2 className="font-display font-semibold text-lg text-[var(--color-text-primary)]">Question Breakdown</h2>
+      <div className="flex items-start justify-between">
+        <div>
+          <p className="font-mono text-xs text-[var(--color-text-secondary)] uppercase tracking-widest mb-0.5">Per Question</p>
+          <h2 className="font-display font-semibold text-lg text-[var(--color-text-primary)]">Question Breakdown</h2>
+        </div>
+        <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/8 border border-primary/15 mt-0.5">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Celo</span>
+        </span>
       </div>
       <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {results.map((r, i) => (
