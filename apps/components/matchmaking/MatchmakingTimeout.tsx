@@ -37,7 +37,7 @@ export function MatchmakingTimeout({ onRetry, onCancel }: MatchmakingTimeoutProp
           No Opponents Found
         </h2>
         <p className="text-text-secondary text-sm font-sans leading-relaxed">
-          Could not find a match in time. Try again or check back later.
+          No active players on Celo right now. Try again or check back later.
         </p>
       </div>
       <div className="flex flex-col gap-2 w-full">
