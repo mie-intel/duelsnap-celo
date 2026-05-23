@@ -48,17 +48,23 @@ function ToastItem({ toast, onRemove }: { toast: Toast; onRemove: (id: string) =
         )}
       </div>
 
-      {/* Close button */}
-      <button
-        type="button"
-        onClick={() => onRemove(toast.id)}
-        aria-label="Dismiss notification"
-        className="flex shrink-0 items-start px-3 pt-3 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-      >
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
-        </svg>
-      </button>
+      {/* Celo badge + close row */}
+      <div className="flex flex-col shrink-0 items-end gap-1 px-3 pt-2.5 pb-2">
+        <button
+          type="button"
+          onClick={() => onRemove(toast.id)}
+          aria-label="Dismiss notification"
+          className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+          </svg>
+        </button>
+        <span className="flex items-center gap-0.5">
+          <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+          <span className="text-[7px] font-mono text-text-secondary/30 uppercase tracking-widest">Celo</span>
+        </span>
+      </div>
     </motion.div>
   );
 }
