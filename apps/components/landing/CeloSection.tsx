@@ -65,7 +65,7 @@ export default function CeloSection() {
                   DuelSnap × MiniPay
                 </div>
                 <div className="text-text-secondary text-sm">
-                  Celo L1 · Carbon-neutral · Mobile-first
+                  Celo L1 · Carbon-neutral · Mobile-first · Pay CELO or cUSD
                 </div>
               </div>
 
