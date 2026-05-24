@@ -18,9 +18,13 @@ import { publicClient } from "../../../../lib/viem/client";
 import {
   gameSessionAbi,
   gameSessionContract,
+  CUSD_ADDRESS,
 } from "../../../../lib/viem/contracts";
+import { useCUSDBalance } from "../../../../hooks/useCUSDBalance";
+import { erc20Abi } from "../../../../lib/viem/erc20Abi";
 
 const WAGER = parseEther("0.1");
+const WAGER_CUSD = 100_000_000_000_000_000n; // 0.1 cUSD in wei (18 dec)
 const JOIN_SESSION_GAS_LIMIT = 300_000n;
 const CREATE_SESSION_GAS_LIMIT = 600_000n;
 
@@ -101,6 +105,8 @@ export default function PvpLobbyPage() {
   const [matching, setMatching] = useState(false);
   const [error, setError] = useState("");
   const [matchError, setMatchError] = useState("");
+  const [useCUSD, setUseCUSD] = useState(false);
+  const cusd = useCUSDBalance(address ?? null);
   const cancelledRef = useRef(false);
   const isEmbeddedPrivyWallet =
     walletClientType === "privy" || connectorType === "embedded";
@@ -391,11 +397,29 @@ export default function PvpLobbyPage() {
           PvP Ranked
         </h1>
         <p className="text-text-secondary font-sans text-sm">
-          0.1 CELO wager · 10 questions · 8 sec each
+          {useCUSD ? "0.1 cUSD" : "0.1 CELO"} wager · 10 questions · 8 sec each
         </p>
         <p className="text-text-secondary text-xs font-sans mt-1">
           Play now and we&apos;ll find your opponent automatically.
         </p>
+        <div className="flex items-center justify-center gap-2 mt-3">
+          <button
+            onClick={() => setUseCUSD(false)}
+            className={`px-3 py-1 rounded-full text-xs font-sans font-medium transition-colors ${
+              !useCUSD ? "bg-celo-green text-black" : "bg-surface-secondary text-text-secondary"
+            }`}
+          >
+            CELO
+          </button>
+          <button
+            onClick={() => setUseCUSD(true)}
+            className={`px-3 py-1 rounded-full text-xs font-sans font-medium transition-colors ${
+              useCUSD ? "bg-celo-green text-black" : "bg-surface-secondary text-text-secondary"
+            }`}
+          >
+            cUSD
+          </button>
+        </div>
       </div>
 
       {error && (
