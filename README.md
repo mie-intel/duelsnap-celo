@@ -4,11 +4,11 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 
 ## Game Modes
 
-| Mode | Cost | Reward |
-|---|---|---|
-| Free Casual | Free (3×/day) | XP only |
-| Paid Casual | 0.01 CELO | 90% royalties to question contributors |
-| PvP Ranked | Custom wager | 87% to winner, 10% contributors, 3% treasury |
+| Mode | Cost | Payment | Reward |
+|---|---|---|---|
+| Free Casual | Free (3×/day) | — | XP only |
+| Paid Casual | 0.01 CELO or cUSD | CELO / cUSD | 90% royalties to question contributors |
+| PvP Ranked | Custom wager | CELO / cUSD | 87% to winner, 10% contributors, 3% treasury |
 
 ## Celo Integration
 
