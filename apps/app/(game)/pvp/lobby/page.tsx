@@ -348,9 +348,15 @@ export default function PvpLobbyPage() {
 
       if (matchData.action === "join") {
         const sessionId = matchData.sessionId as `0x${string}`;
-        await ensureCeloBalance();
-        const hash = await sendJoinSession(sessionId);
-        await waitForSuccessfulReceipt(hash, "Joining PvP session");
+        if (useCUSD) {
+          await ensureCUSDBalance();
+          const hash = await sendJoinSessionCUSD(sessionId);
+          await waitForSuccessfulReceipt(hash, "Joining PvP session");
+        } else {
+          await ensureCeloBalance();
+          const hash = await sendJoinSession(sessionId);
+          await waitForSuccessfulReceipt(hash, "Joining PvP session");
+        }
 
         await fetch("/api/pvp/match", {
           method: "POST",
@@ -435,6 +441,7 @@ export default function PvpLobbyPage() {
     sendCreateSession,
     sendCreateSessionCUSD,
     sendJoinSession,
+    sendJoinSessionCUSD,
     useCUSD,
     waitForSuccessfulReceipt,
   ]);
