@@ -66,10 +66,10 @@ export function MatchmakingSearching({ elapsed, wager, onCancel }: MatchmakingSe
       <RadarPulse />
       <div className="text-center space-y-1">
         <h2 className="font-display font-bold text-xl text-text-primary">
-          Finding Opponent…
+          Hunting for a worthy rival… 🎯
         </h2>
         <p className="text-text-secondary text-sm font-sans">
-          Wager: <span className="text-secondary font-bold">{wager} CELO</span>
+          <span className="text-secondary font-bold">{wager} CELO</span> on the line
         </p>
       </div>
       <div className="flex items-center gap-2">
