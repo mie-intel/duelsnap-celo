@@ -7,10 +7,11 @@ import { publicClient } from "../lib/viem/client";
 import { CUSD_ADDRESS } from "../lib/viem/contracts";
 import { erc20Abi } from "../lib/viem/erc20Abi";
 
-const CASUAL_POOL_ADDRESS = (process.env.NEXT_PUBLIC_CASUAL_POOL_ADDRESS ??
+const DEFAULT_SPENDER = (process.env.NEXT_PUBLIC_CASUAL_POOL_ADDRESS ??
   "0x839fdf32e45A116EeFcFE3b1C4F892056057465c") as `0x${string}`;
 
-export function useCUSDBalance(address: Address | null) {
+export function useCUSDBalance(address: Address | null, spender?: Address) {
+  const effectiveSpender = spender ?? DEFAULT_SPENDER;
   const [balance, setBalance] = useState<bigint>(0n);
   const [allowance, setAllowance] = useState<bigint>(0n);
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ export function useCUSDBalance(address: Address | null) {
           address: CUSD_ADDRESS,
           abi: erc20Abi,
           functionName: "allowance",
-          args: [address, CASUAL_POOL_ADDRESS],
+          args: [address, effectiveSpender],
         }),
       ]);
       setBalance(bal as bigint);
