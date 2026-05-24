@@ -397,11 +397,29 @@ export default function PvpLobbyPage() {
           PvP Ranked
         </h1>
         <p className="text-text-secondary font-sans text-sm">
-          0.1 CELO wager · 10 questions · 8 sec each
+          {useCUSD ? "0.1 cUSD" : "0.1 CELO"} wager · 10 questions · 8 sec each
         </p>
         <p className="text-text-secondary text-xs font-sans mt-1">
           Play now and we&apos;ll find your opponent automatically.
         </p>
+        <div className="flex items-center justify-center gap-2 mt-3">
+          <button
+            onClick={() => setUseCUSD(false)}
+            className={`px-3 py-1 rounded-full text-xs font-sans font-medium transition-colors ${
+              !useCUSD ? "bg-celo-green text-black" : "bg-surface-secondary text-text-secondary"
+            }`}
+          >
+            CELO
+          </button>
+          <button
+            onClick={() => setUseCUSD(true)}
+            className={`px-3 py-1 rounded-full text-xs font-sans font-medium transition-colors ${
+              useCUSD ? "bg-celo-green text-black" : "bg-surface-secondary text-text-secondary"
+            }`}
+          >
+            cUSD
+          </button>
+        </div>
       </div>
 
       {error && (
