@@ -24,20 +24,21 @@ export default function DesktopSidebar() {
         <span className="font-display font-bold text-lg text-text-primary">DuelSnap</span>
       </Link>
 
-      <nav className="flex flex-col gap-1">
+      <nav className="flex flex-col gap-1" aria-label="Main navigation">
         {tabs.map(({ href, label, Icon }) => {
           const active = href === '/play' ? pathname === '/play' : pathname.startsWith(href);
           return (
             <Link
               key={href}
               href={href}
+              aria-current={active ? 'page' : undefined}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium font-sans transition-colors ${
                 active
                   ? 'bg-primary/10 text-primary'
                   : 'text-text-secondary hover:text-text-primary hover:bg-white/5'
               }`}
             >
-              <Icon className="w-5 h-5 shrink-0" />
+              <Icon className="w-5 h-5 shrink-0" aria-hidden="true" />
               {label}
             </Link>
           );
