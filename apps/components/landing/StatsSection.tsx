@@ -16,7 +16,7 @@ const stats = [
   },
   {
     value: "0.01",
-    label: "CELO to play",
+    label: "cUSD to play",
     sub: "Paid Casual entry",
     accent: "var(--color-accent-paid)",
   },
