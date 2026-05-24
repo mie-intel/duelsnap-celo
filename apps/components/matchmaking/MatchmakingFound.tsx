@@ -26,7 +26,7 @@ export function MatchmakingFound({ opponent, wager }: MatchmakingFoundProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Opponent Found
+          Challenger locked in ⚔️
         </motion.p>
         <motion.h2
           className="font-display font-bold text-2xl text-text-primary"
@@ -34,7 +34,7 @@ export function MatchmakingFound({ opponent, wager }: MatchmakingFoundProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.15 }}
         >
-          Get Ready
+          May the best guesser win!
         </motion.h2>
       </div>
 
