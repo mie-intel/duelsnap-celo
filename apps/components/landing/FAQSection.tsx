@@ -77,7 +77,16 @@ export default function FAQSection() {
               Common questions
             </h2>
             <p className="text-text-secondary text-sm leading-relaxed mt-4 max-w-[32ch]">
-              Can't find your answer? Open a discussion on GitHub.
+              Can't find your answer?{" "}
+              <a
+                href="https://github.com/mie-intel/duelsnap-celo/discussions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2 hover:text-primary-dark transition-colors"
+              >
+                Open a discussion
+              </a>{" "}
+              on GitHub.
             </p>
           </FadeIn>
 
