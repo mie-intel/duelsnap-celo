@@ -83,10 +83,12 @@ forge test
 
 ## Contributing
 
-1. Fork the repo
-2. Submit picture questions via the in-app **Contribute** tab
-3. Questions are AI-verified before going live
-4. Earn royalties every time your question is played in Paid Casual or PvP
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide.
+
+Quick paths:
+1. **Submit picture questions** via the in-app **Contribute** tab — earn on-chain royalties forever
+2. **Open a PR** for frontend improvements (UI, copy, a11y, perf)
+3. **File a bug** via GitHub Issues
 
 ## License
 
