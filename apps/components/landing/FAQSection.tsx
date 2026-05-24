@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Can I pay with cUSD instead of CELO?",
-    a: "Yes — cUSD is now supported for Paid Casual games. You approve the cUSD contract once, then pay with cUSD stablecoin each session without holding native CELO.",
+    a: "Yes — cUSD is now supported for Paid Casual games (V3 upgrade). The first time you play, you approve the game contract to spend your cUSD once. After that, each 0.01 cUSD session fee is deducted automatically from your cUSD balance — no need to hold native CELO for entry fees.",
   },
   {
     q: "What is fee abstraction on Celo?",
