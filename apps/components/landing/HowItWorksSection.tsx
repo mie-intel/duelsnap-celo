@@ -35,7 +35,7 @@ export default function HowItWorksSection() {
             </span>
           </div>
           <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight max-w-[18ch]">
-            Three steps to your first CELO win
+            Three steps to your first on-chain win
           </h2>
         </FadeIn>
 
