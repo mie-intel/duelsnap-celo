@@ -206,6 +206,14 @@ export default function PvpLobbyPage() {
     }
   }, [address]);
 
+  const ensureCUSDBalance = useCallback(async () => {
+    if (cusd.balance < WAGER_CUSD) {
+      throw new Error(
+        `Not enough cUSD. Need 0.1 cUSD but wallet has ${cusd.balanceFormatted} cUSD.`,
+      );
+    }
+  }, [cusd]);
+
   const sendJoinSession = useCallback(
     async (sessionId: `0x${string}`) => {
       const data = encodeFunctionData({
