@@ -34,7 +34,7 @@ export default function ContributePage() {
               Contribute Questions
             </h1>
             <p className="text-text-secondary text-sm font-sans mt-0.5">
-              Submit images · AI verified · Earn royalties forever
+              Upload a photo · AI verified in minutes · On-chain royalties forever
             </p>
           </div>
         </div>
