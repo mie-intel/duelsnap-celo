@@ -99,7 +99,7 @@ export function CategoryPickerModal({
                           }
                     }
                   >
-                    {mode === 'free' ? 'FREE' : '0.01 CELO'}
+                    {mode === 'free' ? 'FREE' : '0.01 CELO · cUSD'}
                   </span>
                 </div>
                 <button
