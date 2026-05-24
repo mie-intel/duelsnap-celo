@@ -159,7 +159,7 @@ export const casualPoolAbi = [
   // V3 — cUSD payment path
   {
     type: "function",
-    name: "payAndPlayCUSD",
+    name: "payAndPlayWithCUSD",
     inputs: [{ name: "questionIds", type: "uint256[]" }],
     outputs: [],
     stateMutability: "nonpayable",
