@@ -105,6 +105,7 @@ export default function PvpLobbyPage() {
     login,
   } = useWallet();
   const [matching, setMatching] = useState(false);
+  const [approving, setApproving] = useState(false);
   const [error, setError] = useState("");
   const [matchError, setMatchError] = useState("");
   const [useCUSD, setUseCUSD] = useState(false);
