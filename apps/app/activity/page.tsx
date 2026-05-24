@@ -304,8 +304,11 @@ export default function PlayerLogPage() {
                 <line x1="9" y1="12" x2="15" y2="12" />
                 <line x1="9" y1="16" x2="13" y2="16" />
               </svg>
-              <p className="text-text-secondary text-sm font-sans">
-                No games yet. Start playing!
+              <p className="text-text-primary text-sm font-semibold font-display mb-0.5">
+                Your adventure starts here 🎮
+              </p>
+              <p className="text-text-secondary text-xs font-sans">
+                No games yet — jump in and start your first duel!
               </p>
             </div>
           ) : (
@@ -430,12 +433,12 @@ export default function PlayerLogPage() {
                 </svg>
               </div>
               <div className="text-center">
-                <p className="text-text-primary text-sm font-semibold font-sans mb-1">
-                  No questions yet
+                <p className="text-text-primary text-sm font-semibold font-display mb-1">
+                  No questions yet 📸
                 </p>
                 <p className="text-text-secondary text-xs font-sans">
-                  Submit a picture question and earn royalties every time
-                  it&apos;s played.
+                  Submit a photo question and earn on-chain royalties every time
+                  someone plays it — forever.
                 </p>
               </div>
               <button
