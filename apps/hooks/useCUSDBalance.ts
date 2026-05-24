@@ -30,7 +30,7 @@ export function useCUSDBalance(address: Address | null) {
           address: CUSD_ADDRESS,
           abi: erc20Abi,
           functionName: "allowance",
-          args: [address, CUSD_ADDRESS],
+          args: [address, CASUAL_POOL_ADDRESS],
         }),
       ]);
       setBalance(bal as bigint);
