@@ -17,7 +17,7 @@ export default function NavBar() {
   if (pathname === '/') return null;
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-bg-card/95 backdrop-blur-xl border-t border-black/5">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-bg-card/95 backdrop-blur-xl border-t border-black/5" aria-label="Main navigation">
       <div className="max-w-md mx-auto flex justify-around py-2 pb-safe">
         {tabs.map(({ href, label, Icon }) => {
           const active = href === '/play' ? pathname === '/play' : pathname === href;
@@ -25,11 +25,13 @@ export default function NavBar() {
             <Link
               key={href}
               href={href}
+              aria-current={active ? 'page' : undefined}
+              aria-label={label}
               className={`flex flex-col items-center gap-0.5 px-5 py-1 text-xs transition-colors ${
                 active ? 'text-primary' : 'text-text-secondary'
               }`}
             >
-              <Icon className="w-6 h-6" />
+              <Icon className="w-6 h-6" aria-hidden="true" />
               <span className={`font-sans ${active ? 'font-semibold' : 'font-medium'}`}>
                 {label}
               </span>
