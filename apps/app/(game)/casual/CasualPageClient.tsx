@@ -5,12 +5,15 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { parseEther } from "viem";
 import { useWallet } from "../../../hooks/useWallet";
 import { usePlayerLog } from "../../../hooks/usePlayerLog";
+import { useCUSDBalance } from "../../../hooks/useCUSDBalance";
 import { publicClient } from "../../../lib/viem/client";
 import {
   questionPoolContract,
   casualPoolContract,
   casualPoolAbi,
+  CUSD_ADDRESS,
 } from "../../../lib/viem/contracts";
+import { erc20Abi } from "../../../lib/viem/erc20Abi";
 import { celo } from "../../../lib/viem/chain";
 import { ensureBaseSepoliaChain } from "../../../lib/viem/ensureChain";
 import Button from "../../../components/ui/Button";
