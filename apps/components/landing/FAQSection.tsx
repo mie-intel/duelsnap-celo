@@ -33,6 +33,10 @@ const faqs = [
     a: "Yes — DuelSnap is MiniPay-native. Open it inside the Opera MiniPay browser and your wallet connects instantly with no popups or manual approvals. Your CELO balance is ready to wager immediately.",
   },
   {
+    q: "Can I pay with cUSD instead of CELO?",
+    a: "Yes — cUSD is now supported for Paid Casual games. You approve the cUSD contract once, then pay with cUSD stablecoin each session without holding native CELO.",
+  },
+  {
     q: "What is fee abstraction on Celo?",
     a: "Celo's fee abstraction layer (Mento protocol) lets you pay gas fees in cUSD instead of CELO. That means you never need to hold CELO just for gas — your stablecoin balance covers everything.",
   },
