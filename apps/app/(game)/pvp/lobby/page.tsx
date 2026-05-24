@@ -215,6 +215,28 @@ export default function PvpLobbyPage() {
     }
   }, [cusd]);
 
+  const approveCUSDForSession = useCallback(async () => {
+    if (!address || !walletClient) return;
+    setApproving(true);
+    setError("");
+    try {
+      const hash = await walletClient.writeContract({
+        address: CUSD_ADDRESS,
+        abi: erc20Abi,
+        functionName: "approve",
+        args: [GAME_SESSION_ADDRESS, WAGER_CUSD],
+        account: address,
+        chain: celo,
+      });
+      await publicClient.waitForTransactionReceipt({ hash });
+      await cusd.refresh();
+    } catch (e) {
+      setError(parseContractError(e));
+    } finally {
+      setApproving(false);
+    }
+  }, [address, walletClient, cusd]);
+
   const sendJoinSession = useCallback(
     async (sessionId: `0x${string}`) => {
       const data = encodeFunctionData({
