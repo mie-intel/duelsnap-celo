@@ -105,6 +105,7 @@ export default function PvpLobbyPage() {
     login,
   } = useWallet();
   const [matching, setMatching] = useState(false);
+  const [approving, setApproving] = useState(false);
   const [error, setError] = useState("");
   const [matchError, setMatchError] = useState("");
   const [useCUSD, setUseCUSD] = useState(false);
@@ -213,6 +214,28 @@ export default function PvpLobbyPage() {
       );
     }
   }, [cusd]);
+
+  const approveCUSDForSession = useCallback(async () => {
+    if (!address || !walletClient) return;
+    setApproving(true);
+    setError("");
+    try {
+      const hash = await walletClient.writeContract({
+        address: CUSD_ADDRESS,
+        abi: erc20Abi,
+        functionName: "approve",
+        args: [GAME_SESSION_ADDRESS, WAGER_CUSD],
+        account: address,
+        chain: celo,
+      });
+      await publicClient.waitForTransactionReceipt({ hash });
+      await cusd.refresh();
+    } catch (e) {
+      setError(parseContractError(e));
+    } finally {
+      setApproving(false);
+    }
+  }, [address, walletClient, cusd]);
 
   const sendJoinSession = useCallback(
     async (sessionId: `0x${string}`) => {
@@ -469,13 +492,25 @@ export default function PvpLobbyPage() {
         </div>
       ) : (
         <div className="flex flex-col gap-3 w-full max-w-xs">
+          {useCUSD && cusd.allowance < WAGER_CUSD && (
+            <Button
+              onClick={approveCUSDForSession}
+              loading={approving}
+              size="lg"
+              variant="secondary"
+              className="w-full"
+            >
+              Approve cUSD
+            </Button>
+          )}
           <Button
             onClick={handlePlay}
             size="lg"
             className="w-full"
             loading={matching}
+            disabled={approving}
           >
-            Play
+            {useCUSD && cusd.allowance < WAGER_CUSD ? "Approve cUSD First" : "Play"}
           </Button>
           <Button variant="ghost" onClick={() => router.push("/")} size="sm">
             Back
