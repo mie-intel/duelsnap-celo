@@ -34,7 +34,7 @@ export default function NetProfitLoss({ netProfitLoss }: NetProfitLossProps) {
         <span className="text-[var(--color-text-secondary)] text-sm font-sans mb-1">CELO</span>
       </div>
       <p className="text-[var(--color-text-secondary)] text-xs font-sans mt-1">
-        {isPositive ? "Profit from paid games on Celo" : "Loss from paid games on Celo"}
+        {isPositive ? "Profit from paid games on Celo (CELO & cUSD)" : "Loss from paid games on Celo (CELO & cUSD)"}
       </p>
 
       {/* USD estimate */}
