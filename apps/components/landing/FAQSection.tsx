@@ -13,6 +13,10 @@ const faqs = [
     a: "Both players stake 0.1 CELO before the match. After 10 questions, the player with the higher score wins 0.174 CELO (87% of the 0.2 CELO pool). The remaining 13% goes to the protocol treasury and contributors.",
   },
   {
+    q: "Can I pay with cUSD instead of CELO?",
+    a: "Yes — cUSD is now supported for Paid Casual games (V3 upgrade). The first time you play, you approve the game contract to spend your cUSD once. After that, each 0.01 cUSD session fee is deducted automatically from your cUSD balance — no need to hold native CELO for entry fees.",
+  },
+  {
     q: "How do photo royalties get paid out?",
     a: "Royalties accumulate on-chain as Paid Casual sessions complete. Each session distributes 27% of fees proportionally to all contributors whose photos were used in that session. Payouts are claimable directly from your profile.",
   },
@@ -31,10 +35,6 @@ const faqs = [
   {
     q: "Does DuelSnap work with MiniPay?",
     a: "Yes — DuelSnap is MiniPay-native. Open it inside the Opera MiniPay browser and your wallet connects instantly with no popups or manual approvals. Your CELO balance is ready to wager immediately.",
-  },
-  {
-    q: "Can I pay with cUSD instead of CELO?",
-    a: "Yes — cUSD is now supported for Paid Casual games (V3 upgrade). The first time you play, you approve the game contract to spend your cUSD once. After that, each 0.01 cUSD session fee is deducted automatically from your cUSD balance — no need to hold native CELO for entry fees.",
   },
   {
     q: "What is fee abstraction on Celo?",
