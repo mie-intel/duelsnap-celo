@@ -7,6 +7,9 @@ import { publicClient } from "../lib/viem/client";
 import { CUSD_ADDRESS } from "../lib/viem/contracts";
 import { erc20Abi } from "../lib/viem/erc20Abi";
 
+const CASUAL_POOL_ADDRESS = (process.env.NEXT_PUBLIC_CASUAL_POOL_ADDRESS ??
+  "0x839fdf32e45A116EeFcFE3b1C4F892056057465c") as `0x${string}`;
+
 export function useCUSDBalance(address: Address | null) {
   const [balance, setBalance] = useState<bigint>(0n);
   const [allowance, setAllowance] = useState<bigint>(0n);
