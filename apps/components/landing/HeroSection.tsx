@@ -49,7 +49,7 @@ function HeroEyebrow() {
       </div>
       <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] bg-transparent w-fit">
         <span className="text-xs font-medium text-text-secondary">
-          No signup · No deposit · Open source
+          No signup · No deposit · Free to start
         </span>
       </div>
       <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-1)] w-fit">
@@ -80,8 +80,8 @@ function HeroHeadline() {
 function HeroSubtitle() {
   return (
     <p className="text-text-secondary text-base md:text-lg lg:text-xl leading-relaxed max-w-[52ch]">
-      Picture duels on the blockchain. Snap, guess, earn. Play free anytime,
-      wager CELO in PvP ranked matches, or contribute photos and collect royalties forever.
+      On-chain picture duels on Celo. Play free with no wallet, stake CELO or cUSD
+      in 1v1 PvP ranked matches, or contribute your photos and earn royalties on every play — forever.
     </p>
   );
 }
