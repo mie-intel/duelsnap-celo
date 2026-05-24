@@ -4,17 +4,17 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 
 ## Game Modes
 
-| Mode | Cost | Reward |
-|---|---|---|
-| Free Casual | Free (3×/day) | XP only |
-| Paid Casual | 0.01 CELO | 90% royalties to question contributors |
-| PvP Ranked | Custom wager | 87% to winner, 10% contributors, 3% treasury |
+| Mode | Cost | Payment | Reward |
+|---|---|---|---|
+| Free Casual | Free (3×/day) | — | XP only |
+| Paid Casual | 0.01 CELO or cUSD | CELO / cUSD | 90% royalties to question contributors |
+| PvP Ranked | Custom wager | CELO / cUSD | 87% to winner, 10% contributors, 3% treasury |
 
 ## Celo Integration
 
 - **Celo Mainnet** deployment with verified gameplay contracts.
 - **MiniPay-ready wallet flow** for mobile-first Celo users.
-- **cUSD support** in the frontend contract layer for stablecoin balance reads and payment expansion.
+- **cUSD support** — players can pay for Paid Casual games and PvP wagers using cUSD (Celo Dollar) stablecoin, in addition to native CELO. Powered by CasualPoolV3 and GameSessionV3.
 - **On-chain creator economy** where submitted picture questions are stored on IPFS, verified, and rewarded when played.
 
 ## Contract Addresses (Celo Mainnet)
@@ -43,6 +43,7 @@ Explorer: [celo.blockscout.com](https://celo.blockscout.com)
 - **Frontend** — Next.js 15, Wagmi, Privy, Viem
 - **Storage** — IPFS via Pinata, Upstash Redis
 - **Chain** — Celo Mainnet (Chain ID: 42220), MiniPay-compatible wallet UX
+- **Payments** — Native CELO and cUSD (Celo Dollar) stablecoin via ERC-20, supported by V3 contracts
 
 ## Prerequisites
 
