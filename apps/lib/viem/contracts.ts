@@ -241,6 +241,23 @@ export const casualPoolAbi = [
 export const gameSessionAbi = [
   {
     type: "function",
+    name: "createSessionWithCUSD",
+    inputs: [
+      { name: "wager", type: "uint256" },
+      { name: "questionIds", type: "uint256[]" },
+    ],
+    outputs: [{ name: "", type: "bytes32" }],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "joinSessionWithCUSD",
+    inputs: [{ name: "sessionId", type: "bytes32" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
     name: "getQuestionIds",
     inputs: [{ name: "sessionId", type: "bytes32" }],
     outputs: [{ name: "", type: "uint256[10]" }],
