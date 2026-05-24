@@ -99,7 +99,7 @@ export function CategoryPickerModal({
                           }
                     }
                   >
-                    {mode === 'free' ? 'FREE' : '0.01 CELO'}
+                    {mode === 'free' ? 'FREE' : '0.01 CELO · cUSD'}
                   </span>
                 </div>
                 <button
@@ -138,7 +138,7 @@ export function CategoryPickerModal({
                 <div className="flex items-center justify-center gap-1.5 pt-1">
                   <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
                   <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
-                    On Celo · {mode === 'paid' ? '0.01 CELO entry' : 'Free to play'}
+                    On Celo · {mode === 'paid' ? '0.01 CELO or cUSD entry' : 'Free to play'}
                   </span>
                 </div>
               </div>
