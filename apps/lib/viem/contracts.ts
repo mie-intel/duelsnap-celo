@@ -185,16 +185,7 @@ export const casualPoolAbi = [
     outputs: [{ name: "", type: "uint256" }],
     stateMutability: "view",
   },
-  {
-    type: "function",
-    name: "setCUSD",
-    inputs: [
-      { name: "_cUSD", type: "address" },
-      { name: "_feeAmountCUSD", type: "uint256" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
+
   {
     type: "event",
     name: "CasualFeePaidCUSD",
