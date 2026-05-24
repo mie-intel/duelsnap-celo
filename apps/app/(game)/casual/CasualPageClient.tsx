@@ -224,6 +224,62 @@ export default function CasualPageClient() {
     }
   }, [address, isPaid, checkDailyLimit, fetchCeloBalance, fetchFeeAmountCUSD]);
 
+  const startPaidGameCUSD = useCallback(async () => {
+    if (!address || !walletClient) return;
+    setLoading(true);
+    setError("");
+    try {
+      await ensureBaseSepoliaChain(walletClient);
+
+      if (cusd.balance < feeAmountCUSD) {
+        throw new Error(
+          `Not enough cUSD. Need ${Number(feeAmountCUSD) / 1e18} cUSD but wallet has ${cusd.balanceFormatted} cUSD.`,
+        );
+      }
+
+      const seed = Math.floor(Math.random() * 1e12);
+      const res = await fetch(`/api/game/questions?count=10&seed=${seed}`);
+      const data = await readJsonResponse<{
+        questions?: Question[];
+        error?: string;
+      }>(res);
+      if (!res.ok || !data.questions?.length)
+        throw new Error(data.error ?? "No questions");
+
+      const questionIds = data.questions.map((q: Question) => BigInt(q.id));
+
+      const payHash = await walletClient.writeContract({
+        address: casualPoolContract.address,
+        abi: casualPoolAbi,
+        functionName: "payAndPlayWithCUSD",
+        args: [questionIds],
+        account: address,
+        chain: celo,
+        gas: 500_000n,
+      });
+      const payReceipt = await publicClient.waitForTransactionReceipt({
+        hash: payHash,
+      });
+      if (payReceipt.status === "reverted")
+        throw new Error("cUSD payment transaction reverted on-chain");
+
+      await fetch("/api/game/casual-track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          questionIds: data.questions.map((q: Question) => q.id),
+        }),
+      });
+
+      setQuestions(data.questions);
+      setPhase("playing");
+    } catch (e) {
+      setError(parseContractError(e));
+    } finally {
+      setLoading(false);
+    }
+  }, [address, walletClient, feeAmountCUSD, cusd]);
+
   const handleComplete = useCallback(
     async (results: QuestionResult[]) => {
       const correct = results.filter((r) => r.correct).length;
