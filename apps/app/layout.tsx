@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   keywords: [
     "DuelSnap", "Celo blockchain game", "Web3 picture quiz", "PvP crypto game",
     "play to earn", "CELO rewards", "cUSD", "Celo Mainnet", "MiniPay game",
-    "photo quiz royalties", "crypto trivia",
+    "photo quiz royalties", "crypto trivia", "on-chain game", "picture duel",
+    "MiniPay", "Opera Mini", "Celo L1", "EVM game", "blockchain quiz",
   ],
   openGraph: {
     title: "DuelSnap — MiniPay Picture Duels on Celo",
