@@ -50,7 +50,7 @@ export default function StepDeposit() {
         <p className="text-text-secondary text-sm leading-relaxed">
           {isMiniPay
             ? "CELO and cUSD in your MiniPay balance work directly in DuelSnap — no extra steps."
-            : "Add CELO to play paid games and wager in 1v1 duels. Free mode is always available."}
+            : "Add CELO or cUSD to play paid games and wager in 1v1 duels. Free mode is always available."}
         </p>
       </div>
 
