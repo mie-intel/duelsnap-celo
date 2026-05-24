@@ -20,7 +20,7 @@ const externalOptions = [
   },
   {
     label: "Get MiniPay",
-    description: "Opera's Celo wallet — instant CELO top-up on mobile.",
+    description: "Opera's Celo wallet — CELO and cUSD top-up on mobile.",
     href: "https://www.opera.com/mobile/mini",
     accent: "#35D07F",
     icon: (
