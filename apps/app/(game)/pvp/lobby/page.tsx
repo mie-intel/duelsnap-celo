@@ -190,7 +190,7 @@ export default function PvpLobbyPage() {
     async (hash: `0x${string}`, action: string) => {
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
       if (receipt.status === "reverted") {
-        throw new Error(`${action} reverted on-chain. Check CELO balance and try again.`);
+        throw new Error(`${action} reverted on-chain. Check your balance and try again.`);
       }
       return receipt;
     },
@@ -533,6 +533,7 @@ export default function PvpLobbyPage() {
             </p>
           ) : (
             <p className="text-text-secondary text-sm font-sans text-center">
+              {useCUSD ? "0.1 cUSD wager · " : "0.1 CELO wager · "}
               If someone is already waiting, you&apos;ll join them instantly.
               Otherwise, we&apos;ll keep your room open.
             </p>
