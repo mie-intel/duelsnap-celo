@@ -257,6 +257,26 @@ export default function PvpLobbyPage() {
     [sendEncodedTransaction],
   );
 
+  const sendJoinSessionCUSD = useCallback(
+    async (sessionId: `0x${string}`) => {
+      const data = encodeFunctionData({
+        abi: gameSessionAbi,
+        functionName: "joinSessionWithCUSD",
+        args: [sessionId],
+      });
+      return await sendEncodedTransaction({
+        to: gameSessionContract.address,
+        data,
+        value: 0n,
+        fallbackGasLimit: JOIN_SESSION_GAS_LIMIT,
+        description: "Join PvP match — 0.1 cUSD wager",
+        buttonText: "Join",
+        successHeader: "Joined match",
+      });
+    },
+    [sendEncodedTransaction],
+  );
+
   const sendCreateSession = useCallback(
     async (questionIds: bigint[]) => {
       const data = encodeFunctionData({
