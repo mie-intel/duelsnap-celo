@@ -7,6 +7,8 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 [![MiniPay](https://img.shields.io/badge/MiniPay-compatible-orange)](https://www.opera.com/mobile/mini)
 [![Frontend](https://img.shields.io/badge/frontend-Next.js%2015-black?logo=next.js)](https://nextjs.org)
 [![Smart Contracts](https://img.shields.io/badge/contracts-Foundry%20%2B%20UUPS-purple)](https://getfoundry.sh)
+[![cUSD Support](https://img.shields.io/badge/payment-CELO%20%2B%20cUSD-35D07F)](https://docs.celo.org/token)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
 MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into free casual rounds, play paid casual games, or duel 1v1 with CELO wagers while photo contributors earn on-chain royalties.
 
