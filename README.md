@@ -88,6 +88,10 @@ forge test
 3. Questions are AI-verified before going live
 4. Earn royalties every time your question is played in Paid Casual or PvP
 
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for full version history.
+
 ## License
 
 MIT
