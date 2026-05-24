@@ -430,6 +430,11 @@ export default function PvpLobbyPage() {
             cUSD
           </button>
         </div>
+        {useCUSD && (
+          <p className="text-text-secondary text-xs font-sans mt-2">
+            cUSD Balance: {cusd.balanceFormatted} cUSD
+          </p>
+        )}
       </div>
 
       {error && (
