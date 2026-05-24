@@ -492,13 +492,25 @@ export default function PvpLobbyPage() {
         </div>
       ) : (
         <div className="flex flex-col gap-3 w-full max-w-xs">
+          {useCUSD && cusd.allowance < WAGER_CUSD && (
+            <Button
+              onClick={approveCUSDForSession}
+              loading={approving}
+              size="lg"
+              variant="secondary"
+              className="w-full"
+            >
+              Approve cUSD
+            </Button>
+          )}
           <Button
             onClick={handlePlay}
             size="lg"
             className="w-full"
             loading={matching}
+            disabled={approving}
           >
-            Play
+            {useCUSD && cusd.allowance < WAGER_CUSD ? "Approve cUSD First" : "Play"}
           </Button>
           <Button variant="ghost" onClick={() => router.push("/")} size="sm">
             Back
