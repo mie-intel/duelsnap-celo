@@ -27,6 +27,8 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 
 Explorer: [celo.blockscout.com](https://celo.blockscout.com)
 
+> **V3 upgrade**: CasualPool and GameSession contracts were upgraded to V3 via UUPS proxy. V3 adds native cUSD stablecoin payment support alongside CELO, letting players pay for Paid Casual games and PvP wagers in cUSD. Proxy addresses are unchanged — no wallet or frontend reconfiguration required.
+
 ## Stack
 
 - **Smart Contracts** — Solidity 0.8.28, Foundry, OpenZeppelin UUPS upgradeable
