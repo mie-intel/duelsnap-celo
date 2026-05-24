@@ -8,8 +8,8 @@ const reasons = [
     accent: true,
   },
   {
-    title: "Pay fees in cUSD",
-    body: "Celo's fee abstraction layer (Mento protocol) means users never need to hold CELO just for gas. cUSD covers everything.",
+    title: "Pay with CELO or cUSD",
+    body: "Celo's fee abstraction layer (Mento protocol) means users never need to hold CELO just for gas. cUSD covers everything — including Paid Casual game entry fees via V3 cUSD stablecoin support.",
     accent: false,
   },
   {
@@ -65,7 +65,7 @@ export default function CeloSection() {
                   DuelSnap × MiniPay
                 </div>
                 <div className="text-text-secondary text-sm">
-                  Celo L1 · Carbon-neutral · Mobile-first
+                  Celo L1 · Carbon-neutral · Mobile-first · Pay CELO or cUSD
                 </div>
               </div>
 
