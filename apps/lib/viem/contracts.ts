@@ -188,6 +188,15 @@ export const casualPoolAbi = [
 
   {
     type: "event",
+    name: "VolumeTracked",
+    inputs: [
+      { name: "player", type: "address", indexed: true },
+      { name: "amount", type: "uint256", indexed: false },
+      { name: "cumulative", type: "uint256", indexed: false },
+    ],
+  },
+  {
+    type: "event",
     name: "CasualFeePaidCUSD",
     inputs: [
       { name: "player", type: "address", indexed: true },
@@ -230,6 +239,23 @@ export const casualPoolAbi = [
 ] as const;
 
 export const gameSessionAbi = [
+  {
+    type: "function",
+    name: "createSessionWithCUSD",
+    inputs: [
+      { name: "wager", type: "uint256" },
+      { name: "questionIds", type: "uint256[]" },
+    ],
+    outputs: [{ name: "", type: "bytes32" }],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "joinSessionWithCUSD",
+    inputs: [{ name: "sessionId", type: "bytes32" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
   {
     type: "function",
     name: "getQuestionIds",
@@ -310,6 +336,15 @@ export const gameSessionAbi = [
       { name: "sessionId", type: "bytes32", indexed: true },
       { name: "winner", type: "address", indexed: false },
       { name: "payout", type: "uint256", indexed: false },
+    ],
+  },
+  {
+    type: "event",
+    name: "WagerSettled",
+    inputs: [
+      { name: "sessionId", type: "bytes32", indexed: true },
+      { name: "pool", type: "uint256", indexed: false },
+      { name: "cumulative", type: "uint256", indexed: false },
     ],
   },
   {
