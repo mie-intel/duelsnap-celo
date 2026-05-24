@@ -19,7 +19,7 @@ const modes = [
     id: "paid",
     label: "EARN",
     name: "Paid Casual",
-    tagline: "Play to earn royalties",
+    tagline: "Play to earn royalties · Pay with CELO or cUSD",
     body: "Pay 0.01 CELO or cUSD per session. Top scorers earn royalties from a shared pool. Contributors get paid every time their photo is used.",
     detail: ["0.01 CELO or cUSD entry", "10 questions / session", "Royalty payouts on-chain"],
     href: "/play",
