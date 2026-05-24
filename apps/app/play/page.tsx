@@ -132,7 +132,7 @@ export default function PlayPage() {
                     </span>
                   </div>
                   <p className="text-text-secondary text-sm mt-0.5">
-                    5 questions · 3 rounds/day · No wallet needed
+                    10 questions · 3 rounds/day · No wallet needed 🎮
                   </p>
                 </div>
                 <span className="text-text-secondary">›</span>
