@@ -83,6 +83,32 @@ Explorer: [celo.blockscout.com](https://celo.blockscout.com)
 - **Chain** — Celo Mainnet (Chain ID: 42220), MiniPay-compatible wallet UX
 - **Payments** — Native CELO and cUSD (Celo Dollar) stablecoin via ERC-20, supported by V3 contracts
 
+## Project Structure
+
+```
+duelsnap-celo/
+├── apps/                    # Next.js 15 frontend
+│   ├── app/                 # App Router pages
+│   │   ├── (game)/casual/   # Casual mode page + client
+│   │   ├── (game)/pvp/      # PvP lobby + session pages
+│   │   ├── leaderboard/     # On-chain leaderboard
+│   │   ├── profile/         # Player profile + stats
+│   │   └── activity/        # On-chain activity feed
+│   ├── components/          # UI component library
+│   │   ├── landing/         # Landing page sections
+│   │   ├── game/            # Game engine, question card, results
+│   │   ├── matchmaking/     # PvP matchmaking flow
+│   │   ├── leaderboard/     # Leaderboard rows, tabs, podium
+│   │   ├── profile/         # Profile cards, badges, charts
+│   │   ├── onboarding/      # Onboarding wizard steps
+│   │   └── ui/              # Shared primitives (Button, Modal, Toast)
+│   ├── hooks/               # Wagmi + contract hooks
+│   └── lib/                 # Utilities, chain config
+└── sc/                      # Foundry smart contracts
+    ├── src/                 # Solidity source (CasualPool, GameSession, QuestionPool)
+    └── script/              # Deploy + upgrade scripts
+```
+
 ## Prerequisites
 
 - [Bun](https://bun.sh) ≥ 1.0
