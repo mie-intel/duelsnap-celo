@@ -3,7 +3,12 @@ import { LeaderboardClient } from "../../components/leaderboard/LeaderboardClien
 
 export const metadata: Metadata = {
   title: "Leaderboard — DuelSnap",
-  description: "Top CELO earners on DuelSnap. Compete and climb the ranks.",
+  description: "Top CELO and cUSD earners on DuelSnap. Compete in on-chain picture duels and climb the global and weekly rankings on Celo Mainnet.",
+  openGraph: {
+    title: "DuelSnap Leaderboard",
+    description: "Top players competing in on-chain picture duels on Celo. See the global and weekly rankings.",
+    type: "website",
+  },
 };
 
 export default function LeaderboardPage() {
