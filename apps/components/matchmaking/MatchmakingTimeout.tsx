@@ -34,10 +34,10 @@ export function MatchmakingTimeout({ onRetry, onCancel }: MatchmakingTimeoutProp
       </div>
       <div className="space-y-1.5 max-w-[240px]">
         <h2 className="font-display font-bold text-xl text-text-primary">
-          No Opponents Found
+          The arena is quiet… 👻
         </h2>
         <p className="text-text-secondary text-sm font-sans leading-relaxed">
-          No active players on Celo right now. Try again or check back later.
+          No challengers stepped up. Either they're scared or the timing is off — try again!
         </p>
       </div>
       <div className="flex flex-col gap-2 w-full">
