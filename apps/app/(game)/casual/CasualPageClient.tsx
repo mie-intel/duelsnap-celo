@@ -288,6 +288,7 @@ export default function CasualPageClient() {
         mode: isPaid ? "casual" : "free",
         result: correct >= threshold ? "win" : "lose",
         amount: 0,
+        ...(isPaid && { currency: useCUSD ? "cUSD" : "CELO" }),
       });
 
       if (!isPaid && address) {
