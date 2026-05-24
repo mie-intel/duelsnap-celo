@@ -533,6 +533,7 @@ export default function PvpLobbyPage() {
             </p>
           ) : (
             <p className="text-text-secondary text-sm font-sans text-center">
+              {useCUSD ? "0.1 cUSD wager · " : "0.1 CELO wager · "}
               If someone is already waiting, you&apos;ll join them instantly.
               Otherwise, we&apos;ll keep your room open.
             </p>
