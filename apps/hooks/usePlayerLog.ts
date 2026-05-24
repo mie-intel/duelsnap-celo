@@ -4,12 +4,14 @@ import { useState, useEffect, useCallback } from 'react';
 
 export type GameMode = 'free' | 'casual' | 'competitive';
 export type GameResult = 'win' | 'lose' | 'tie';
+export type PaymentCurrency = 'CELO' | 'cUSD';
 
 export interface GameLogEntry {
   id: string;
   mode: GameMode;
   result: GameResult;
-  amount: number; // CELO amount in wei (positive = earned, negative = lost), 0 for free
+  amount: number; // token amount in wei (positive = earned, negative = lost), 0 for free
+  currency?: PaymentCurrency; // payment currency: 'CELO' (default) or 'cUSD'
   timestamp: number;
 }
 
