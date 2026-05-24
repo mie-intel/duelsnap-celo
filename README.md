@@ -43,6 +43,7 @@ Explorer: [celo.blockscout.com](https://celo.blockscout.com)
 - **Frontend** — Next.js 15, Wagmi, Privy, Viem
 - **Storage** — IPFS via Pinata, Upstash Redis
 - **Chain** — Celo Mainnet (Chain ID: 42220), MiniPay-compatible wallet UX
+- **Payments** — Native CELO and cUSD (Celo Dollar) stablecoin via ERC-20, supported by V3 contracts
 
 ## Prerequisites
 
