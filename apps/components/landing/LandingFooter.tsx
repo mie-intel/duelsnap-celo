@@ -127,7 +127,7 @@ export default function LandingFooter() {
 
         <div className="mt-12 pt-6 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <span className="text-xs text-text-secondary">
-            © 2026 DuelSnap. Open source · MIT License
+            © 2025 DuelSnap. Open source · MIT License
           </span>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
