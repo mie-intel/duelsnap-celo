@@ -23,6 +23,8 @@ import {
 import { useCUSDBalance } from "../../../../hooks/useCUSDBalance";
 import { erc20Abi } from "../../../../lib/viem/erc20Abi";
 
+const GAME_SESSION_ADDRESS = gameSessionContract.address;
+
 const WAGER = parseEther("0.1");
 const WAGER_CUSD = 100_000_000_000_000_000n; // 0.1 cUSD in wei (18 dec)
 const JOIN_SESSION_GAS_LIMIT = 300_000n;
@@ -106,7 +108,7 @@ export default function PvpLobbyPage() {
   const [error, setError] = useState("");
   const [matchError, setMatchError] = useState("");
   const [useCUSD, setUseCUSD] = useState(false);
-  const cusd = useCUSDBalance(address ?? null);
+  const cusd = useCUSDBalance(address ?? null, GAME_SESSION_ADDRESS);
   const cancelledRef = useRef(false);
   const isEmbeddedPrivyWallet =
     walletClientType === "privy" || connectorType === "embedded";
@@ -203,6 +205,14 @@ export default function PvpLobbyPage() {
       );
     }
   }, [address]);
+
+  const ensureCUSDBalance = useCallback(async () => {
+    if (cusd.balance < WAGER_CUSD) {
+      throw new Error(
+        `Not enough cUSD. Need 0.1 cUSD but wallet has ${cusd.balanceFormatted} cUSD.`,
+      );
+    }
+  }, [cusd]);
 
   const sendJoinSession = useCallback(
     async (sessionId: `0x${string}`) => {
@@ -420,6 +430,11 @@ export default function PvpLobbyPage() {
             cUSD
           </button>
         </div>
+        {useCUSD && (
+          <p className="text-text-secondary text-xs font-sans mt-2">
+            cUSD Balance: {cusd.balanceFormatted} cUSD
+          </p>
+        )}
       </div>
 
       {error && (
