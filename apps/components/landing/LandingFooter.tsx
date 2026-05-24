@@ -11,6 +11,7 @@ const celoEcosystemLinks = [
 const appLinks = [
   { label: "Play Free", href: "/play" },
   { label: "PvP Arena", href: "/pvp/lobby" },
+  { label: "Leaderboard", href: "/leaderboard" },
   { label: "Contribute", href: "/contribute" },
   { label: "Activity", href: "/activity" },
 ];
@@ -19,6 +20,7 @@ const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Game Modes", href: "#game-modes" },
   { label: "Earn", href: "#earn" },
+  { label: "Contribute", href: "#contribute" },
   { label: "FAQ", href: "#faq" },
 ];
 
