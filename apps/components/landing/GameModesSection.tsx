@@ -25,7 +25,7 @@ const modes = [
     href: "/play",
     accent: "var(--color-accent-paid)",
     accentLight: "var(--color-accent-paid-light)",
-    badge: "0.01 CELO",
+    badge: "0.01 CELO · cUSD",
     colSpan: "md:col-span-1",
   },
   {
