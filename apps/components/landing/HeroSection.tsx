@@ -110,7 +110,7 @@ function HeroStats() {
   const stats = [
     { value: "3", label: "Game modes", accent: "var(--color-primary)" },
     { value: "87%", label: "Winner payout", accent: "var(--color-accent-pvp)" },
-    { value: "0.01", label: "CELO to play", accent: "var(--color-secondary)" },
+    { value: "0.01", label: "cUSD to play", accent: "var(--color-secondary)" },
   ];
 
   return (
