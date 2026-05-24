@@ -61,7 +61,7 @@ export default function CasualPageClient() {
   const [useCUSD, setUseCUSD] = useState(false);
   const [feeAmountCUSD, setFeeAmountCUSD] = useState<bigint>(0n);
 
-  const cusd = useCUSDBalance(address ?? null);
+  const cusd = useCUSDBalance(address ?? null, casualPoolContract.address);
 
   const checkDailyLimit = useCallback(async () => {
     if (!address) return;
