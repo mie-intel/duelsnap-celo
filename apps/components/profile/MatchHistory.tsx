@@ -43,11 +43,12 @@ function relativeTime(ts: number): string {
   return `${days}d ago`;
 }
 
-function formatAmount(amount: number): string {
+function formatAmount(amount: number, currency?: string): string {
   if (amount === 0) return "";
-  const celo = amount / 1e18;
-  const sign = celo > 0 ? "+" : "";
-  return `${sign}${celo.toFixed(4)} CELO`;
+  const value = amount / 1e18;
+  const sign = value > 0 ? "+" : "";
+  const ticker = currency === "cUSD" ? "cUSD" : "CELO";
+  return `${sign}${value.toFixed(4)} ${ticker}`;
 }
 
 export default function MatchHistory({ entries, filters }: MatchHistoryProps) {
@@ -94,7 +95,7 @@ export default function MatchHistory({ entries, filters }: MatchHistoryProps) {
           {filtered.map((entry, i) => {
             const resultStyle = RESULT_STYLE[entry.result];
             const modeStyle = MODE_PILL[entry.mode];
-            const amountStr = formatAmount(entry.amount);
+            const amountStr = formatAmount(entry.amount, entry.currency);
             const isPositive = entry.amount > 0;
 
             return (
