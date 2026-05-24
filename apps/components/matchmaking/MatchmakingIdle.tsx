@@ -36,15 +36,15 @@ export function MatchmakingIdle({ onStart }: MatchmakingIdleProps) {
 
       <div className="flex items-center justify-between rounded-2xl border border-border-subtle bg-surface-1 px-4 py-3">
         <span className="text-text-secondary text-sm font-sans">You wager</span>
-        <span className="font-display font-bold text-secondary">{wager} CELO</span>
+        <span className="font-display font-bold text-secondary">{wager} CELO / cUSD</span>
       </div>
 
       {/* Fee breakdown */}
       <div className="rounded-xl border border-border-subtle bg-surface-1 divide-y divide-border-subtle text-xs font-sans">
         {[
-          { label: "Winner receives", value: `${(wager * 2 * 0.87).toFixed(3)} CELO`, accent: true },
-          { label: "Creator pool (10%)", value: `${(wager * 2 * 0.10).toFixed(3)} CELO`, accent: false },
-          { label: "Protocol treasury (3%)", value: `${(wager * 2 * 0.03).toFixed(3)} CELO`, accent: false },
+          { label: "Winner receives", value: `${(wager * 2 * 0.87).toFixed(3)} CELO / cUSD`, accent: true },
+          { label: "Creator pool (10%)", value: `${(wager * 2 * 0.10).toFixed(3)} CELO / cUSD`, accent: false },
+          { label: "Protocol treasury (3%)", value: `${(wager * 2 * 0.03).toFixed(3)} CELO / cUSD`, accent: false },
         ].map((row) => (
           <div key={row.label} className="flex items-center justify-between px-4 py-2.5">
             <span className="text-text-secondary">{row.label}</span>

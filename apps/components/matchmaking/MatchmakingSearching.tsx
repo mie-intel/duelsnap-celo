@@ -69,7 +69,7 @@ export function MatchmakingSearching({ elapsed, wager, onCancel }: MatchmakingSe
           Finding Opponent…
         </h2>
         <p className="text-text-secondary text-sm font-sans">
-          Wager: <span className="text-secondary font-bold">{wager} CELO</span>
+          Wager: <span className="text-secondary font-bold">{wager} CELO / cUSD</span>
         </p>
       </div>
       <div className="flex items-center gap-2">
