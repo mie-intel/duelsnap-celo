@@ -47,7 +47,7 @@ export function MatchmakingFound({ opponent, wager }: MatchmakingFoundProps) {
         transition={{ delay: 0.35 }}
       >
         <span className="text-text-secondary text-sm font-sans">Wager locked on Celo</span>
-        <span className="font-display font-bold text-secondary">{wager} CELO</span>
+        <span className="font-display font-bold text-secondary">{wager} CELO / cUSD</span>
       </motion.div>
 
       <motion.div
