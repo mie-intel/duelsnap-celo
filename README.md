@@ -88,6 +88,10 @@ forge test
 3. Questions are AI-verified before going live
 4. Earn royalties every time your question is played in Paid Casual or PvP
 
+## Roadmap
+
+See [ROADMAP.md](./ROADMAP.md) for upcoming features and long-term plans.
+
 ## License
 
 MIT
