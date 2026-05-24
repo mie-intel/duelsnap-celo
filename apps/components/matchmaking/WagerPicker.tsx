@@ -55,7 +55,7 @@ export function WagerPicker({ selected, onChange }: WagerPickerProps) {
                   isActive ? "text-secondary/70" : "text-text-secondary"
                 }`}
               >
-                CELO
+                CELO / cUSD
               </span>
               <span
                 className={`font-sans text-[10px] relative z-10 mt-0.5 ${

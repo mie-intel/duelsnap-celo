@@ -28,7 +28,7 @@ export function MatchmakingIdle({ onStart }: MatchmakingIdleProps) {
           Find an Opponent
         </h2>
         <p className="text-text-secondary text-sm font-sans mt-1">
-          10 questions · First to 7 wins · CELO wager
+          10 questions · First to 7 wins · CELO or cUSD wager
         </p>
       </div>
 
