@@ -37,8 +37,16 @@ export default function NetProfitLoss({ netProfitLoss }: NetProfitLossProps) {
         ≈ ${(Math.abs(netProfitLoss) * 0.62).toFixed(2)} USD
       </p>
 
+      {/* cUSD royalty indicator */}
+      <div className="mt-3 flex items-center gap-1.5">
+        <span className="w-1 h-1 rounded-full bg-secondary animate-pulse" />
+        <span className="text-[9px] text-[var(--color-text-secondary)]/50 uppercase tracking-widest font-bold">
+          cUSD royalties · stablecoin earnings included
+        </span>
+      </div>
+
       {/* Contextual note */}
-      <div className="mt-3 pt-3 border-t border-[var(--color-border-subtle)] flex items-center gap-1.5">
+      <div className="mt-2 pt-3 border-t border-[var(--color-border-subtle)] flex items-center gap-1.5">
         <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
         <span className="text-[9px] text-[var(--color-text-secondary)]/40 uppercase tracking-widest font-bold">
           Settled on Celo · Blockscout verified
