@@ -37,6 +37,44 @@ Explorer: [celo.blockscout.com](https://celo.blockscout.com)
 
 > **V3 upgrade**: CasualPool and GameSession contracts were upgraded to V3 via UUPS proxy. V3 adds native cUSD stablecoin payment support alongside CELO, letting players pay for Paid Casual games and PvP wagers in cUSD. Proxy addresses are unchanged — no wallet or frontend reconfiguration required.
 
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                  DuelSnap Frontend (Next.js 15)          │
+│  /play  /pvp/lobby  /leaderboard  /profile  /activity   │
+└────────────────────────┬────────────────────────────────┘
+                         │ Wagmi / Viem
+                         ▼
+┌─────────────────────────────────────────────────────────┐
+│                   Celo Mainnet (42220)                   │
+│                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌───────────────┐  │
+│  │  CasualPool  │  │ GameSession  │  │ QuestionPool  │  │
+│  │  (V3 proxy)  │  │  (V3 proxy)  │  │  (V2 proxy)   │  │
+│  └──────┬───────┘  └──────┬───────┘  └───────┬───────┘  │
+│         │   CELO / cUSD   │   CELO / cUSD     │ IPFS CID │
+└─────────┼─────────────────┼───────────────────┼──────────┘
+          │                 │                   │
+          ▼                 ▼                   ▼
+    Royalty pool       Wager escrow        IPFS (Pinata)
+    Contributors       Score relay         Question images
+    earn 90%           (server auth)
+```
+
+**Request flow (Paid Casual with cUSD):**
+1. Player approves CasualPool to spend cUSD (one-time ERC-20 approval)
+2. `playCUSD()` — deducts 0.01 cUSD, opens session, emits `SessionStarted`
+3. Frontend loads 10 IPFS questions from QuestionPool
+4. Player answers; score submitted by authorized relayer
+5. `finalizeSession()` — distributes 90% to contributors, 10% treasury
+
+**Request flow (PvP Ranked):**
+1. Player A calls `createSession(wager)` — locks CELO/cUSD in escrow
+2. Player B calls `joinSession(id)` — matches wager, emits `SessionMatched`
+3. Both players answer 10 questions simultaneously
+4. Higher scorer wins 87% of 2× wager; 10% to contributors; 3% treasury
+
 ## Stack
 
 - **Smart Contracts** — Solidity 0.8.28, Foundry, OpenZeppelin UUPS upgradeable
