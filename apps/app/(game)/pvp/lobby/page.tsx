@@ -349,9 +349,15 @@ export default function PvpLobbyPage() {
         throw new Error("No questions available for PvP.");
       }
 
-      await ensureCeloBalance();
+      if (useCUSD) {
+        await ensureCUSDBalance();
+      } else {
+        await ensureCeloBalance();
+      }
 
-      const hash = await sendCreateSession(questionIds);
+      const hash = useCUSD
+        ? await sendCreateSessionCUSD(questionIds)
+        : await sendCreateSession(questionIds);
       const receipt = await waitForSuccessfulReceipt(hash, "Session creation");
       let sessionId: `0x${string}` | null = null;
       try {
@@ -404,9 +410,12 @@ export default function PvpLobbyPage() {
   }, [
     address,
     ensureCeloBalance,
+    ensureCUSDBalance,
     router,
     sendCreateSession,
+    sendCreateSessionCUSD,
     sendJoinSession,
+    useCUSD,
     waitForSuccessfulReceipt,
   ]);
 
