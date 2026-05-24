@@ -18,7 +18,10 @@ import { publicClient } from "../../../../lib/viem/client";
 import {
   gameSessionAbi,
   gameSessionContract,
+  CUSD_ADDRESS,
 } from "../../../../lib/viem/contracts";
+import { useCUSDBalance } from "../../../../hooks/useCUSDBalance";
+import { erc20Abi } from "../../../../lib/viem/erc20Abi";
 
 const WAGER = parseEther("0.1");
 const JOIN_SESSION_GAS_LIMIT = 300_000n;
