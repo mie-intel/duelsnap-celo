@@ -32,13 +32,19 @@ const stats = [
     sub: "EVM · Carbon-neutral L1",
     accent: "var(--color-primary)",
   },
+  {
+    value: "90%",
+    label: "Creator royalties",
+    sub: "Per Paid Casual session",
+    accent: "var(--color-secondary)",
+  },
 ];
 
 export default function StatsSection() {
   return (
     <section className="py-16 md:py-20 lg:py-24 border-y border-[var(--color-border-subtle)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-0 md:divide-x divide-[var(--color-border-subtle)]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-8 md:gap-0 md:divide-x divide-[var(--color-border-subtle)]">
           {stats.map((stat, i) => (
             <FadeIn
               key={stat.label}
