@@ -277,6 +277,26 @@ export default function PvpLobbyPage() {
     [sendEncodedTransaction],
   );
 
+  const sendCreateSessionCUSD = useCallback(
+    async (questionIds: bigint[]) => {
+      const data = encodeFunctionData({
+        abi: gameSessionAbi,
+        functionName: "createSessionWithCUSD",
+        args: [WAGER_CUSD, questionIds],
+      });
+      return await sendEncodedTransaction({
+        to: gameSessionContract.address,
+        data,
+        value: 0n,
+        fallbackGasLimit: CREATE_SESSION_GAS_LIMIT,
+        description: "Create PvP match — 0.1 cUSD wager",
+        buttonText: "Create Match",
+        successHeader: "Match created",
+      });
+    },
+    [sendEncodedTransaction],
+  );
+
   const handleCancel = useCallback(() => {
     cancelledRef.current = true;
     setMatching(false);
