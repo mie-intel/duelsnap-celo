@@ -14,7 +14,7 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 
 - **Celo Mainnet** deployment with verified gameplay contracts.
 - **MiniPay-ready wallet flow** for mobile-first Celo users.
-- **cUSD support** in the frontend contract layer for stablecoin balance reads and payment expansion.
+- **cUSD support** — players can pay for Paid Casual games and PvP wagers using cUSD (Celo Dollar) stablecoin, in addition to native CELO. Powered by CasualPoolV3 and GameSessionV3.
 - **On-chain creator economy** where submitted picture questions are stored on IPFS, verified, and rewarded when played.
 
 ## Contract Addresses (Celo Mainnet)
