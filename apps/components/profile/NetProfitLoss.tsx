@@ -13,9 +13,14 @@ export default function NetProfitLoss({ netProfitLoss }: NetProfitLossProps) {
 
   return (
     <div className="bg-[var(--color-bg-card)] rounded-[2rem] border border-[var(--color-border-subtle)] p-5">
-      <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-3">
-        Net P&L
-      </p>
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
+          Net P&L
+        </p>
+        <span className="text-[9px] font-mono text-[var(--color-text-secondary)]/50 uppercase tracking-widest">
+          CELO + cUSD
+        </span>
+      </div>
       <div className="flex items-end gap-2">
         <motion.p
           className="font-display font-bold text-3xl"
