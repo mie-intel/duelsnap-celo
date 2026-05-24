@@ -20,7 +20,7 @@ const externalOptions = [
   },
   {
     label: "Get MiniPay",
-    description: "Opera's Celo wallet — instant CELO top-up on mobile.",
+    description: "Opera's Celo wallet — CELO and cUSD top-up on mobile.",
     href: "https://www.opera.com/mobile/mini",
     accent: "#35D07F",
     icon: (
@@ -50,7 +50,7 @@ export default function StepDeposit() {
         <p className="text-text-secondary text-sm leading-relaxed">
           {isMiniPay
             ? "CELO and cUSD in your MiniPay balance work directly in DuelSnap — no extra steps."
-            : "Add CELO to play paid games and wager in 1v1 duels. Free mode is always available."}
+            : "Add CELO or cUSD to play paid games and wager in 1v1 duels. Free mode is always available."}
         </p>
       </div>
 
@@ -98,6 +98,17 @@ export default function StepDeposit() {
           ))}
         </div>
       )}
+
+      {/* cUSD stablecoin note */}
+      <div className="flex items-start gap-2 p-3 rounded-xl bg-surface-1 border border-border-subtle">
+        <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M8 5v4M8 10.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <p className="text-xs text-text-secondary leading-relaxed">
+          <span className="text-primary font-semibold">cUSD accepted</span> · stablecoin option for Paid Casual games — 1 cUSD ≈ $1 USD, always stable.
+        </p>
+      </div>
 
       {/* Fee abstraction note */}
       <div className="flex items-start gap-2 p-3 rounded-xl bg-surface-1 border border-border-subtle">
