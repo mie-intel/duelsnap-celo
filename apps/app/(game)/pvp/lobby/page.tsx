@@ -190,7 +190,7 @@ export default function PvpLobbyPage() {
     async (hash: `0x${string}`, action: string) => {
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
       if (receipt.status === "reverted") {
-        throw new Error(`${action} reverted on-chain. Check CELO balance and try again.`);
+        throw new Error(`${action} reverted on-chain. Check your balance and try again.`);
       }
       return receipt;
     },
