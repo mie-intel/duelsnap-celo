@@ -27,6 +27,7 @@ import { parseContractError } from "../../../lib/parseContractError";
 const SECONDS_FREE = 30;
 const FREE_DAILY_LIMIT = 3;
 const PAID_FEE = parseEther("0.01");
+const CASUAL_POOL_ADDRESS = casualPoolContract.address;
 
 type Phase = "lobby" | "playing" | "done";
 
@@ -57,6 +58,10 @@ export default function CasualPageClient() {
   const [error, setError] = useState("");
   const [dailyCount, setDailyCount] = useState<number | null>(null);
   const [celoBalance, setCeloBalance] = useState<bigint | null>(null);
+  const [useCUSD, setUseCUSD] = useState(false);
+  const [feeAmountCUSD, setFeeAmountCUSD] = useState<bigint>(0n);
+
+  const cusd = useCUSDBalance(address ?? null);
 
   const checkDailyLimit = useCallback(async () => {
     if (!address) return;
