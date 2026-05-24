@@ -1,6 +1,6 @@
 # DuelSnap
 
-MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into free casual rounds, play paid casual games, or duel 1v1 with CELO wagers while photo contributors earn on-chain royalties.
+MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into free casual rounds, play paid casual games, or duel 1v1 with **CELO or cUSD** wagers while photo contributors earn on-chain royalties.
 
 ## Game Modes
 
@@ -9,6 +9,8 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 | Free Casual | Free (3×/day) | — | XP only |
 | Paid Casual | 0.01 CELO or cUSD | CELO / cUSD | 90% royalties to question contributors |
 | PvP Ranked | Custom wager | CELO / cUSD | 87% to winner, 10% contributors, 3% treasury |
+
+> Players choosing **Paid Casual** or **PvP Ranked** are shown a currency picker (CELO / cUSD) at matchmaking. The selected currency is displayed throughout the wager flow and locked in when the match is created on-chain.
 
 ## Celo Integration
 
