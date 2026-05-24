@@ -10,6 +10,11 @@ import { erc20Abi } from "../lib/viem/erc20Abi";
 const DEFAULT_SPENDER = (process.env.NEXT_PUBLIC_CASUAL_POOL_ADDRESS ??
   "0x839fdf32e45A116EeFcFE3b1C4F892056057465c") as `0x${string}`;
 
+/**
+ * Returns cUSD balance and allowance for `address`.
+ * `spender` defaults to the CasualPool contract if omitted.
+ * Pass `gameSessionContract.address` when checking PvP session allowance.
+ */
 export function useCUSDBalance(address: Address | null, spender?: Address) {
   const effectiveSpender = spender ?? DEFAULT_SPENDER;
   const [balance, setBalance] = useState<bigint>(0n);
