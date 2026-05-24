@@ -48,7 +48,9 @@ export default function QuestionCard({
       {/* Input panel */}
       <div className="lg:flex-1 flex flex-col justify-center gap-4">
         <div className="hidden lg:block">
-          <p className="text-text-secondary text-sm font-sans mb-1">What do you see?</p>
+          <p className="text-text-secondary text-sm font-sans mb-1">
+            {questionNum === 1 ? "🔍 Let's start — what do you see?" : questionNum === totalQuestions ? "🏁 Last one!" : "🤔 What is this?"}
+          </p>
           <p className="text-text-primary font-display font-bold text-2xl">
             Question {questionNum} of {totalQuestions}
           </p>
