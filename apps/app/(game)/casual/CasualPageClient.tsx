@@ -180,10 +180,49 @@ export default function CasualPageClient() {
     }
   }, [address]);
 
+  const fetchFeeAmountCUSD = useCallback(async () => {
+    try {
+      const fee = await publicClient.readContract({
+        ...casualPoolContract,
+        functionName: "feeAmountCUSD",
+        args: [],
+      });
+      setFeeAmountCUSD(fee as bigint);
+    } catch {
+      // keep 0n
+    }
+  }, []);
+
+  const approveCUSD = useCallback(async () => {
+    if (!address || !walletClient) return;
+    setLoading(true);
+    setError("");
+    try {
+      await ensureBaseSepoliaChain(walletClient);
+      const hash = await walletClient.writeContract({
+        address: CUSD_ADDRESS,
+        abi: erc20Abi,
+        functionName: "approve",
+        args: [CASUAL_POOL_ADDRESS, feeAmountCUSD],
+        account: address,
+        chain: celo,
+      });
+      await publicClient.waitForTransactionReceipt({ hash });
+      await cusd.refresh();
+    } catch (e) {
+      setError(parseContractError(e));
+    } finally {
+      setLoading(false);
+    }
+  }, [address, walletClient, feeAmountCUSD, cusd]);
+
   useEffect(() => {
     if (address && !isPaid) checkDailyLimit();
-    if (address && isPaid) fetchCeloBalance();
-  }, [address, isPaid, checkDailyLimit, fetchCeloBalance]);
+    if (address && isPaid) {
+      fetchCeloBalance();
+      fetchFeeAmountCUSD();
+    }
+  }, [address, isPaid, checkDailyLimit, fetchCeloBalance, fetchFeeAmountCUSD]);
 
   const handleComplete = useCallback(
     async (results: QuestionResult[]) => {
