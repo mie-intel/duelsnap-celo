@@ -36,12 +36,12 @@ export function LeaderboardEmpty({ tab }: LeaderboardEmptyProps) {
 
       <div className="max-w-[220px]">
         <p className="font-display font-bold text-text-primary text-base mb-1">
-          {tab === "weekly" ? "No games this week" : "No games yet"}
+          {tab === "weekly" ? "No duels this week… yet 👀" : "The throne is empty 👑"}
         </p>
         <p className="text-text-secondary text-sm font-sans leading-relaxed">
           {tab === "weekly"
-            ? "Play a duel on Celo to appear on the weekly rankings."
-            : "Be the first to earn CELO and claim the top spot."}
+            ? "Be the first to claim weekly glory — one duel is all it takes."
+            : "No one has stepped up yet. First to play, first to lead."}
         </p>
         <div className="flex items-center justify-center gap-1.5 mt-3">
           <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
