@@ -188,6 +188,15 @@ export const casualPoolAbi = [
 
   {
     type: "event",
+    name: "VolumeTracked",
+    inputs: [
+      { name: "player", type: "address", indexed: true },
+      { name: "amount", type: "uint256", indexed: false },
+      { name: "cumulative", type: "uint256", indexed: false },
+    ],
+  },
+  {
+    type: "event",
     name: "CasualFeePaidCUSD",
     inputs: [
       { name: "player", type: "address", indexed: true },
