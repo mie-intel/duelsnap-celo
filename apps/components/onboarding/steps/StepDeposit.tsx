@@ -99,6 +99,17 @@ export default function StepDeposit() {
         </div>
       )}
 
+      {/* cUSD stablecoin note */}
+      <div className="flex items-start gap-2 p-3 rounded-xl bg-surface-1 border border-border-subtle">
+        <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M8 5v4M8 10.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <p className="text-xs text-text-secondary leading-relaxed">
+          <span className="text-primary font-semibold">cUSD accepted</span> · stablecoin option for Paid Casual games — 1 cUSD ≈ $1 USD, always stable.
+        </p>
+      </div>
+
       {/* Fee abstraction note */}
       <div className="flex items-start gap-2 p-3 rounded-xl bg-surface-1 border border-border-subtle">
         <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true">
