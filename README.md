@@ -19,6 +19,14 @@ MiniPay-ready picture-guessing PvP game on Celo Mainnet. Players can jump into f
 
 ## Contract Addresses (Celo Mainnet)
 
+### V3 Upgrade Summary
+
+| Contract | Change | New Capability |
+|---|---|---|
+| CasualPool | V2 → V3 | cUSD payment support for Paid Casual |
+| GameSession | V2 → V3 | cUSD wager support for PvP Ranked |
+| QuestionPool | No change | — |
+
 | Contract | Proxy | V2 Implementation | V3 Implementation |
 |---|---|---|---|
 | QuestionPool | [`0x9F80...51d6`](https://celo.blockscout.com/address/0x9F80612d1621a92D2F14B4246BDAea33CFAb51d6) | [`0x08fb...d857`](https://celo.blockscout.com/address/0x08fb84586d1409d690c660afd178e9698437d857?tab=contract) | — |
