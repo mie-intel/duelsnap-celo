@@ -323,6 +323,15 @@ export const gameSessionAbi = [
   },
   {
     type: "event",
+    name: "WagerSettled",
+    inputs: [
+      { name: "sessionId", type: "bytes32", indexed: true },
+      { name: "pool", type: "uint256", indexed: false },
+      { name: "cumulative", type: "uint256", indexed: false },
+    ],
+  },
+  {
+    type: "event",
     name: "SessionTied",
     inputs: [
       { name: "sessionId", type: "bytes32", indexed: true },
