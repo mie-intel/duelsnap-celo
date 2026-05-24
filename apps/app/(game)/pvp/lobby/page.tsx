@@ -24,6 +24,7 @@ import { useCUSDBalance } from "../../../../hooks/useCUSDBalance";
 import { erc20Abi } from "../../../../lib/viem/erc20Abi";
 
 const WAGER = parseEther("0.1");
+const WAGER_CUSD = 100_000_000_000_000_000n; // 0.1 cUSD in wei (18 dec)
 const JOIN_SESSION_GAS_LIMIT = 300_000n;
 const CREATE_SESSION_GAS_LIMIT = 600_000n;
 
@@ -104,6 +105,8 @@ export default function PvpLobbyPage() {
   const [matching, setMatching] = useState(false);
   const [error, setError] = useState("");
   const [matchError, setMatchError] = useState("");
+  const [useCUSD, setUseCUSD] = useState(false);
+  const cusd = useCUSDBalance(address ?? null);
   const cancelledRef = useRef(false);
   const isEmbeddedPrivyWallet =
     walletClientType === "privy" || connectorType === "embedded";
