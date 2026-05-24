@@ -216,14 +216,6 @@ export default function CasualPageClient() {
     }
   }, [address, walletClient, feeAmountCUSD, cusd]);
 
-  useEffect(() => {
-    if (address && !isPaid) checkDailyLimit();
-    if (address && isPaid) {
-      fetchCeloBalance();
-      fetchFeeAmountCUSD();
-    }
-  }, [address, isPaid, checkDailyLimit, fetchCeloBalance, fetchFeeAmountCUSD]);
-
   const startPaidGameCUSD = useCallback(async () => {
     if (!address || !walletClient) return;
     setLoading(true);
@@ -279,6 +271,14 @@ export default function CasualPageClient() {
       setLoading(false);
     }
   }, [address, walletClient, feeAmountCUSD, cusd]);
+
+  useEffect(() => {
+    if (address && !isPaid) checkDailyLimit();
+    if (address && isPaid) {
+      fetchCeloBalance();
+      fetchFeeAmountCUSD();
+    }
+  }, [address, isPaid, checkDailyLimit, fetchCeloBalance, fetchFeeAmountCUSD]);
 
   const handleComplete = useCallback(
     async (results: QuestionResult[]) => {
@@ -340,16 +340,44 @@ export default function CasualPageClient() {
               Paid Casual
             </h1>
             <p className="text-text-secondary font-sans text-sm">
-              10 questions · 30 sec each · 0.01 CELO
+              10 questions · 30 sec each
             </p>
             <p className="text-text-secondary text-xs font-sans mt-1">
               90% of fee goes to question contributors
             </p>
-            {celoBalance !== null && (
-              <p className="text-text-secondary text-xs font-sans mt-2">
-                Balance: {(Number(celoBalance) / 1e18).toFixed(4)} CELO
-              </p>
-            )}
+
+            {/* Payment toggle */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <button
+                onClick={() => setUseCUSD(false)}
+                className={`px-3 py-1 rounded-full text-xs font-sans font-medium transition-colors ${
+                  !useCUSD
+                    ? "bg-celo-green text-black"
+                    : "bg-surface-secondary text-text-secondary"
+                }`}
+              >
+                0.01 CELO
+              </button>
+              <button
+                onClick={() => setUseCUSD(true)}
+                className={`px-3 py-1 rounded-full text-xs font-sans font-medium transition-colors ${
+                  useCUSD
+                    ? "bg-celo-green text-black"
+                    : "bg-surface-secondary text-text-secondary"
+                }`}
+              >
+                cUSD
+              </button>
+            </div>
+
+            {/* Balance display */}
+            <p className="text-text-secondary text-xs font-sans mt-2">
+              {useCUSD
+                ? `cUSD Balance: ${cusd.balanceFormatted} cUSD`
+                : celoBalance !== null
+                  ? `Balance: ${(Number(celoBalance) / 1e18).toFixed(4)} CELO`
+                  : null}
+            </p>
           </>
         ) : (
           <>
@@ -374,17 +402,44 @@ export default function CasualPageClient() {
         </div>
       )}
 
+      {/* cUSD: show Approve button if allowance insufficient */}
+      {isConnected && isPaid && useCUSD && cusd.allowance < feeAmountCUSD && feeAmountCUSD > 0n && (
+        <Button
+          onClick={approveCUSD}
+          loading={loading}
+          size="lg"
+          variant="secondary"
+          className="w-full max-w-xs lg:max-w-sm"
+        >
+          Approve cUSD
+        </Button>
+      )}
+
       <Button
-        onClick={isConnected ? (isPaid ? startPaidGame : startFreeGame) : login}
+        onClick={
+          !isConnected
+            ? login
+            : isPaid
+              ? useCUSD
+                ? cusd.allowance >= feeAmountCUSD
+                  ? startPaidGameCUSD
+                  : approveCUSD
+                : startPaidGame
+              : startFreeGame
+        }
         loading={loading}
         size="lg"
         className="w-full max-w-xs lg:max-w-sm"
       >
-        {isConnected
-          ? isPaid
-            ? "Pay 0.01 CELO & Start"
-            : "Start Game"
-          : "Connect Wallet to Play"}
+        {!isConnected
+          ? "Connect Wallet to Play"
+          : isPaid
+            ? useCUSD
+              ? cusd.allowance < feeAmountCUSD
+                ? "Approve cUSD First"
+                : `Pay ${Number(feeAmountCUSD) / 1e18} cUSD & Start`
+              : "Pay 0.01 CELO & Start"
+            : "Start Game"}
       </Button>
 
       <Button variant="ghost" onClick={() => router.push("/")} size="sm">
