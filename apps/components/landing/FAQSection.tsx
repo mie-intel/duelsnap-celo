@@ -44,6 +44,22 @@ const faqs = [
     q: "Are DuelSnap transactions carbon-neutral?",
     a: "Celo is a carbon-negative blockchain. Every transaction on DuelSnap — including wagers, royalty distributions, and game settlements — has a net-negative carbon footprint through Celo's on-chain carbon offset mechanism.",
   },
+  {
+    q: "How do I get cUSD to play?",
+    a: "You can get cUSD through several routes: swap CELO → cUSD on Uniswap or Mento directly in your wallet, receive it from a friend, or buy it with a card on exchanges that support Celo assets. Inside MiniPay, cUSD is the default balance — you likely already have some.",
+  },
+  {
+    q: "Can I play DuelSnap on desktop?",
+    a: "Yes. DuelSnap has a full desktop layout with a sidebar navigation. Connect any EVM wallet (MetaMask, Coinbase Wallet, WalletConnect) to play on desktop. MiniPay's auto-connect flow is mobile-only, but all other features are identical.",
+  },
+  {
+    q: "How many questions are in each game?",
+    a: "Each casual game and PvP ranked match uses 10 questions drawn randomly from the active question pool. Questions are filtered by difficulty if you use the category picker, otherwise drawn from the full pool.",
+  },
+  {
+    q: "What happens if a PvP opponent disconnects mid-match?",
+    a: "GameSession has a built-in timeout. If either player fails to submit answers within the timeout window, the session is marked as abandoned and both players receive a full refund — no CELO is lost.",
+  },
 ];
 
 export default function FAQSection() {
@@ -61,7 +77,16 @@ export default function FAQSection() {
               Common questions
             </h2>
             <p className="text-text-secondary text-sm leading-relaxed mt-4 max-w-[32ch]">
-              Can't find your answer? Open a discussion on GitHub.
+              Can't find your answer?{" "}
+              <a
+                href="https://github.com/mie-intel/duelsnap-celo/discussions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2 hover:text-primary-dark transition-colors"
+              >
+                Open a discussion
+              </a>{" "}
+              on GitHub.
             </p>
           </FadeIn>
 
