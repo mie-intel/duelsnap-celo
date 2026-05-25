@@ -186,6 +186,41 @@ SSR-safe localStorage with JSON serialization and cross-tab sync.
 ```ts
 const [theme, setTheme, removeTheme] = useLocalStorage("theme", "dark");
 ```
+## useAnimatedCounter _(new)_
+
+Smoothly animates a number from one value to another using `requestAnimationFrame`.
+Ideal for score reveals, XP counters, CELO/cUSD balance tickers.
+
+```ts
+const { value, formatted, isAnimating } = useAnimatedCounter({
+  from: 0,
+  to: score,          // target value
+  duration: 1000,     // ms
+  decimals: 2,        // decimal places in `formatted`
+  delay: 300,         // ms before animation starts
+  easing: Easings.easeOutExpo,
+});
+```
+
+| Option | Type | Default | Description |
+|---|---|---|---|
+| `from` | `number` | `0` | Start value |
+| `to` | `number` | — | Target value |
+| `duration` | `number` | `800` | Animation duration (ms) |
+| `easing` | `(t) => t` | `easeOutCubic` | Easing function |
+| `decimals` | `number` | `0` | Decimal places for `formatted` |
+| `delay` | `number` | `0` | Delay before start (ms) |
+
+| Return | Type | Description |
+|---|---|---|
+| `value` | `number` | Current animated value |
+| `formatted` | `string` | `value.toFixed(decimals)` |
+| `isAnimating` | `boolean` | `true` while running |
+
+Built-in easings via `Easings` export: `easeOutCubic`, `easeOutExpo`, `linear`.
+
+---
+
 ## useCountdown
 
 Accurate countdown timer using `requestAnimationFrame` + wall-clock diff.
