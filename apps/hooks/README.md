@@ -153,6 +153,27 @@ Declarative `setTimeout` with imperative `set` / `clear` controls.
 
 ```ts
 const { set: showBanner, clear: dismiss } = useTimeout(() => setVisible(false), 3000);
+### `useEventListener` _(new)_
+Typed, ref-fresh DOM event listener. Auto-removes on unmount.
+
+```ts
+// Global keyboard shortcut
+useEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+}, document);
+
+// Window resize
+useEventListener('resize', debounce(handleResize, 100));
+```
+
+### `useHover` _(new)_
+Tracks hover state on a DOM element via a ref.
+
+```ts
+const { ref, isHovered } = useHover<HTMLButtonElement>();
+<button ref={ref} className={isHovered ? 'ring-2 ring-primary' : ''}>
+  Hover
+</button>
 ```
 
 ### `useBaseAccountCapabilities`
