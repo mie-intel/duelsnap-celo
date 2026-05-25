@@ -33,8 +33,8 @@ export default function CTASection() {
             </h2>
 
             <p className="text-text-secondary text-base lg:text-lg leading-relaxed max-w-[48ch]">
-              No signup. No deposit. Open Free Casual and start guessing. Add a wallet
-              when you're ready to compete for real CELO.
+              No signup. No deposit. Open Free Casual and start guessing.
+              Add a wallet when you&apos;re ready to put real CELO or cUSD on the line.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">

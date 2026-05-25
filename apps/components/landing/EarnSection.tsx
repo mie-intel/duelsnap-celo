@@ -40,11 +40,11 @@ export default function EarnSection() {
               </span>
             </div>
             <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight">
-              Multiple ways to make CELO
+              Multiple ways to earn on Celo
             </h2>
             <p className="text-text-secondary text-base leading-relaxed max-w-[50ch]">
-              DuelSnap isn't just a game — it's an economic layer. Play,
-              contribute, and win to build an on-chain income stream.
+              DuelSnap isn&apos;t just a game — it&apos;s an on-chain economy. Play,
+              contribute, and win to build a real income stream settled on Celo.
             </p>
             <div className="pt-4 flex flex-col gap-3">
               <a
