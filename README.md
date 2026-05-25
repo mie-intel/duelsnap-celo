@@ -96,6 +96,10 @@ Quick paths:
 
 See [CHANGELOG.md](./CHANGELOG.md) for full version history.
 
+## Roadmap
+
+See [ROADMAP.md](./ROADMAP.md) for upcoming features and long-term plans.
+
 ## License
 
 MIT
