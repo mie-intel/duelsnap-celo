@@ -115,6 +115,22 @@ Badge shown for auto-sign (Base Account) transactions.
 
 ---
 
+### `Chip`
+Tag / filter chip for categories, multi-select, or dismissible labels.
+
+```tsx
+// Static tag
+<Chip variant="primary">Science</Chip>
+
+// Selectable filter chip
+<Chip selected={active} onClick={toggle} variant="primary">Sports</Chip>
+
+// Dismissible tag
+<Chip dismissible onDismiss={remove}>Geography</Chip>
+```
+
+---
+
 ## Feedback
 
 ### `ErrorBoundary`
