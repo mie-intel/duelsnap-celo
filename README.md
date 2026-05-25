@@ -92,6 +92,10 @@ Quick paths:
 2. **Open a PR** for frontend improvements (UI, copy, a11y, perf)
 3. **File a bug** via GitHub Issues
 
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for full version history.
+
 ## License
 
 MIT
