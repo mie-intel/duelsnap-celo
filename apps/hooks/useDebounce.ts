@@ -1,51 +1,46 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect } from "react";
 
 /**
- * Returns a debounced version of the value.
- * Useful for search inputs, form validation, etc.
+ * Debounces a value — returns the value only after it stops changing
+ * for `delayMs` milliseconds.
  *
  * @example
- * const debouncedSearch = useDebounce(searchTerm, 300);
- * useEffect(() => fetchResults(debouncedSearch), [debouncedSearch]);
+ * const [query, setQuery] = useState("");
+ * const debouncedQuery = useDebounce(query, 300);
+ * // debouncedQuery updates 300ms after query stops changing
  */
-export function useDebounce<T>(value: T, delay = 300): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+export function useDebounce<T>(value: T, delayMs = 300): T {
+  const [debounced, setDebounced] = useState<T>(value);
 
   useEffect(() => {
-    const timer = setTimeout(() => setDebouncedValue(value), delay);
+    const timer = setTimeout(() => setDebounced(value), delayMs);
     return () => clearTimeout(timer);
-  }, [value, delay]);
+  }, [value, delayMs]);
 
-  return debouncedValue;
+  return debounced;
 }
 
 /**
- * Returns a debounced callback function.
- * The callback is stable across renders (safe as useEffect dep).
+ * Debounced callback — stabilizes a function reference and
+ * delays its execution until `delayMs` ms after the last call.
  *
  * @example
- * const debouncedSave = useDebouncedCallback(save, 500);
- * <input onChange={(e) => debouncedSave(e.target.value)} />
+ * const debouncedSearch = useDebouncedCallback(
+ *   (q: string) => fetchResults(q),
+ *   400,
+ * );
+ * <input onChange={e => debouncedSearch(e.target.value)} />
  */
-export function useDebouncedCallback<T extends (...args: unknown[]) => unknown>(
-  fn: T,
-  delay = 300,
-): (...args: Parameters<T>) => void {
-  const fnRef = useRef(fn);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+export function useDebouncedCallback<Args extends unknown[]>(
+  callback: (...args: Args) => void,
+  delayMs = 300,
+): (...args: Args) => void {
+  const timerRef = { current: 0 as unknown as ReturnType<typeof setTimeout> };
 
-  // Keep ref updated without recreating the debounced wrapper
-  useEffect(() => {
-    fnRef.current = fn;
-  }, [fn]);
-
-  return useCallback(
-    (...args: Parameters<T>) => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-      timerRef.current = setTimeout(() => fnRef.current(...args), delay);
-    },
-    [delay],
-  );
+  return (...args: Args) => {
+    clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => callback(...args), delayMs);
+  };
 }
