@@ -3,63 +3,67 @@
 import { useState, useCallback, useEffect } from "react";
 
 /**
- * Persistent state backed by localStorage with SSR safety.
+ * SSR-safe localStorage hook with JSON serialization.
+ * Falls back to initialValue when storage is unavailable.
  *
  * @example
- * const [muted, setMuted] = useLocalStorage('game:muted', false);
- * const [theme, setTheme] = useLocalStorage<'dark'|'light'>('ui:theme', 'dark');
+ * const [theme, setTheme] = useLocalStorage("theme", "dark");
+ * const [volume, setVolume, removeVolume] = useLocalStorage("volume", 0.8);
  */
 export function useLocalStorage<T>(
   key: string,
   initialValue: T,
 ): [T, (value: T | ((prev: T) => T)) => void, () => void] {
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  const readValue = useCallback((): T => {
     if (typeof window === "undefined") return initialValue;
     try {
       const item = window.localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T) : initialValue;
+      return item !== null ? (JSON.parse(item) as T) : initialValue;
     } catch {
       return initialValue;
     }
-  });
+  }, [key, initialValue]);
+
+  const [storedValue, setStoredValue] = useState<T>(readValue);
+
+  // Sync with storage on mount (handles SSR hydration)
+  useEffect(() => {
+    setStoredValue(readValue());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Sync across tabs
   useEffect(() => {
-    function onStorage(e: StorageEvent) {
-      if (e.key !== key) return;
-      try {
-        setStoredValue(e.newValue ? (JSON.parse(e.newValue) as T) : initialValue);
-      } catch {
-        /* ignore parse errors */
+    const handler = (e: StorageEvent) => {
+      if (e.key === key) {
+        setStoredValue(e.newValue !== null ? JSON.parse(e.newValue) : initialValue);
       }
-    }
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
+    };
+    window.addEventListener("storage", handler);
+    return () => window.removeEventListener("storage", handler);
   }, [key, initialValue]);
 
   const setValue = useCallback(
     (value: T | ((prev: T) => T)) => {
-      setStoredValue((prev) => {
-        const next = typeof value === "function" ? (value as (p: T) => T)(prev) : value;
-        try {
-          window.localStorage.setItem(key, JSON.stringify(next));
-        } catch {
-          /* quota exceeded or private mode */
-        }
-        return next;
-      });
+      try {
+        const next = value instanceof Function ? value(readValue()) : value;
+        window.localStorage.setItem(key, JSON.stringify(next));
+        setStoredValue(next);
+      } catch {
+        console.warn(`useLocalStorage: failed to set "${key}"`);
+      }
     },
-    [key],
+    [key, readValue],
   );
 
-  const remove = useCallback(() => {
+  const removeValue = useCallback(() => {
     try {
       window.localStorage.removeItem(key);
+      setStoredValue(initialValue);
     } catch {
-      /* ignore */
+      console.warn(`useLocalStorage: failed to remove "${key}"`);
     }
-    setStoredValue(initialValue);
   }, [key, initialValue]);
 
-  return [storedValue, setValue, remove];
+  return [storedValue, setValue, removeValue];
 }
