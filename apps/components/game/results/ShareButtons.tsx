@@ -4,6 +4,10 @@ interface ShareButtonsProps {
   correct: number;
   total: number;
   mode: string;
+  /** Token used — surfaces in share copy when paid mode. Defaults to 'CELO'. */
+  currency?: 'CELO' | 'cUSD';
+  /** Reward amount string (e.g. "0.0045") to include in share text. */
+  reward?: string;
 }
 
 function XLogo({ className }: { className?: string }) {
@@ -22,19 +26,57 @@ function FarcasterLogo({ className }: { className?: string }) {
   );
 }
 
-export function ShareButtons({ correct, total, mode: _mode }: ShareButtonsProps) {
+export function ShareButtons({
+  correct,
+  total,
+  mode,
+  currency = 'CELO',
+  reward,
+}: ShareButtonsProps) {
   const scoreEmoji = correct === total ? '🏆' : correct >= total * 0.7 ? '🎯' : '📸';
-  const xText = `${scoreEmoji} ${correct}/${total} on DuelSnap! Guess-the-picture PvP duels built on @CeloOrg. Play free & earn CELO → https://duelsnap.xyz #Celo #Web3Gaming`;
-  const fcText = `${scoreEmoji} Scored ${correct}/${total} in DuelSnap — picture duels on Celo! Earn real CELO. Free to play. Built with MiniPay support.`;
+
+  const rewardSnippet =
+    mode === 'paid' && reward
+      ? ` Won +${reward} ${currency}!`
+      : '';
+
+  const xText = [
+    `${scoreEmoji} ${correct}/${total} on DuelSnap!${rewardSnippet}`,
+    `Guess-the-picture PvP duels built on @CeloOrg.`,
+    currency === 'cUSD' ? 'Pay fees in cUSD via Celo.' : 'Earn real CELO playing.',
+    `→ https://duelsnap.xyz #Celo #Web3Gaming`,
+  ].join(' ');
+
+  const fcText = [
+    `${scoreEmoji} Scored ${correct}/${total} in DuelSnap — picture duels on Celo!${rewardSnippet}`,
+    currency === 'cUSD'
+      ? 'Supports cUSD payments via MiniPay.'
+      : 'Earn real CELO. Free to play. Built with MiniPay support.',
+  ].join(' ');
+
   const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(xText)}`;
   const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(fcText)}`;
+
   return (
     <div className="flex flex-row gap-3 flex-wrap">
-      <a href={tweetUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 min-h-[48px] px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-150 active:scale-95 bg-[#0F0F0F] text-white hover:bg-[#1a1a1a] border border-[var(--color-border-subtle)]" aria-label="Share score on X (Twitter)">
+      <a
+        href={tweetUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 min-h-[48px] px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-150 active:scale-95 bg-[#0F0F0F] text-white hover:bg-[#1a1a1a] border border-[var(--color-border-subtle)]"
+        aria-label="Share score on X (Twitter)"
+      >
         <XLogo className="w-4 h-4" />
         Share on X
       </a>
-      <a href={warpcastUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 min-h-[48px] px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-150 active:scale-95 text-white hover:opacity-90 border border-[var(--color-border-subtle)]" style={{ backgroundColor: '#8465CB' }} aria-label="Share score on Farcaster">
+      <a
+        href={warpcastUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 min-h-[48px] px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-150 active:scale-95 text-white hover:opacity-90 border border-[var(--color-border-subtle)]"
+        style={{ backgroundColor: '#8465CB' }}
+        aria-label="Share score on Farcaster"
+      >
         <FarcasterLogo className="w-4 h-4" />
         Cast on Farcaster
       </a>
