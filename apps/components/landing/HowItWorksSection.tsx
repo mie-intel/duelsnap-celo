@@ -3,20 +3,20 @@ import FadeIn from "./FadeIn";
 const steps = [
   {
     number: "01",
-    title: "Connect or Play Free",
-    body: "No wallet? No problem. Jump into Free Casual mode instantly. Connect MiniPay or any Celo wallet to unlock paid modes.",
+    title: "Connect or Play Free 🎮",
+    body: "No wallet? No problem. Jump into Free Casual mode instantly. Connect MiniPay or any Celo wallet to unlock paid modes and wager real CELO or cUSD.",
     accent: "var(--color-accent-free)",
   },
   {
     number: "02",
-    title: "Guess the Picture",
-    body: "Each round shows a blurred or cropped image. Pick the correct answer from four options before time runs out.",
+    title: "Guess the Picture 🔍",
+    body: "Each round shows a real-world image. Pick the correct answer from four options before time runs out — accuracy and speed both matter.",
     accent: "var(--color-accent-paid)",
   },
   {
     number: "03",
-    title: "Win & Collect",
-    body: "Beat your opponent in PvP and claim 87% of the wager pool. Earn royalties every time your contributed photo gets played.",
+    title: "Win & Collect 🏆",
+    body: "Beat your opponent in PvP and claim 87% of the wager pool — settled on-chain instantly. Or contribute photos and earn royalties on every future play, forever.",
     accent: "var(--color-accent-pvp)",
   },
 ];
@@ -35,7 +35,7 @@ export default function HowItWorksSection() {
             </span>
           </div>
           <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-tight max-w-[18ch]">
-            Three steps to your first CELO win
+            Three steps to your first on-chain win
           </h2>
         </FadeIn>
 
