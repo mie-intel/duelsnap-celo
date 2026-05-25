@@ -139,6 +139,20 @@ useEffect(() => {
   if (!isVisible) pauseTimer();
   else resumeTimer();
 }, [isVisible]);
+### `useInterval` _(new)_
+Declarative `setInterval`. Supports nullable delay to pause.
+
+```ts
+// Poll leaderboard every 5s, pause when tab is hidden
+const isVisible = usePageVisibility();
+useInterval(fetchLeaderboard, isVisible ? 5000 : null);
+```
+
+### `useTimeout` _(new)_
+Declarative `setTimeout` with imperative `set` / `clear` controls.
+
+```ts
+const { set: showBanner, clear: dismiss } = useTimeout(() => setVisible(false), 3000);
 ```
 
 ### `useBaseAccountCapabilities`
