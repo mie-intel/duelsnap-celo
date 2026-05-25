@@ -34,7 +34,7 @@ export default function ContributePage() {
               Contribute Questions
             </h1>
             <p className="text-text-secondary text-sm font-sans mt-0.5">
-              Submit images · AI verified · Earn royalties forever
+              Upload a photo · AI verified in minutes · On-chain royalties forever
             </p>
           </div>
         </div>
@@ -47,11 +47,10 @@ export default function ContributePage() {
             {/* Earnings callout */}
             <div className="bg-secondary/20 border border-secondary/40 rounded-2xl p-4">
               <p className="font-display font-bold text-text-primary text-base">
-                Earn passive royalties
+                📸 Snap once. Earn forever.
               </p>
               <p className="text-text-secondary text-sm font-sans mt-1">
-                Contributors receive a share of every paid game session that uses
-                their image — no limit, no expiry.
+                Submit a photo and earn on-chain royalties every time it&apos;s played in Paid Casual or PvP — no cap, no expiry, settled on Celo.
               </p>
             </div>
 
