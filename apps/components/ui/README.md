@@ -127,6 +127,22 @@ Tag / filter chip for categories, multi-select, or dismissible labels.
 
 // Dismissible tag
 <Chip dismissible onDismiss={remove}>Geography</Chip>
+### `Stepper`
+Multi-step progress indicator for onboarding, wizard, and setup flows.
+
+```tsx
+const steps = [
+  { label: 'Connect Wallet' },
+  { label: 'Set Stake', description: 'Choose how much cUSD to wager' },
+  { label: 'Find Opponent' },
+  { label: 'Play!' },
+];
+
+// Horizontal (default)
+<Stepper steps={steps} currentStep={1} />
+
+// Vertical
+<Stepper steps={steps} currentStep={2} orientation="vertical" />
 ```
 
 ---
