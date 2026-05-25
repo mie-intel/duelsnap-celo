@@ -8,3 +8,5 @@ CLAUDE.md
 .env.local
 .env*.local
 .claude/
+# Screenshot files — jangan commit
+SS*.png
