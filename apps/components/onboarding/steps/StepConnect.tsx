@@ -91,10 +91,10 @@ export default function StepConnect() {
 
       <div className="text-center">
         <h2 className="font-display font-bold text-2xl text-[var(--color-text-primary)] mb-2">
-          Connect Your Wallet
+          Connect Your Wallet 🔑
         </h2>
         <p className="text-[var(--color-text-secondary)] text-sm font-sans leading-relaxed max-w-[260px]">
-          Use MiniPay or any Celo-compatible wallet. Your wallet is your identity.
+          Your wallet is your identity on Celo. No signup, no email — just connect and play.
         </p>
       </div>
 

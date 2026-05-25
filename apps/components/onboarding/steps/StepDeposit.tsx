@@ -45,12 +45,12 @@ export default function StepDeposit() {
       <div>
         <p className="text-xs font-mono text-primary uppercase tracking-widest mb-2">Step 4 of 4</p>
         <h2 className="font-display text-2xl font-bold text-text-primary mb-3">
-          {isMiniPay ? "Your MiniPay wallet is ready" : "Fund your wallet"}
+          {isMiniPay ? "MiniPay is good to go! 🎉" : "Add funds to your wallet 💰"}
         </h2>
         <p className="text-text-secondary text-sm leading-relaxed">
           {isMiniPay
-            ? "CELO and cUSD in your MiniPay balance work directly in DuelSnap — no extra steps."
-            : "Add CELO or cUSD to play paid games and wager in 1v1 duels. Free mode is always available."}
+            ? "Your CELO and cUSD balance in MiniPay works directly in DuelSnap — no bridge, no fuss."
+            : "Add CELO or cUSD to play paid games and wager in 1v1 duels. Free Casual is always open."}
         </p>
       </div>
 
