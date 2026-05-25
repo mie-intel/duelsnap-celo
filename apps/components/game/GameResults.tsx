@@ -27,7 +27,13 @@ export default function GameResults({ results, mode, onPlayAgain, onHome }: Game
         <div className="bg-bg-card rounded-3xl p-6 text-center shadow-sm">
           <p className="text-5xl font-display font-bold text-primary mb-1">{correct}/{total}</p>
           <p className="text-text-secondary font-sans text-sm">
-            {pct >= 80 ? 'Excellent!' : pct >= 50 ? 'Good job!' : 'Keep practicing!'}
+            {pct === 100
+              ? '🔥 Perfect score!'
+              : pct >= 80
+              ? '🎯 Sharp eye!'
+              : pct >= 50
+              ? '👍 Not bad!'
+              : '😅 Keep at it!'}
           </p>
           {mode === 'paid' && (
             <p className="text-text-secondary text-xs font-sans mt-2">
