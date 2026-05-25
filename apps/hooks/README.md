@@ -118,6 +118,29 @@ Browser online/offline detection.
 const isOnline = useOnlineStatus();
 ```
 
+### `useScrollPosition` _(new)_
+Window scroll position with direction and progress tracking.
+
+```ts
+const { y, isScrolled, isScrollingDown, progress } = useScrollPosition(80);
+
+// Hide nav on scroll down
+<nav className={isScrollingDown ? '-translate-y-full' : 'translate-y-0'} />
+```
+
+### `usePageVisibility` _(new)_
+Detects whether the page is visible or backgrounded (Page Visibility API).
+
+```ts
+const isVisible = usePageVisibility();
+
+// Pause game timer when user tabs away
+useEffect(() => {
+  if (!isVisible) pauseTimer();
+  else resumeTimer();
+}, [isVisible]);
+```
+
 ### `useBaseAccountCapabilities`
 Checks Base Account (smart wallet) capabilities for fee abstraction.
 
