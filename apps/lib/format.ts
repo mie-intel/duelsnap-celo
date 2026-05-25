@@ -8,11 +8,16 @@
 /**
  * Format a large integer with compact notation.
  * 1_234 → "1,234" | 1_234_567 → "1.2M" | 1_234_567_890 → "1.2B"
+ *
+ * Edge cases: NaN → "0", Infinity → "∞", negative numbers supported.
  */
 export function formatCompact(value: number): string {
-  if (value >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(1)}B`;
-  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}M`;
-  if (value >= 10_000) return `${(value / 1_000).toFixed(1)}K`;
+  if (!Number.isFinite(value)) return value === Infinity ? "∞" : "0";
+  const abs = Math.abs(value);
+  const sign = value < 0 ? "-" : "";
+  if (abs >= 1_000_000_000) return `${sign}${(abs / 1_000_000_000).toFixed(1)}B`;
+  if (abs >= 1_000_000) return `${sign}${(abs / 1_000_000).toFixed(1)}M`;
+  if (abs >= 10_000) return `${sign}${(abs / 1_000).toFixed(1)}K`;
   return value.toLocaleString();
 }
 
@@ -58,10 +63,20 @@ export function formatCELOShort(wei: bigint): string {
 /**
  * Shorten an Ethereum address.
  * "0x1234567890abcdef" → "0x1234…cdef"
+ *
+ * Returns "Unknown" for null/undefined, handles non-standard length addresses.
  */
-export function shortenAddress(address: string, chars = 4): string {
-  if (!address || address.length < 10) return address;
+export function shortenAddress(address: string | null | undefined, chars = 4): string {
+  if (!address) return "Unknown";
+  if (address.length < chars * 2 + 2) return address;
   return `${address.slice(0, chars + 2)}…${address.slice(-chars)}`;
+}
+
+/**
+ * Check if a string looks like a valid Ethereum address.
+ */
+export function isAddress(value: string): boolean {
+  return /^0x[0-9a-fA-F]{40}$/.test(value);
 }
 
 // ─── Dates ──────────────────────────────────────────────────────────────────
@@ -87,11 +102,39 @@ export function formatRelativeTime(timestamp: number | Date): string {
 }
 
 /**
- * Format a duration in seconds to mm:ss.
- * 90 → "1:30"
+ * Format a duration in seconds to mm:ss or hh:mm:ss.
+ * 90 → "1:30" | 3661 → "1:01:01"
  */
 export function formatDuration(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return `${m}:${s.toString().padStart(2, "0")}`;
+  const s = Math.floor(Math.abs(seconds));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  if (h > 0) return `${h}:${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
+  return `${m}:${sec.toString().padStart(2, "0")}`;
+}
+
+/**
+ * Format relative time, handling future timestamps.
+ * negative delta → "in 3m"
+ */
+export function formatRelativeTimeFull(timestamp: number | Date): string {
+  const now = Date.now();
+  const ts = timestamp instanceof Date ? timestamp.getTime() : timestamp;
+  const diff = ts - now;
+  const absDiff = Math.abs(diff);
+  const absSec = Math.floor(absDiff / 1000);
+  const isFuture = diff > 0;
+
+  const rel = (s: string) => (isFuture ? `in ${s}` : `${s} ago`);
+
+  if (absSec < 60) return isFuture ? "just now" : "just now";
+  if (absSec < 3600) return rel(`${Math.floor(absSec / 60)}m`);
+  if (absSec < 86400) return rel(`${Math.floor(absSec / 3600)}h`);
+  if (absSec < 604800) return rel(`${Math.floor(absSec / 86400)}d`);
+
+  return new Date(ts).toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+  });
 }
