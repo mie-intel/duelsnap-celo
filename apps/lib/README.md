@@ -41,7 +41,55 @@ import { formatCompact, formatCUSD, formatAddress } from '@/lib/format';
 formatCompact(1_234_567)      // "1.2M"
 formatCUSD(0.5)               // "0.50 cUSD"
 formatAddress("0xabc...def")  // "0xabc...def" (truncated)
+import { formatCompact, formatCUSD, formatAddress, formatDate } from '@/lib/format';
+
+formatCompact(1_234_567)       // "1.2M"
+formatCUSD(0.5)                // "0.50 cUSD"
+formatAddress("0xabc...def")   // "0xabc...def" (truncated)
+formatDate(new Date())         // "May 25, 2026"
 ```
+
+---
+
+## `validation.ts`
+
+Input validation utilities returning typed `{ valid, error? }` result objects.
+
+```ts
+import {
+  validateAddress,
+  validateStake,
+  validateUsername,
+  validateRequired,
+  validateAll,
+} from '@/lib/validation';
+
+// EVM address
+validateAddress("0xabc123...")   // { valid: true }
+
+// Stake amount against user balance
+validateStake(0.5, userBalance)  // { valid: true }
+validateStake(0, userBalance)    // { valid: false, error: "Minimum stake is 0.01 cUSD" }
+
+// Username
+validateUsername("duel_player1") // { valid: true }
+
+// Chain multiple validators
+const result = validateAll([
+  validateRequired(name, 'Name'),
+  validateUsername(name),
+]);
+```
+
+| Function | Purpose |
+|----------|---------|
+| `validateAddress` | EVM address format check |
+| `validateTxHash` | Transaction hash format check |
+| `validateStake` | cUSD stake range + balance check |
+| `validateUsername` | 3–20 char alphanumeric username |
+| `validateRequired` | Non-empty field |
+| `validatePositiveInt` | Positive integer with optional max |
+| `validateAll` | Run multiple validators, return first failure |
 
 ---
 
