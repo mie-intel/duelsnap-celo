@@ -120,3 +120,11 @@ const isOnline = useOnlineStatus();
 
 ### `useBaseAccountCapabilities`
 Checks Base Account (smart wallet) capabilities for fee abstraction.
+
+## useLocalStorage
+
+SSR-safe localStorage with JSON serialization and cross-tab sync.
+
+```ts
+const [theme, setTheme, removeTheme] = useLocalStorage("theme", "dark");
+```
