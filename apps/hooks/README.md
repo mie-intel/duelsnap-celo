@@ -186,3 +186,22 @@ SSR-safe localStorage with JSON serialization and cross-tab sync.
 ```ts
 const [theme, setTheme, removeTheme] = useLocalStorage("theme", "dark");
 ```
+## useCountdown
+
+Accurate countdown timer using `requestAnimationFrame` + wall-clock diff.
+Avoids `setInterval` drift. Supports pause/resume/restart.
+
+```ts
+const { remainingSec, progress, isExpired, restart } = useCountdown({
+  initialMs: 30_000,
+  onExpire: handleTimeout,
+});
+```
+
+| Return | Type | Description |
+|---|---|---|
+| `remainingMs` | `number` | Milliseconds left |
+| `remainingSec` | `number` | Seconds left (ceil) |
+| `progress` | `0–1` | 1 = full, 0 = expired |
+| `isExpired` | `boolean` | `true` when `remainingMs === 0` |
+| `start/pause/reset/restart` | `() => void` | Controls |
