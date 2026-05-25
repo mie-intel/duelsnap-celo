@@ -143,6 +143,18 @@ const steps = [
 
 // Vertical
 <Stepper steps={steps} currentStep={2} orientation="vertical" />
+### `CopyButton`
+One-click copy-to-clipboard button with animated check feedback.
+
+```tsx
+// Copy wallet address
+<CopyButton text={address} label="Copy address" />
+
+// Icon-only
+<CopyButton text={txHash} size="icon" />
+
+// Ghost variant
+<CopyButton text={referralLink} variant="ghost" label="Copy link" />
 ```
 
 ---
