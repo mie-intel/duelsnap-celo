@@ -96,7 +96,7 @@ export default function PlayPage() {
             <span className="text-primary">Earn Real Rewards.</span>
           </h1>
           <p className="mt-3 text-text-secondary text-base">
-            Play free, earn royalties, or wager CELO in 1v1 duels.
+            Play free anytime, earn royalties as a contributor, or wager CELO / cUSD in 1v1 duels.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function PlayPage() {
                     </span>
                   </div>
                   <p className="text-text-secondary text-sm mt-0.5">
-                    5 questions · 3 rounds/day · No wallet needed
+                    10 questions · 3 rounds/day · No wallet needed 🎮
                   </p>
                 </div>
                 <span className="text-text-secondary">›</span>
