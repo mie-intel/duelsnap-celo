@@ -131,6 +131,26 @@ Tag / filter chip for categories, multi-select, or dismissible labels.
 
 ---
 
+### `Alert`
+Inline alert banner for status messages, warnings, or errors.
+
+```tsx
+<Alert variant="success" title="Transaction confirmed!">
+  Your bet was placed on-chain.
+</Alert>
+<Alert variant="error" onDismiss={() => setError(null)}>
+  Failed to connect wallet.
+</Alert>
+```
+
+| Variant | Use |
+|---------|-----|
+| info | General info, tips |
+| success | Confirmed actions |
+| warning | Caution / attention |
+| error | Failures, blocking errors |
+---
+
 ## Feedback
 
 ### `ErrorBoundary`
